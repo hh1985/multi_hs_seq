@@ -1,0 +1,51 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Fragmentation.h
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  4/23/2012 4:39:53 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+
+#ifndef  GAG_FRAGMENTATION_H_INC
+#define  GAG_FRAGMENTATION_H_INC
+
+namespace gag
+{
+  typedef std::vector<std::vector<Composition> > Fragments;
+  class Fragmentation
+  {
+    private:
+      std::set<std::string> _loss;
+      size_t internal_flag;
+      Fragments _fragments;
+
+    public:
+      inline void addNeutralLoss(std::string loss_name);
+      {
+        _loss.push_back(loss_name);
+      }
+      inline void addInternalLoss(size_t flag)
+      {
+        if(flag == 1)
+          internal_flag = flag;
+      }
+      void run(GlycanSequence& seq, Fragments& frag);
+
+  };
+};
+
+
+
+
+
+#endif   /* ----- #ifndef GAG_FRAGMENTATION_H_INC  ----- */

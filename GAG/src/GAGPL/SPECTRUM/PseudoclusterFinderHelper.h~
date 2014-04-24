@@ -1,0 +1,158 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  PseudoclusterFinderHelper.h
+ *
+ *    Description:  This file includes the basic data types for our analysis.
+ *
+ *        Version:  1.0
+ *        Created:  4/2/2012 1:20:20 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  YOUR NAME (), 
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+
+#ifndef GAG_PSEUDOCLUSTERFINDERHELPER_H
+#define GAG_PSEUDOCLUSTERFINDERHELPER_H
+
+#include <map>
+#include <vector>
+#include <string>
+
+namespace gag
+{
+				
+	// Flags that indicate if a peak is already used in a feature.
+	enum Flag {UNUSED, USED};
+	enum Order {ACE, DEC};
+	
+	// This is my customized type of peaks, which includes the status information of 
+	// a given peak.
+	class Peak{
+		private: 
+			double _mz;
+			float _intensity;
+		public:
+			Peak(const double _mz, const float _intensity)
+				: _mz(mz), _intensity(intensity)
+			{
+			}
+			inline double getMZ() {
+				return _mz;
+			}
+			inline void setMZ(double mz) {
+				_mz = mz;
+			}
+			inline float getIntensity() {
+				return _intensity;
+			}
+			inline void setIntensity(float intensity) {
+				_intensity = intensity;
+			}
+	};
+	class SortMZ() 
+	{
+		private:
+			std::string _type;
+		public:
+			SortMZ(std::string type) : _type(type) {}
+			bool operator()(const Peak& lp, const Peak& rp) const
+			{
+				if(_type == "ACE")
+					return (lp._mz < rp._mz);
+				else if(_type == "DEC")
+					return (lp._mz > rp._mz);
+				// TBD: Exception.
+			}
+	};
+
+	class SortIntensity()
+	{
+		private:
+			std::string _type;
+		public:
+			SortMZ(std::string str) : _type(str) {}
+			bool operator()(const Peak& lp, const Peak& rp) const
+			{
+				if(_type == "ACE")
+					return (lp._intensity < rp._intensity);
+				else if(_type == "DEC")
+					return (lp._intensity > rp._intensity);
+				// TBD: Exception.
+			}
+	};
+
+	// This template is able to process all the peaktypes derived from peak type.
+	template<typename PeakType> 
+	class SpectrumType 
+	{
+		typedef std::vector<PeakType> PeakList;
+		private:
+			//PeakList& _peaks;
+			PeakList& _peaks;
+			std::vector<int> _mzlist;
+			std::vector<int> _intensitylist;
+		public:
+			SpectrumType(PeakList& peaklist)
+				: _peaks(peaklist), _mzlist(), _intensitylist()
+			{
+			}
+			std::vector<int>& getSpecMZ() 
+			{
+				for(size_t i=0; i<_peaks.size(); i++)
+					_mzlist.push_back(_peaks[i].getMZ());
+				return _mzlist;
+			}
+			std::vector<int>& getSpecIntensity()
+			{
+				for(size_t i=0; i<_peaks.size(); i++)
+					_intensitylist.push_back(_peaks[i].getIntensity());
+				return _intensitylist;
+			}
+	
+			// Descending or Ascending. Here I made the assumption that all members will have _mz and _intensity members.
+			void sortByMZ(const std::string str)
+			{
+				std::sort(_peaks.begin(), _peaks.end(), SortMZ(str));
+			}
+			void sortByIntensity(const std::string str)
+			{
+				std::sort(_peaks.begin(), _peaks.end(), SortIntensity(str));
+			}
+			inline PeakList& getPeaks() const
+			{
+				return _peaks;
+			}
+			inline void addPeak(PeakType& peak)
+			{
+				_peaks.push_back(peak);
+			}
+	};
+
+	// TBD.
+	//
+	template<class ValueType>
+	class Param {
+		private:
+			typedef std::map<std::string, ValueType> MapPair;
+			MapPair	_params;
+		public:
+			inline void setValue(std::string str, ValueType val)
+			{
+				_params.insert(pair<std::string, ValueType>(str, val));
+			}
+			inline ValueType getValue(std::string str)
+			{
+							MapPair::iterator found = _params.find(std::string);
+							if(found != _params.end())
+								return (*found).second;
+			}
+	};
+							
+}
+
+#endif // GAG_PSEUDOCLUSTERFINDERHELPER_H

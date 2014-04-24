@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<GlycanWorkspace>
+<Configuration>
+<dictionaries>
+<uoxf_residueStylesFile>/conf/residue_styles_uoxf</uoxf_residueStylesFile>
+<uoxfcol_residuePlacementsFile>/conf/residue_placements_uoxf</uoxfcol_residuePlacementsFile>
+<uoxf_linkageStylesFile>/conf/linkage_styles_uoxf</uoxf_linkageStylesFile>
+<crossRingFragmentTypesFile>/conf/cross_ring_fragment_types</crossRingFragmentTypesFile>
+<uoxf_residuePlacementsFile>/conf/residue_placements_uoxf</uoxf_residuePlacementsFile>
+<cfgLink_residueStylesFile>/conf/residue_styles_cfg</cfgLink_residueStylesFile>
+<cfgBW_linkageStylesFile>/conf/linkage_styles_cfg</cfgBW_linkageStylesFile>
+<residueTypesFile>/conf/residue_types</residueTypesFile>
+<coreTypesFile>/conf/core_types</coreTypesFile>
+<cfgBW_residueStylesFile>/conf/residue_styles_cfgbw</cfgBW_residueStylesFile>
+<cfgBW_residuePlacementsFile>/conf/residue_placements_cfg</cfgBW_residuePlacementsFile>
+<cfg_linkageStylesFile>/conf/linkage_styles_cfg</cfg_linkageStylesFile>
+<uoxfcol_linkageStylesFile>/conf/linkage_styles_uoxf</uoxfcol_linkageStylesFile>
+<text_residueStylesFile>/conf/residue_styles_text</text_residueStylesFile>
+<cfgLink_linkageStylesFile>/conf/linkage_styles_cfglink</cfgLink_linkageStylesFile>
+<uoxfcol_residueStylesFile>/conf/residue_styles_uoxfcol</uoxfcol_residueStylesFile>
+<terminalTypesFile>/conf/terminal_types</terminalTypesFile>
+<cfgLink_residuePlacementsFile>/conf/residue_placements_uoxf</cfgLink_residuePlacementsFile>
+<text_linkageStylesFile>/conf/linkage_styles_cfg</text_linkageStylesFile>
+<cfg_residuePlacementsFile>/conf/residue_placements_cfg</cfg_residuePlacementsFile>
+<text_residuePlacementsFile>/conf/residue_placements_cfg</text_residuePlacementsFile>
+<cfg_residueStylesFile>/conf/residue_styles_cfg</cfg_residueStylesFile>
+</dictionaries>
+<FileHistory>
+<file_path3>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\structure\Boons03.gwp</file_path3>
+<file_path2>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\structure\Boons#23.gws</file_path2>
+<file_path1>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\structure\Boons23.gwp</file_path1>
+<file_path0>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\structure\Boons38.gwp</file_path0>
+<file_path7>E:\Sync\Dropbox\Codes\Test\Arixtra\Arixtra, Native 4-.gwp</file_path7>
+<file_path6>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\data\structure\dp15.gwp</file_path6>
+<file_path5>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\data\structure\boons03.gwp</file_path5>
+<file_path4>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\output\Boons#03_3_NETD_mono_list.txt</file_path4>
+<file_type1>Workspace</file_type1>
+<file_type2>Structures</file_type2>
+<file_type3>Workspace</file_type3>
+<file_type4>PeakList</file_type4>
+<file_type0>Workspace</file_type0>
+<file_type5>Workspace</file_type5>
+<file_type6>Workspace</file_type6>
+<file_type7>Workspace</file_type7>
+</FileHistory>
+<PeakPicker>
+<deconvolution_fitting_eps_abs>1.0E-5</deconvolution_fitting_eps_abs>
+<thresholds_peak_bound>200.0</thresholds_peak_bound>
+<wavelet_transform_spacing>0.001</wavelet_transform_spacing>
+<thresholds_search_radius>3</thresholds_search_radius>
+<deconvolution_fitting_penalties_left_width>0.0</deconvolution_fitting_penalties_left_width>
+<thresholds_fwhm_bound>0.2</thresholds_fwhm_bound>
+<deconvolution_skip_deconvolution>yes</deconvolution_skip_deconvolution>
+<Optimization_iterations>15</Optimization_iterations>
+<deconvolution_asym_threshold>0.3</deconvolution_asym_threshold>
+<thresholds_signal_to_noise>2.0</thresholds_signal_to_noise>
+<Optimization_penalties_right_width>1.0</Optimization_penalties_right_width>
+<thresholds_noise_level>0.1</thresholds_noise_level>
+<Optimization_penalties_position>0.0</Optimization_penalties_position>
+<Optimization_optimization>no</Optimization_optimization>
+<deconvolution_fitting_max_iteration>10</deconvolution_fitting_max_iteration>
+<deconvolution_scaling>0.12</deconvolution_scaling>
+<deconvolution_fitting_penalties_position>0.0</deconvolution_fitting_penalties_position>
+<deconvolution_fitting_penalties_right_width>0.0</deconvolution_fitting_penalties_right_width>
+<deconvolution_fitting_fwhm_threshold>0.7</deconvolution_fitting_fwhm_threshold>
+<deconvolution_right_width>2</deconvolution_right_width>
+<deconvolution_fitting_eps_rel>1.0E-5</deconvolution_fitting_eps_rel>
+<Optimization_penalties_left_width>1.0</Optimization_penalties_left_width>
+<Optimization_delta_abs_error>1.0E-4</Optimization_delta_abs_error>
+<deconvolution_left_width>2</deconvolution_left_width>
+<Optimization_delta_rel_error>1.0E-4</Optimization_delta_rel_error>
+<thresholds_correlation>0.5</thresholds_correlation>
+<thresholds_peak_bound_ms2_level>50.0</thresholds_peak_bound_ms2_level>
+<wavelet_transform_scale>0.15</wavelet_transform_scale>
+<deconvolution_fitting_penalties_height>1.0</deconvolution_fitting_penalties_height>
+<WinLen>200.0</WinLen>
+</PeakPicker>
+<ResidueHistory>
+<queue_size>3</queue_size>
+<type_name2>GlcN</type_name2>
+<type_name1>IdoA</type_name1>
+<type_name0>S</type_name0>
+</ResidueHistory>
+<AnnotationReportOptions>
+<draw_y_margin>20</draw_y_margin>
+<annotation_line_miny>12</annotation_line_miny>
+<chart_width>700</chart_width>
+<annotation_margin>10</annotation_margin>
+<annotation_mz_size>10</annotation_mz_size>
+<show_raw_spectrum>true</show_raw_spectrum>
+<show_complete_peak_list>false</show_complete_peak_list>
+<show_empty_annotations>false</show_empty_annotations>
+<spectrum_color>-16777216</spectrum_color>
+<show_max_intensity>true</show_max_intensity>
+<show_relative_intensities>true</show_relative_intensities>
+<annotation_mz_font>SansSerif.plain</annotation_mz_font>
+<chart_y_margin>20</chart_y_margin>
+<annotation_line_width>1.0</annotation_line_width>
+<highlighted_color>-256</highlighted_color>
+<draw_x_margin>20</draw_x_margin>
+<chart_height>400</chart_height>
+<chart_x_margin>20</chart_x_margin>
+<mass_text_color>-16777216</mass_text_color>
+<scale_glycans>0.35</scale_glycans>
+<connection_lines_color>-4144960</connection_lines_color>
+</AnnotationReportOptions>
+<PeakfinderOptions>
+<min_pyr>0</min_pyr>
+<min_neu5ac>0</min_neu5ac>
+<min_ddhex>0</min_ddhex>
+<derivatization>Und</derivatization>
+<max_hep>0</max_hep>
+<min_hexa>0</min_hexa>
+<reducing_end>freeEnd</reducing_end>
+<max_pc>0</max_pc>
+<min_hep>0</min_hep>
+<max_dpen>0</max_dpen>
+<max_mehex>0</max_mehex>
+<max_ddhex>0</max_ddhex>
+<min_hex>0</min_hex>
+<max_neu5aclac>0</max_neu5aclac>
+<min_neu5gclac>0</min_neu5gclac>
+<min_mur>0</min_mur>
+<min_kdp>0</min_kdp>
+<min_kdn>0</min_kdn>
+<max_neu5gclac>0</max_neu5gclac>
+<min_dhex>0</min_dhex>
+<min_neu5gc>0</min_neu5gc>
+<min_hexnac>0</min_hexnac>
+<max_pen>0</max_pen>
+<max_hexn>3</max_hexn>
+<max_mur>0</max_mur>
+<max_dhex>2</max_dhex>
+<max_kdn>0</max_kdn>
+<max_kdo>0</max_kdo>
+<max_ac>0</max_ac>
+<max_hexa>0</max_hexa>
+<min_p>0</min_p>
+<min_pen>0</min_pen>
+<max_p>0</max_p>
+<min_dpen>0</min_dpen>
+<min_neu5aclac>0</min_neu5aclac>
+<min_s>0</min_s>
+<other_redend_mass>0.0</other_redend_mass>
+<min_or2>0</min_or2>
+<min_or3>0</min_or3>
+<or1_mass>0.0</or1_mass>
+<max_neu5ac>0</max_neu5ac>
+<max_s>5</max_s>
+<min_or1>0</min_or1>
+<min_mehex>0</min_mehex>
+<max_hexnac>3</max_hexnac>
+<max_hex>3</max_hex>
+<or3_mass>0.0</or3_mass>
+<or2_mass>0.0</or2_mass>
+<min_hexn>0</min_hexn>
+<min_dhexa>0</min_dhexa>
+<min_pc>0</min_pc>
+<max_dhexa>0</max_dhexa>
+<other_redend_name>XXX</other_redend_name>
+<min_ac>0</min_ac>
+<max_or1>0</max_or1>
+<max_neu5gc>0</max_neu5gc>
+<max_pyr>0</max_pyr>
+<max_or2>0</max_or2>
+<max_or3>0</max_or3>
+</PeakfinderOptions>
+<FragmentOptions>
+<add_xfragments>true</add_xfragments>
+<add_cfragments>true</add_cfragments>
+<max_no_crossrings>1</max_no_crossrings>
+<internal_fragments>false</internal_fragments>
+<add_afragments>true</add_afragments>
+<max_no_cleavages>1</max_no_cleavages>
+<add_zfragments>true</add_zfragments>
+<add_yfragments>true</add_yfragments>
+<add_bfragments>true</add_bfragments>
+</FragmentOptions>
+<ProfilerOptions>
+<dictionaries>Carbbank</dictionaries>
+<derivatization>Und</derivatization>
+<last_type/>
+<other_redend_mass>0.0</other_redend_mass>
+<other_redend_name/>
+<user_dictionaries_filename/>
+<reducing_end>freeEnd</reducing_end>
+<last_source/>
+<last_dict_name/>
+<clear_existing_annotations>false</clear_existing_annotations>
+</ProfilerOptions>
+<CompositionOptions>
+<dpen>0</dpen>
+<or1>0</or1>
+<dhexa>0</dhexa>
+<or2>0</or2>
+<ddhex>0</ddhex>
+<neu5aclac>0</neu5aclac>
+<pyr>0</pyr>
+<hexnac>0</hexnac>
+<hex>0</hex>
+<hep>0</hep>
+<or1_mass>0.0</or1_mass>
+<or3>0</or3>
+<neu5gc>0</neu5gc>
+<hexn>0</hexn>
+<mur>0</mur>
+<or3_mass>0.0</or3_mass>
+<or2_mass>0.0</or2_mass>
+<mehex>0</mehex>
+<pen>0</pen>
+<kdp>0</kdp>
+<kdn>0</kdn>
+<s>0</s>
+<hexa>0</hexa>
+<neu5ac>0</neu5ac>
+<pc>0</pc>
+<p>0</p>
+<neu5gclac>0</neu5gclac>
+<ac>0</ac>
+<dhex>0</dhex>
+</CompositionOptions>
+<AnnotationOptions>
+<gain_nh3>false</gain_nh3>
+<loss_co2>false</loss_co2>
+<max_ex_k_ions>999</max_ex_k_ions>
+<max_ex_li_ions>999</max_ex_li_ions>
+<derive_from_parent>true</derive_from_parent>
+<mass_accuracy>20.0</mass_accuracy>
+<max_no_na_ions>0</max_no_na_ions>
+<max_no_charges>3</max_no_charges>
+<max_ex_na_ions>999</max_ex_na_ions>
+<max_no_k_ions>0</max_no_k_ions>
+<mass_accuracy_unit>ppm</mass_accuracy_unit>
+<max_no_li_ions>0</max_no_li_ions>
+<loss_nh3>false</loss_nh3>
+<max_no_h_ions>3</max_no_h_ions>
+<gain_co2>false</gain_co2>
+<gain_h2o>false</gain_h2o>
+<negative_mode>true</negative_mode>
+<loss_h2o>false</loss_h2o>
+<compute_exchanges>false</compute_exchanges>
+<clear_existing_annotations>false</clear_existing_annotations>
+</AnnotationOptions>
+<GAGOptions>
+<allow_redend_loss>false</allow_redend_loss>
+<gag_families>heparan</gag_families>
+<min_no_units>6</min_no_units>
+<modifications/>
+<max_no_sulfates>0</max_no_sulfates>
+<max_no_acetyls>0</max_no_acetyls>
+<min_no_acetyls>0</min_no_acetyls>
+<is_reduced>false</is_reduced>
+<derivatization>Und</derivatization>
+<max_no_units>6</max_no_units>
+<min_no_sulfates>0</min_no_sulfates>
+<is_unsaturated>true</is_unsaturated>
+<allow_unlikely_acetylation>false</allow_unlikely_acetylation>
+</GAGOptions>
+<ProfilesComparisonReportOptions>
+<deconvolution>0</deconvolution>
+<normalizebyrow>true</normalizebyrow>
+<representation>1</representation>
+<normalization>3</normalization>
+</ProfilesComparisonReportOptions>
+<GraphicOptions>
+<mass_text_font_face_custom>SansSerif.plain</mass_text_font_face_custom>
+<collapse_multiple_antennae>true</collapse_multiple_antennae>
+<node_font_size_custom>14</node_font_size_custom>
+<mass_text_space_custom>15</mass_text_space_custom>
+<node_space_custom>30</node_space_custom>
+<show_masses>false</show_masses>
+<linkage_info_size_custom>12</linkage_info_size_custom>
+<node_size_custom>22</node_size_custom>
+<show_info_custom>true</show_info_custom>
+<node_font_face_custom>SansSerif.plain</node_font_face_custom>
+<show_masses_canvas>true</show_masses_canvas>
+<notation>cfg</notation>
+<composition_font_size_custom>18</composition_font_size_custom>
+<orientation>0</orientation>
+<theme>org.pushingpixels.substance.api.skin.OfficeBlue2007Skin</theme>
+<display>normalinfo</display>
+<show_info>true</show_info>
+<save_spectra>false</save_spectra>
+<scale_canvas>1.0</scale_canvas>
+<composition_font_face_custom>SansSerif.plain</composition_font_face_custom>
+<mass_text_size_custom>14</mass_text_size_custom>
+<node_sub_space_custom>1</node_sub_space_custom>
+<linkage_info_font_face_custom>Serif.plain</linkage_info_font_face_custom>
+<show_redend>false</show_redend>
+<structures_space_custom>40</structures_space_custom>
+</GraphicOptions>
+<MassOptions>
+<ion_cloud>-4H</ion_cloud>
+<reducing_end_type>PENTA=85.0891u</reducing_end_type>
+<derivatization>Und</derivatization>
+<neutral_exchanges>0</neutral_exchanges>
+<isotope>MONO</isotope>
+</MassOptions>
+</Configuration>
+<Scan name="Scan" is_msms="true">
+<Structures>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--N?1S)--6?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u"/>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--N?1S)--6?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-4H,0,PENTA=85.0891u"/>
+</Structures>
+<Fragments>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u"/>
+<FragmentCollection>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_4$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}A_{GlcA}" mass="74.00039393" mz_ratio="35.992920533" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_3_5$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}A_{GlcA}" mass="88.016043994" mz_ratio="43.000745565" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_3$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}A_{GlcA}" mass="104.010958616" mz_ratio="50.998202876" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_2_5$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}A_{GlcA}" mass="118.02660868" mz_ratio="58.006027908" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_2$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}A_{GlcA}" mass="134.021523302" mz_ratio="66.003485219" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_1_5$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}A_{GlcA}" mass="148.037173366" mz_ratio="73.011310251" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1D-GlcA,p$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="176.032087988" mz_ratio="87.008767562" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1D-GlcA,p$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="194.042652674" mz_ratio="96.01404990500001" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="246.15790784499998" mz_ratio="122.0716774905" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="264.168472531" mz_ratio="131.0769598335" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="326.114722401" mz_ratio="162.0500847685" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#bcleavage--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="337.100895833" mz_ratio="167.5431714845" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="344.125287087" mz_ratio="171.0553671115" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#ccleavage--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="355.111460519" mz_ratio="176.5484538275" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="406.0715369569999" mz_ratio="202.02849204649996" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#bcleavage--??1D-GlcN,p(--??1D-GlcA,p)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="417.05771038899996" mz_ratio="207.52157876249998" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="422.189995833" mz_ratio="210.0877214845" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="424.082101643" mz_ratio="211.0337743895" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#ccleavage--??1D-GlcN,p(--??1D-GlcA,p)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="435.068275075" mz_ratio="216.5268611055" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="440.20056051899996" mz_ratio="219.09300382749998" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="502.146810389" mz_ratio="250.0661287625" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="513.132983821" mz_ratio="255.55921547850002" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="520.157375075" mz_ratio="259.0714111055" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="531.143548507" mz_ratio="264.56449782149997" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="582.103624945" mz_ratio="290.04453604049996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#zcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="583.2588036779999" mz_ratio="290.62212540699994" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="593.0897983770001" mz_ratio="295.5376227565" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="600.1141896309999" mz_ratio="299.04981838349994" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#ycleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="601.269368364" mz_ratio="299.62740775" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="611.100363063" mz_ratio="304.5429050995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="629.264282986" mz_ratio="313.624865061" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_2)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="643.2799330500001" mz_ratio="320.632690093" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="659.274847672" mz_ratio="328.63014740399996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="662.0604395009999" mz_ratio="330.0229433184999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#zcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="663.215618234" mz_ratio="330.60053268499996" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S)--2?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="B" mass="673.0466129330001" mz_ratio="335.51603003450003" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="673.290497736" mz_ratio="335.637972436" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="680.0710041869999" mz_ratio="339.0282256614999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#ycleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="681.22618292" mz_ratio="339.605815028" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="687.269762294" mz_ratio="342.62760471499996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_3_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="689.2854123579999" mz_ratio="343.63542974699993" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S)--2?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="C" mass="691.0571776190001" mz_ratio="344.5213123775" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="703.301062422" mz_ratio="350.64325477899996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="709.221097542" mz_ratio="353.603272339" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="717.28032698" mz_ratio="357.632887058" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="717.28032698" mz_ratio="357.632887058" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_2)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="723.2367476060001" mz_ratio="360.611097371" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="739.231662228" mz_ratio="368.608554682" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#zcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="743.1724327899999" mz_ratio="370.5789399629999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="753.2473122920001" mz_ratio="375.616379714" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#ycleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="761.182997476" mz_ratio="379.58422230599996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="767.22657685" mz_ratio="382.606011993" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_3_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="769.242226914" mz_ratio="383.61383702499995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-2H,0,PENTA=85.0891u" name="" mass="777.301456352" mz_ratio="387.64345174399995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="783.257876978" mz_ratio="390.621662057" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="789.177912098" mz_ratio="393.58167961699996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="797.2371415360001" mz_ratio="397.611294336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="797.2371415360001" mz_ratio="397.611294336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_2)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="803.193562162" mz_ratio="400.589504649" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="819.1884767839999" mz_ratio="408.58696195999994" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#zcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="823.1292473459999" mz_ratio="410.55734724099995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="833.204126848" mz_ratio="415.59478699199997" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#ycleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="841.139812032" mz_ratio="419.562629584" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="847.1833914059999" mz_ratio="422.58441927099994" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_3_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="849.1990414699999" mz_ratio="423.5922443029999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="" mass="857.258270908" mz_ratio="427.62185902199997" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="863.2146915339999" mz_ratio="430.60006933499994" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="869.134726654" mz_ratio="433.560086895" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="877.193956092" mz_ratio="437.589701614" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="877.193956092" mz_ratio="437.589701614" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_2)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="883.1503767180001" mz_ratio="440.567911927" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="899.14529134" mz_ratio="448.56536923799996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#zcleavage)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Z" mass="903.0860619020001" mz_ratio="450.535754519" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="913.160941404" mz_ratio="455.57319427" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#ycleavage)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="Y" mass="921.096626588" mz_ratio="459.541036862" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="927.140205962" mz_ratio="462.56282654899996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_3_5)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="929.1558560259999" mz_ratio="463.57065158099994" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="" mass="937.2150854639999" mz_ratio="467.60026629999993" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="943.17150609" mz_ratio="470.57847661299996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_5)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="949.09154121" mz_ratio="473.53849417299995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_3)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="957.150770648" mz_ratio="477.568108892" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_4)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="957.150770648" mz_ratio="477.568108892" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_2)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="963.107191274" mz_ratio="480.546319205" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_5)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="979.1021058960001" mz_ratio="488.54377651600004" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_3)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="993.11775596" mz_ratio="495.55160154799995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_4)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="1007.097020518" mz_ratio="502.541233827" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_3_5)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="1009.1126705820001" mz_ratio="503.549058859" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-2H,0,PENTA=85.0891u" name="" mass="1017.17190002" mz_ratio="507.57867357799995" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_0_4)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="1023.1283206460001" mz_ratio="510.55688389100004" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_1_3)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="1037.1075852039999" mz_ratio="517.5465161699999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p/#xcleavage_2_4)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="1037.1075852039999" mz_ratio="517.5465161699999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p(--??1D-GlcA,p)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-2H,0,PENTA=85.0891u" name="" mass="1097.128714576" mz_ratio="547.557080856" score="0.0"/>
+</FragmentCollection>
+</Fragments>
+<PeakList/>
+<AnnotatedPeakList/>
+<Notes/>
+</Scan>
+</GlycanWorkspace>

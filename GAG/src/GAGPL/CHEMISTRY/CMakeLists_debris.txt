@@ -1,0 +1,28 @@
+## List the header files
+set(PWIZ_INCLUDE_DIRS
+	J:/pwiz_project/libraries/boost_1_43_0/boost/system
+	J:/pwiz_project/libraries/boost_1_43_0
+	J:/pwiz_project
+	E:/Sync/Dropbox/Codes/glycan-pipeline
+)
+
+include_directories(${PWIZ_INCLUDE_DIRS})
+
+set(SRC_LIST
+	SPECTRUM/PseudoclusterFinderTest.cpp
+	SPECTRUM/PseudoclusterFinder.cpp
+)
+
+## List the libraries (.lib) files
+set(PWIZ
+	pwiz_data_msdata
+	pwiz_data_vendor_readers
+	pwiz_data_common
+)
+link_directories(J:/gag_test_x86/pwiz/lib/debug)
+
+add_executable(test ${SRC_LIST})
+
+target_link_libraries(test ${PWIZ})
+
+

@@ -1,0 +1,65 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  NewtonGirardFormulae.h
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  8/26/2012 2:22:42 PM
+ *       Revision:  none
+ *       Compiler:  msvc
+ *
+ *         Author:  Han Hu, hh1985@bu.edu
+ *   Organization:  Boston University
+ *
+ * =====================================================================================
+ */
+#include <vector>
+
+namespace msmath
+{
+  // The coefficients is ordered, from a0, a1, ... to an.
+  typedef std::vector<double> PolyCoef;
+
+  class NewtonGirardFormulae.h
+  {
+  private:
+    // The highest order of the polynomial is determined by _coef.size()-1.
+    const PolyCoef& _coef; 
+    size_t _var_num;
+    std::vector<double> _power_sum;
+    std::vector<double> _ele_sym;
+    
+    void updatePowerSum(size_t id);
+    void updateElementarySymmetricPoly(size_t id);
+  
+  public:
+    // Constructor. The coefficients are required.
+    NewtonGirardFormulae(const Polycoef& coefficients, size_t var_num = 5)
+      : _coef(coefficients), _var_num(var_num)  
+    {
+      updatePowerSum(var_num);
+      updateElementarySymmetricPoly(var_num);
+    }
+
+    //void update(const size_t id);
+    // If the corresponding power sum (elementary symmetric poly) has been calculated, return them directly, 
+    // otherwise, calculate them.
+    double getPowerSum(const size_t id);
+    double getElementarySymmetricPoly(const size_t id);
+
+    // Vectorized version for calculating power sum and elementary symmetric polynomial.
+    PolyCoef getPowerSumVec(const size_t id1, const size_t id2);
+    PolyCoef getElementarySymmetricPolyVec(const size_t id1, const size_t id2);
+
+  };
+}
+
+
+
+
+
+
+
+

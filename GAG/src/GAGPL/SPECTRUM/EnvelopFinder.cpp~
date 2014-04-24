@@ -1,0 +1,73 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  EnvelopFinder.cpp
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  9/6/2012 4:48:20 PM
+ *       Revision:  none
+ *       Compiler:  msvc
+ *
+ *         Author:  Han Hu (hh1985@bu.edu), 
+ *   Organization:  Boston University
+ *
+ * =====================================================================================
+ */
+
+
+#include <GAGPL/SPECTRUM/EnvelopFinder.h>
+
+namespace gag
+{
+	SpectrumList EnvelopFinder::getPeakIslands(Spectrum& spec, double space /* = 1.2 */)
+	{
+		
+	}
+
+	void EnvelopFinder::build(Spectrum& spec)
+	{
+		this->getPeakIslands(spec);
+
+		SpectrumList::iterator iter = _spec_list.begin();
+
+		typedef Spectrum::nth_index<0>::type PeakList_by_MZ;
+		typedef Spectrum::nth_index<1>::type PeakList_by_Intensity;
+		
+		for (; iter != spec_list.end(); iter++)
+		{
+			// Select the highest peak. current_pk;
+		
+			PeakList_by_Intensity intensity_sorted_pks = iter->get<1>();
+			PeakList_by_Intensity::iterator iter_int = intensity_sorted_pks.begin();
+			
+			for (; iter_int != intensity_sorted_pks.end(); iter_int++)
+			{
+				// Test the peak with different charges.
+				for (int i=0; i<= upper_charge; i++)
+				{
+					Composition compo = this->match(current_pk, i);
+				
+					if(!compo.isEmpty()) {
+					
+					// Extend the curent envelop.
+					/*
+					 * 
+					 */
+
+						double fitscore = this->fitIsotopDistribution(compo, envelop);
+
+					// Update peak status.
+						if (fitscore >= T)
+							this->updatePeakStatus(envelop);							
+					}
+				}
+				
+			}
+
+		}
+	}
+
+	
+}

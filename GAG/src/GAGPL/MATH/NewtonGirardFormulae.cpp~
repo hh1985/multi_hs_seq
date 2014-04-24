@@ -1,0 +1,104 @@
+#include <GAGPL/MATH/NewtonGirardFormulae.h>
+
+namespace msmath
+{
+
+  void NewtonGirardFormulae::updatePowerSum(size_t id)
+  {
+    size_t last_id;
+    
+    if(_ele_sym.empty()) { 
+      _ele_sym.push_back(1);
+      last_id = 0;
+    } else {
+      last_id = _ele_sym.size()-1;
+    }
+
+    // Get the maximum value of variants number.
+    if(id < _var_num)
+      id = _var_num;
+	
+    // The request id has been calculated.
+    if(id <= last_id) { 
+      return;
+    } 
+    
+    for(int i=last+1; i<=id; i++) {
+
+      if(i > _coef.size()-1) 
+	_ele_sym.push_back(0);
+      else {
+	double div = _coef.at(_coef.size()-1-i) / _coef.back();
+	double coef_value = (i%2 == 0 ? div : (-1) * div); 
+	_ele_sym.push_back(coef_value);
+      }	
+    }
+  }
+
+
+  void NewtonGirardFormulae::updateElementarySymmetricPoly(size_t id)
+  {
+    if(_ele_sym.size() < id+1) {
+      std::throw runtime_error("Vector of Elementary Symmetric Polynomial has to be calculated beforehand!");
+    }
+  
+    size_t last_id; 
+    if(_power_sum.empty()) {
+      _power_sum.push_back(0);
+      _power_sum.push_back(_ele_sym.at(1));
+      last_id = 1;
+    } else {
+      last_id = _power_sum.size()-1;
+    }
+    
+    if(id <= last_id) {
+      return;
+    }
+
+    // Sequentially calculate _power_sum and _ele_sym.
+    for(int i=last+1; i<=id; i++) {
+
+      double temp_power = 0.0;
+      // Use i as a temporary value for calculating new powersum;
+      _power_sum.push_back(i);
+      for(int j=1; j<=i; j++){
+	int sign = (j%2 == 1 ? 1 : -1);
+	temp_power += sign * _ele_sym.at(j) * _power_sum.at(i-j)
+      }
+
+      // Update the last element of power_sum.
+      _power_sum[i] = temp_power; 
+  }
+  
+  double NewtonGirardFormulae::getElementarySymmetricPoly(const size_t id)
+  {
+    updateElementarySymmetricPoly(id);
+    return _ele_sym.at(id);
+  }
+
+  double NewtonGirardFormulae::getPowerSum(const size_t id)
+  {
+    updatePowerSum(id);
+    return _power_sum.at(id);
+  }
+  
+  // Vectorized version for calculating power sum and elementary symmetric polynomial.
+  PolyCoef NewtonGirardFormulae::getPowerSumVec(const size_t id1, const size_t id2);
+  {
+    updatePowerSum(id2);
+    PolyCoef::iterator iter = _power_sum.begin();
+    PolyCoef temp;
+    std::copy(iter+id1, iter+id2, temp.begin());
+    return temp;
+  }
+
+  PolyCoef NewtonGirardFormulae::getElementarySymmetricPolyVec(const size_t id1, const size_t id2)
+  {
+    updateElementarySymmetricPoly(id2);
+    PolyCoef::iterator iter = _ele_sym.begin();
+    PolyCoef temp;
+    std::copy(iter+id1, iter+id2, temp.begin());
+    return temp;
+  }
+  
+}

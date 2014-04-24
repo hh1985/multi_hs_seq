@@ -1,0 +1,67 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  EnvelopFinder.h
+ *
+ *    Description:  Class for generating list of envelops.
+ *
+ *        Version:  1.0
+ *        Created:  9/6/2012 4:26:45 PM
+ *       Revision:  none
+ *       Compiler:  msvc
+ *
+ *         Author:  Han Hu(hh1985@bu.edu), 
+ *   Organization:  Boston University
+ *
+ * =====================================================================================
+ */
+
+#ifndef GAG_ENVELOPFINDER_H
+#define GAG_ENVELOPFINDER_H
+
+#include <tuple>
+#include <GAGPL/SPECTRUM/CandidateEnvelop.h>
+#include <GAGPL/SPECTRUM/Spectrum.h>
+
+namespace gag
+{
+	class EnvelopFinder
+	{
+	private:
+		//PeakContainer& _peaks;
+		//std::map<int, std::vector<CandidateEnvelop> > _env_map;
+		SpectrumList _spec_list;
+		GlycanSequence& _seq;
+
+	private:
+		// Convert the raw peak list into several independent peak islands.
+		SpectrumList getPeakIslands(Spectrum& spec, double space = 1.2);
+
+		// Using the raw most intense peak and candidate charge information to match agaist the library.
+		Composition match(RawPeak& raw_pk, int charge);
+
+		bool shareEnvelop(RawPeak& pk1, RawPeak& pk2);
+
+		double fitIsotopicDistribution(Composition& compo, Spectrum);
+		
+		void build(Spectrum& spec);
+
+		std::set<double> getMonoMass(CandidateEnvelop& env);
+
+		void updatePeakStatus(Spectrum& spec);
+		
+		// Use for debug.
+		void getFittingScore();
+
+	public:
+		EnvelopFinder(Spectrum& spec)
+		{	build(spec);	}
+
+		// Get the mono_mz, charge and score.
+		std::tuple<double, int, float> getMonoList();
+	};
+
+}
+
+
+#endif /* GAG_ENVELOPFINDER_H */

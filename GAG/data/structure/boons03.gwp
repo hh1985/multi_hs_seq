@@ -1,0 +1,2360 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<GlycanWorkspace>
+<Configuration>
+<dictionaries>
+<uoxf_residueStylesFile>/conf/residue_styles_uoxf</uoxf_residueStylesFile>
+<uoxfcol_residuePlacementsFile>/conf/residue_placements_uoxf</uoxfcol_residuePlacementsFile>
+<uoxf_linkageStylesFile>/conf/linkage_styles_uoxf</uoxf_linkageStylesFile>
+<crossRingFragmentTypesFile>/conf/cross_ring_fragment_types</crossRingFragmentTypesFile>
+<uoxf_residuePlacementsFile>/conf/residue_placements_uoxf</uoxf_residuePlacementsFile>
+<cfgLink_residueStylesFile>/conf/residue_styles_cfg</cfgLink_residueStylesFile>
+<cfgBW_linkageStylesFile>/conf/linkage_styles_cfg</cfgBW_linkageStylesFile>
+<residueTypesFile>/conf/residue_types</residueTypesFile>
+<coreTypesFile>/conf/core_types</coreTypesFile>
+<cfgBW_residueStylesFile>/conf/residue_styles_cfgbw</cfgBW_residueStylesFile>
+<cfgBW_residuePlacementsFile>/conf/residue_placements_cfg</cfgBW_residuePlacementsFile>
+<cfg_linkageStylesFile>/conf/linkage_styles_cfg</cfg_linkageStylesFile>
+<uoxfcol_linkageStylesFile>/conf/linkage_styles_uoxf</uoxfcol_linkageStylesFile>
+<text_residueStylesFile>/conf/residue_styles_text</text_residueStylesFile>
+<cfgLink_linkageStylesFile>/conf/linkage_styles_cfglink</cfgLink_linkageStylesFile>
+<uoxfcol_residueStylesFile>/conf/residue_styles_uoxfcol</uoxfcol_residueStylesFile>
+<terminalTypesFile>/conf/terminal_types</terminalTypesFile>
+<cfgLink_residuePlacementsFile>/conf/residue_placements_uoxf</cfgLink_residuePlacementsFile>
+<text_linkageStylesFile>/conf/linkage_styles_cfg</text_linkageStylesFile>
+<cfg_residuePlacementsFile>/conf/residue_placements_cfg</cfg_residuePlacementsFile>
+<text_residuePlacementsFile>/conf/residue_placements_cfg</text_residuePlacementsFile>
+<cfg_residueStylesFile>/conf/residue_styles_cfg</cfg_residueStylesFile>
+</dictionaries>
+<FileHistory>
+<file_path3>E:\Sync\Dropbox\Codes\Test\Arixtra\Arixtra, Native 4-.gwp</file_path3>
+<file_path2>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\data\structure\dp15.gwp</file_path2>
+<file_path1>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\data\structure\boons03.gwp</file_path1>
+<file_path0>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\output\Boons#03_3_NETD_mono_list.txt</file_path0>
+<file_path7>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\data\structure\Arixtra, Native 4-.gwp</file_path7>
+<file_path6>E:\Sync\Dropbox\Codes\Test\Arixtra\Peaks list Arixtra 6-.txt</file_path6>
+<file_path5>E:\Sync\Dropbox\Codes\glycan_pipeline\GAG\build\bin\data\output\arixtra_6_NETD_mono_list.txt</file_path5>
+<file_path4>E:\Sync\Dropbox\Docs\Project docs\HS sulfation pattern prediction\structure\Hex 6, Native.gwp</file_path4>
+<file_type1>Workspace</file_type1>
+<file_type2>Workspace</file_type2>
+<file_type3>Workspace</file_type3>
+<file_type4>Workspace</file_type4>
+<file_type0>PeakList</file_type0>
+<file_type5>PeakList</file_type5>
+<file_type6>PeakList</file_type6>
+<file_type7>Workspace</file_type7>
+</FileHistory>
+<PeakPicker>
+<deconvolution_fitting_eps_abs>1.0E-5</deconvolution_fitting_eps_abs>
+<thresholds_peak_bound>200.0</thresholds_peak_bound>
+<wavelet_transform_spacing>0.001</wavelet_transform_spacing>
+<thresholds_search_radius>3</thresholds_search_radius>
+<deconvolution_fitting_penalties_left_width>0.0</deconvolution_fitting_penalties_left_width>
+<thresholds_fwhm_bound>0.2</thresholds_fwhm_bound>
+<deconvolution_skip_deconvolution>yes</deconvolution_skip_deconvolution>
+<Optimization_iterations>15</Optimization_iterations>
+<deconvolution_asym_threshold>0.3</deconvolution_asym_threshold>
+<thresholds_signal_to_noise>2.0</thresholds_signal_to_noise>
+<Optimization_penalties_right_width>1.0</Optimization_penalties_right_width>
+<thresholds_noise_level>0.1</thresholds_noise_level>
+<Optimization_penalties_position>0.0</Optimization_penalties_position>
+<Optimization_optimization>no</Optimization_optimization>
+<deconvolution_fitting_max_iteration>10</deconvolution_fitting_max_iteration>
+<deconvolution_scaling>0.12</deconvolution_scaling>
+<deconvolution_fitting_penalties_position>0.0</deconvolution_fitting_penalties_position>
+<deconvolution_fitting_penalties_right_width>0.0</deconvolution_fitting_penalties_right_width>
+<deconvolution_fitting_fwhm_threshold>0.7</deconvolution_fitting_fwhm_threshold>
+<deconvolution_right_width>2</deconvolution_right_width>
+<deconvolution_fitting_eps_rel>1.0E-5</deconvolution_fitting_eps_rel>
+<Optimization_penalties_left_width>1.0</Optimization_penalties_left_width>
+<Optimization_delta_abs_error>1.0E-4</Optimization_delta_abs_error>
+<deconvolution_left_width>2</deconvolution_left_width>
+<Optimization_delta_rel_error>1.0E-4</Optimization_delta_rel_error>
+<thresholds_correlation>0.5</thresholds_correlation>
+<thresholds_peak_bound_ms2_level>50.0</thresholds_peak_bound_ms2_level>
+<wavelet_transform_scale>0.15</wavelet_transform_scale>
+<deconvolution_fitting_penalties_height>1.0</deconvolution_fitting_penalties_height>
+<WinLen>200.0</WinLen>
+</PeakPicker>
+<ResidueHistory>
+<queue_size>3</queue_size>
+<type_name2>GlcN</type_name2>
+<type_name1>IdoA</type_name1>
+<type_name0>S</type_name0>
+</ResidueHistory>
+<AnnotationReportOptions>
+<draw_y_margin>20</draw_y_margin>
+<annotation_line_miny>12</annotation_line_miny>
+<chart_width>700</chart_width>
+<annotation_margin>10</annotation_margin>
+<annotation_mz_size>10</annotation_mz_size>
+<show_raw_spectrum>true</show_raw_spectrum>
+<show_complete_peak_list>false</show_complete_peak_list>
+<show_empty_annotations>false</show_empty_annotations>
+<spectrum_color>-16777216</spectrum_color>
+<show_max_intensity>true</show_max_intensity>
+<show_relative_intensities>true</show_relative_intensities>
+<annotation_mz_font>SansSerif.plain</annotation_mz_font>
+<chart_y_margin>20</chart_y_margin>
+<annotation_line_width>1.0</annotation_line_width>
+<highlighted_color>-256</highlighted_color>
+<draw_x_margin>20</draw_x_margin>
+<chart_height>400</chart_height>
+<chart_x_margin>20</chart_x_margin>
+<mass_text_color>-16777216</mass_text_color>
+<scale_glycans>0.35</scale_glycans>
+<connection_lines_color>-4144960</connection_lines_color>
+</AnnotationReportOptions>
+<PeakfinderOptions>
+<min_pyr>0</min_pyr>
+<min_neu5ac>0</min_neu5ac>
+<min_ddhex>0</min_ddhex>
+<derivatization>Und</derivatization>
+<max_hep>0</max_hep>
+<min_hexa>0</min_hexa>
+<reducing_end>freeEnd</reducing_end>
+<max_pc>0</max_pc>
+<min_hep>0</min_hep>
+<max_dpen>0</max_dpen>
+<max_mehex>0</max_mehex>
+<max_ddhex>0</max_ddhex>
+<min_hex>0</min_hex>
+<max_neu5aclac>0</max_neu5aclac>
+<min_neu5gclac>0</min_neu5gclac>
+<min_mur>0</min_mur>
+<min_kdp>0</min_kdp>
+<min_kdn>0</min_kdn>
+<max_neu5gclac>0</max_neu5gclac>
+<min_dhex>0</min_dhex>
+<min_neu5gc>0</min_neu5gc>
+<min_hexnac>0</min_hexnac>
+<max_pen>0</max_pen>
+<max_hexn>3</max_hexn>
+<max_mur>0</max_mur>
+<max_dhex>2</max_dhex>
+<max_kdn>0</max_kdn>
+<max_kdo>0</max_kdo>
+<max_ac>0</max_ac>
+<max_hexa>0</max_hexa>
+<min_p>0</min_p>
+<min_pen>0</min_pen>
+<max_p>0</max_p>
+<min_dpen>0</min_dpen>
+<min_neu5aclac>0</min_neu5aclac>
+<min_s>0</min_s>
+<other_redend_mass>0.0</other_redend_mass>
+<min_or2>0</min_or2>
+<min_or3>0</min_or3>
+<or1_mass>0.0</or1_mass>
+<max_neu5ac>0</max_neu5ac>
+<max_s>5</max_s>
+<min_or1>0</min_or1>
+<min_mehex>0</min_mehex>
+<max_hexnac>3</max_hexnac>
+<max_hex>3</max_hex>
+<or3_mass>0.0</or3_mass>
+<or2_mass>0.0</or2_mass>
+<min_hexn>0</min_hexn>
+<min_dhexa>0</min_dhexa>
+<min_pc>0</min_pc>
+<max_dhexa>0</max_dhexa>
+<other_redend_name>XXX</other_redend_name>
+<min_ac>0</min_ac>
+<max_or1>0</max_or1>
+<max_neu5gc>0</max_neu5gc>
+<max_pyr>0</max_pyr>
+<max_or2>0</max_or2>
+<max_or3>0</max_or3>
+</PeakfinderOptions>
+<FragmentOptions>
+<add_xfragments>true</add_xfragments>
+<add_cfragments>true</add_cfragments>
+<max_no_crossrings>1</max_no_crossrings>
+<internal_fragments>false</internal_fragments>
+<add_afragments>true</add_afragments>
+<max_no_cleavages>1</max_no_cleavages>
+<add_zfragments>true</add_zfragments>
+<add_yfragments>true</add_yfragments>
+<add_bfragments>true</add_bfragments>
+</FragmentOptions>
+<ProfilerOptions>
+<dictionaries>Carbbank</dictionaries>
+<derivatization>Und</derivatization>
+<last_type/>
+<other_redend_mass>0.0</other_redend_mass>
+<other_redend_name/>
+<user_dictionaries_filename/>
+<reducing_end>freeEnd</reducing_end>
+<last_source/>
+<last_dict_name/>
+<clear_existing_annotations>false</clear_existing_annotations>
+</ProfilerOptions>
+<CompositionOptions>
+<dpen>0</dpen>
+<or1>0</or1>
+<dhexa>0</dhexa>
+<or2>0</or2>
+<ddhex>0</ddhex>
+<neu5aclac>0</neu5aclac>
+<pyr>0</pyr>
+<hexnac>0</hexnac>
+<hex>0</hex>
+<hep>0</hep>
+<or1_mass>0.0</or1_mass>
+<or3>0</or3>
+<neu5gc>0</neu5gc>
+<hexn>0</hexn>
+<mur>0</mur>
+<or3_mass>0.0</or3_mass>
+<or2_mass>0.0</or2_mass>
+<mehex>0</mehex>
+<pen>0</pen>
+<kdp>0</kdp>
+<kdn>0</kdn>
+<s>0</s>
+<hexa>0</hexa>
+<neu5ac>0</neu5ac>
+<pc>0</pc>
+<p>0</p>
+<neu5gclac>0</neu5gclac>
+<ac>0</ac>
+<dhex>0</dhex>
+</CompositionOptions>
+<AnnotationOptions>
+<gain_nh3>false</gain_nh3>
+<loss_co2>false</loss_co2>
+<max_ex_k_ions>999</max_ex_k_ions>
+<max_ex_li_ions>999</max_ex_li_ions>
+<derive_from_parent>true</derive_from_parent>
+<mass_accuracy>20.0</mass_accuracy>
+<max_no_na_ions>0</max_no_na_ions>
+<max_no_charges>3</max_no_charges>
+<max_ex_na_ions>999</max_ex_na_ions>
+<max_no_k_ions>0</max_no_k_ions>
+<mass_accuracy_unit>ppm</mass_accuracy_unit>
+<max_no_li_ions>0</max_no_li_ions>
+<loss_nh3>false</loss_nh3>
+<max_no_h_ions>3</max_no_h_ions>
+<gain_co2>false</gain_co2>
+<gain_h2o>false</gain_h2o>
+<negative_mode>true</negative_mode>
+<loss_h2o>false</loss_h2o>
+<compute_exchanges>false</compute_exchanges>
+<clear_existing_annotations>false</clear_existing_annotations>
+</AnnotationOptions>
+<GAGOptions>
+<allow_redend_loss>false</allow_redend_loss>
+<gag_families>heparan</gag_families>
+<min_no_units>6</min_no_units>
+<modifications/>
+<max_no_sulfates>0</max_no_sulfates>
+<max_no_acetyls>0</max_no_acetyls>
+<min_no_acetyls>0</min_no_acetyls>
+<is_reduced>false</is_reduced>
+<derivatization>Und</derivatization>
+<max_no_units>6</max_no_units>
+<min_no_sulfates>0</min_no_sulfates>
+<is_unsaturated>true</is_unsaturated>
+<allow_unlikely_acetylation>false</allow_unlikely_acetylation>
+</GAGOptions>
+<ProfilesComparisonReportOptions>
+<deconvolution>0</deconvolution>
+<normalizebyrow>true</normalizebyrow>
+<representation>1</representation>
+<normalization>3</normalization>
+</ProfilesComparisonReportOptions>
+<GraphicOptions>
+<mass_text_font_face_custom>SansSerif.plain</mass_text_font_face_custom>
+<collapse_multiple_antennae>true</collapse_multiple_antennae>
+<node_font_size_custom>14</node_font_size_custom>
+<mass_text_space_custom>15</mass_text_space_custom>
+<node_space_custom>30</node_space_custom>
+<show_masses>false</show_masses>
+<linkage_info_size_custom>12</linkage_info_size_custom>
+<node_size_custom>22</node_size_custom>
+<show_info_custom>true</show_info_custom>
+<node_font_face_custom>SansSerif.plain</node_font_face_custom>
+<show_masses_canvas>true</show_masses_canvas>
+<notation>cfg</notation>
+<composition_font_size_custom>18</composition_font_size_custom>
+<orientation>0</orientation>
+<theme>org.pushingpixels.substance.api.skin.OfficeBlue2007Skin</theme>
+<display>normalinfo</display>
+<show_info>true</show_info>
+<save_spectra>false</save_spectra>
+<scale_canvas>1.0</scale_canvas>
+<composition_font_face_custom>SansSerif.plain</composition_font_face_custom>
+<mass_text_size_custom>14</mass_text_size_custom>
+<node_sub_space_custom>1</node_sub_space_custom>
+<linkage_info_font_face_custom>Serif.plain</linkage_info_font_face_custom>
+<show_redend>false</show_redend>
+<structures_space_custom>40</structures_space_custom>
+</GraphicOptions>
+<MassOptions>
+<ion_cloud>-4H</ion_cloud>
+<reducing_end_type>PENTA=85.0891u</reducing_end_type>
+<derivatization>Und</derivatization>
+<neutral_exchanges>0</neutral_exchanges>
+<isotope>MONO</isotope>
+</MassOptions>
+</Configuration>
+<Scan name="Scan" is_msms="true">
+<Structures>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-4H,0,PENTA=85.0891u"/>
+</Structures>
+<Fragments>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u"/>
+<FragmentCollection>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_4$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}A_{GlcA}" mass="74.00039393" mz_ratio="23.65952154466667" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_3_5$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}A_{GlcA}" mass="88.016043994" mz_ratio="28.331404899333336" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_3$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}A_{GlcA}" mass="104.010958616" mz_ratio="33.66304310666666" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_2_5$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}A_{GlcA}" mass="118.02660868" mz_ratio="38.33492646133333" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_0_2$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}A_{GlcA}" mass="134.021523302" mz_ratio="43.666564668666666" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcA,p/#acleavage_1_5$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}A_{GlcA}" mass="148.037173366" mz_ratio="48.338448023333335" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1D-GlcA,p$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="176.032087988" mz_ratio="57.67008623066667" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1D-GlcA,p$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="194.042652674" mz_ratio="63.67360779266667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="246.157956845" mz_ratio="81.04537584966667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="264.168521531" mz_ratio="87.04889741166666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="326.114771401" mz_ratio="107.69764736833332" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#bcleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="337.100895833" mz_ratio="111.35968884566665" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="344.125336087" mz_ratio="113.70116893033332" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#ccleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="355.111460519" mz_ratio="117.36321040766666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#zcleavage)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="406.07158595699997" mz_ratio="134.34991888699997" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#bcleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="417.05771038899996" mz_ratio="138.0119603643333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="422.190044833" mz_ratio="139.72273851233334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p/#ycleavage)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="424.082150643" mz_ratio="140.35344044899998" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#ccleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="435.068275075" mz_ratio="144.0154819263333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="440.200609519" mz_ratio="145.72626007433334" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#bcleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="497.0145249449999" mz_ratio="164.66423188299996" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="502.146859389" mz_ratio="166.375010031" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="513.132983821" mz_ratio="170.03705150833335" score="0.0"/>
+<FragmentEntry fragment="?1L-IdoA,p/#ccleavage--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="515.0250896309999" mz_ratio="170.667753445" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="520.157424075" mz_ratio="172.37853159300002" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="531.143548507" mz_ratio="176.04057307033335" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="582.103673945" mz_ratio="193.02728154966667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="583.2588526779999" mz_ratio="193.41234112733332" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="593.0897983770001" mz_ratio="196.68932302700003" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="600.114238631" mz_ratio="199.0308031116667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="601.269417364" mz_ratio="199.41586268933335" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="611.100363063" mz_ratio="202.69284458900003" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="629.264331986" mz_ratio="208.74750089666668" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="643.2799820500001" mz_ratio="213.41938425133335" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="659.274896672" mz_ratio="218.75102245866665" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#zcleavage)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="662.0604885009999" mz_ratio="219.67955306833332" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="663.215667234" mz_ratio="220.064612646" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="673.046612933" mz_ratio="223.34159454566668" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="673.290546736" mz_ratio="223.42290581333336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p/#ycleavage)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="680.0710531869998" mz_ratio="225.6830746303333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="681.22623192" mz_ratio="226.06813420800003" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="687.269811294" mz_ratio="228.082660666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="689.2854613579999" mz_ratio="228.75454402066666" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="691.057177619" mz_ratio="229.34511610766666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="703.301111422" mz_ratio="233.42642737533333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="709.221146542" mz_ratio="235.39977241533336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="717.28037598" mz_ratio="238.086182228" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="717.28037598" mz_ratio="238.086182228" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="723.2367966060001" mz_ratio="240.07165577000004" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="739.231711228" mz_ratio="245.40329397733333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="743.1724817899999" mz_ratio="246.71688416466665" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#bcleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="B" mass="753.003427489" mz_ratio="249.99386606433336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="753.247361292" mz_ratio="250.07517733200004" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="761.183046476" mz_ratio="252.72040572666666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="767.22662585" mz_ratio="254.7349321846667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="769.242275914" mz_ratio="255.40681553933334" score="0.0"/>
+<FragmentEntry fragment="?1D-GlcN,p/#ccleavage--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="C" mass="771.013992175" mz_ratio="255.99738762633334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="777.3015053519999" mz_ratio="258.093225352" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="783.257925978" mz_ratio="260.078698894" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="789.177961098" mz_ratio="262.052043934" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="797.2371905360001" mz_ratio="264.7384537466667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="797.2371905360001" mz_ratio="264.7384537466667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="803.193611162" mz_ratio="266.7239272886667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="819.1885257839999" mz_ratio="272.055565496" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="823.1292963459999" mz_ratio="273.3691556833333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="833.204175848" mz_ratio="276.7274488506667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="841.139861032" mz_ratio="279.37267724533336" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="847.1834404059999" mz_ratio="281.38720370333334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="849.1990904699999" mz_ratio="282.059087058" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="857.258319908" mz_ratio="284.74549687066667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="863.2147405339999" mz_ratio="286.73097041266664" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="869.134775654" mz_ratio="288.70431545266666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="877.194005092" mz_ratio="291.39072526533334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="877.194005092" mz_ratio="291.39072526533334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="883.1504257180001" mz_ratio="293.37619880733337" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="899.14534034" mz_ratio="298.70783701466667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="903.0861109019999" mz_ratio="300.021427202" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="913.160990404" mz_ratio="303.37972036933337" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="921.0966755879999" mz_ratio="306.024948764" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="927.140254962" mz_ratio="308.039475222" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="929.1559050259999" mz_ratio="308.71135857666667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="937.2151344639999" mz_ratio="311.3977683893333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="943.17155509" mz_ratio="313.3832419313333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="949.0915902099999" mz_ratio="315.35658697133334" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="957.150819648" mz_ratio="318.042996784" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="957.150819648" mz_ratio="318.042996784" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="963.107240274" mz_ratio="320.028470326" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="979.1021548959999" mz_ratio="325.3601085333333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#zcleavage)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Z" mass="983.042925458" mz_ratio="326.67369872066666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="993.11780496" mz_ratio="330.031991888" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#ycleavage)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="Y" mass="1001.053490144" mz_ratio="332.67722028266667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="1007.0970695179999" mz_ratio="334.69174674066664" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="1009.1127195819998" mz_ratio="335.3636300953333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}((--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="1017.1719490199999" mz_ratio="338.050039908" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="1023.1283696459999" mz_ratio="340.03551345" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_5)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,5}X_{GlcA}" mass="1029.048404766" mz_ratio="342.00885848999997" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="1037.107634204" mz_ratio="344.69526830266665" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="1037.107634204" mz_ratio="344.69526830266665" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_2)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,2}X_{GlcA}" mass="1043.06405483" mz_ratio="346.68074184466667" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_5)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,5}X_{GlcA}" mass="1059.058969452" mz_ratio="352.01238005199997" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_3)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,3}X_{GlcA}" mass="1073.074619516" mz_ratio="356.6842634066666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_4)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,4}X_{GlcA}" mass="1087.0538840739998" mz_ratio="361.34401825933327" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_3_5)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{3,5}X_{GlcA}" mass="1089.0695341379999" mz_ratio="362.0159016139999" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="1097.128763576" mz_ratio="364.70231142666665" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_0_4)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{0,4}X_{GlcA}" mass="1103.085184202" mz_ratio="366.6877849686666" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_1_3)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{1,3}X_{GlcA}" mass="1117.06444876" mz_ratio="371.3475398213333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p/#xcleavage_2_4)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="^{2,4}X_{GlcA}" mass="1117.06444876" mz_ratio="371.3475398213333" score="0.0"/>
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="1177.085578132" mz_ratio="391.3545829453333" score="0.0"/>
+</FragmentCollection>
+</Fragments>
+<PeakList>
+<Peak mz_ratio="176.91767" intensity="1052640.0" charge="1"/>
+<Peak mz_ratio="193.92055" intensity="662505.0" charge="1"/>
+<Peak mz_ratio="195.67847" intensity="551318.0" charge="6"/>
+<Peak mz_ratio="209.91573" intensity="7489701.0" charge="1"/>
+<Peak mz_ratio="256.96879" intensity="1.0366089E7" charge="1"/>
+<Peak mz_ratio="271.98642" intensity="892005.0" charge="1"/>
+<Peak mz_ratio="272.96397" intensity="6446478.0" charge="1"/>
+<Peak mz_ratio="300.95939" intensity="2536639.0" charge="1"/>
+<Peak mz_ratio="317.96249" intensity="814906.0" charge="1"/>
+<Peak mz_ratio="327.89054" intensity="613125.0" charge="1"/>
+<Peak mz_ratio="364.70608" intensity="3605565.0" charge="3"/>
+<Peak mz_ratio="368.0334" intensity="1034300.0" charge="1"/>
+<Peak mz_ratio="375.00745" intensity="1036189.0" charge="1"/>
+<Peak mz_ratio="375.00889" intensity="1144989.0" charge="1"/>
+<Peak mz_ratio="375.01321" intensity="7669149.0" charge="1"/>
+<Peak mz_ratio="375.01534" intensity="2388637.0" charge="1"/>
+<Peak mz_ratio="375.02793" intensity="8.03704192E8" charge="1"/>
+<Peak mz_ratio="381.01751" intensity="2054932.0" charge="1"/>
+<Peak mz_ratio="384.50411" intensity="2615797.0" charge="2"/>
+<Peak mz_ratio="388.88758" intensity="889493.0" charge="3"/>
+<Peak mz_ratio="388.98755" intensity="1.1868443E7" charge="1"/>
+<Peak mz_ratio="389.1862" intensity="1095977.0" charge="1"/>
+<Peak mz_ratio="390.01528" intensity="4310624.0" charge="3"/>
+<Peak mz_ratio="390.57967" intensity="1074438.0" charge="2"/>
+<Peak mz_ratio="390.68731" intensity="1417485.0" charge="3"/>
+<Peak mz_ratio="390.7346" intensity="1893776.0" charge="3"/>
+<Peak mz_ratio="390.896" intensity="885403.0" charge="2"/>
+<Peak mz_ratio="390.98464" intensity="1.0821025E7" charge="1"/>
+<Peak mz_ratio="391.20184" intensity="2529456.0" charge="1"/>
+<Peak mz_ratio="391.32621" intensity="820408.0" charge="3"/>
+<Peak mz_ratio="391.32769" intensity="935864.0" charge="3"/>
+<Peak mz_ratio="391.32922" intensity="1175480.0" charge="3"/>
+<Peak mz_ratio="391.33072" intensity="1198520.0" charge="3"/>
+<Peak mz_ratio="391.33513" intensity="1733561.0" charge="3"/>
+<Peak mz_ratio="391.33666" intensity="2148793.0" charge="3"/>
+<Peak mz_ratio="391.33812" intensity="2304441.0" charge="3"/>
+<Peak mz_ratio="391.34292" intensity="1.6859576E7" charge="3"/>
+<Peak mz_ratio="391.35892" intensity="1.677037952E9" charge="3"/>
+<Peak mz_ratio="391.37228" intensity="5261755.0" charge="3"/>
+<Peak mz_ratio="391.37368" intensity="2761147.0" charge="3"/>
+<Peak mz_ratio="391.37526" intensity="5102011.0" charge="3"/>
+<Peak mz_ratio="391.37666" intensity="3539387.0" charge="3"/>
+<Peak mz_ratio="391.37824" intensity="2480571.0" charge="3"/>
+<Peak mz_ratio="391.37974" intensity="2199996.0" charge="3"/>
+<Peak mz_ratio="391.38121" intensity="1784764.0" charge="3"/>
+<Peak mz_ratio="391.38267" intensity="1626044.0" charge="3"/>
+<Peak mz_ratio="391.38417" intensity="1519548.0" charge="3"/>
+<Peak mz_ratio="391.38567" intensity="1249724.0" charge="3"/>
+<Peak mz_ratio="391.38717" intensity="1136060.0" charge="3"/>
+<Peak mz_ratio="391.39158" intensity="825788.0" charge="3"/>
+<Peak mz_ratio="391.39311" intensity="886972.0" charge="2"/>
+<Peak mz_ratio="391.39462" intensity="772284.0" charge="3"/>
+<Peak mz_ratio="391.39608" intensity="661437.0" charge="3"/>
+<Peak mz_ratio="391.67417" intensity="1110991.0" charge="3"/>
+<Peak mz_ratio="391.69084" intensity="5.1499472E7" charge="3"/>
+<Peak mz_ratio="392.00496" intensity="947174.0" charge="3"/>
+<Peak mz_ratio="394.05272" intensity="1439345.0" charge="1"/>
+<Peak mz_ratio="396.0288" intensity="766328.0" charge="1"/>
+<Peak mz_ratio="397.03668" intensity="1147069.0" charge="1"/>
+<Peak mz_ratio="399.02853" intensity="2.5582536E7" charge="1"/>
+<Peak mz_ratio="403.05352" intensity="1977570.0" charge="1"/>
+<Peak mz_ratio="404.06126" intensity="2.9562154E7" charge="1"/>
+<Peak mz_ratio="405.06575" intensity="3372913.0" charge="1"/>
+<Peak mz_ratio="405.06911" intensity="3.0850418E7" charge="1"/>
+<Peak mz_ratio="406.07683" intensity="732729.0" charge="1"/>
+<Peak mz_ratio="414.03979" intensity="1851258.0" charge="1"/>
+<Peak mz_ratio="415.02386" intensity="2.4907842E7" charge="1"/>
+<Peak mz_ratio="416.05551" intensity="2.5106574E7" charge="1"/>
+<Peak mz_ratio="420.05659" intensity="1.0266039E7" charge="1"/>
+<Peak mz_ratio="421.0405" intensity="1118336.0" charge="1"/>
+<Peak mz_ratio="421.06447" intensity="7738882.0" charge="1"/>
+<Peak mz_ratio="422.07229" intensity="5126221.0" charge="1"/>
+<Peak mz_ratio="423.08014" intensity="1.0040984E7" charge="1"/>
+<Peak mz_ratio="430.03509" intensity="1298341.0" charge="1"/>
+<Peak mz_ratio="431.04297" intensity="1.4754033E7" charge="1"/>
+<Peak mz_ratio="432.05083" intensity="7.9183168E7" charge="1"/>
+<Peak mz_ratio="433.0047" intensity="1460358.0" charge="1"/>
+<Peak mz_ratio="433.48892" intensity="1.1428267E7" charge="2"/>
+<Peak mz_ratio="434.06651" intensity="2697687.0" charge="1"/>
+<Peak mz_ratio="439.07542" intensity="4483925.0" charge="1"/>
+<Peak mz_ratio="441.03233" intensity="1799402.0" charge="2"/>
+<Peak mz_ratio="441.53625" intensity="1475088.0" charge="2"/>
+<Peak mz_ratio="447.52148" intensity="4321241.0" charge="2"/>
+<Peak mz_ratio="448.99986" intensity="9.0784328E7" charge="1"/>
+<Peak mz_ratio="449.53392" intensity="7741042.0" charge="2"/>
+<Peak mz_ratio="450.03852" intensity="1200024.0" charge="2"/>
+<Peak mz_ratio="450.54181" intensity="5149886.0" charge="2"/>
+<Peak mz_ratio="458.53973" intensity="699866.0" charge="1"/>
+<Peak mz_ratio="473.54512" intensity="9775464.0" charge="2"/>
+<Peak mz_ratio="475.50065" intensity="1758707.0" charge="2"/>
+<Peak mz_ratio="476.99556" intensity="2.5383518E7" charge="1"/>
+<Peak mz_ratio="478.00344" intensity="8780452.0" charge="1"/>
+<Peak mz_ratio="478.9994" intensity="1210730.0" charge="1"/>
+<Peak mz_ratio="485.54546" intensity="3281068.0" charge="2"/>
+<Peak mz_ratio="486.50513" intensity="788141.0" charge="2"/>
+<Peak mz_ratio="487.50097" intensity="5567279.0" charge="2"/>
+<Peak mz_ratio="488.50888" intensity="1492466.0" charge="2"/>
+<Peak mz_ratio="490.01743" intensity="6800854.0" charge="2"/>
+<Peak mz_ratio="490.52135" intensity="2.1738998E7" charge="2"/>
+<Peak mz_ratio="491.02576" intensity="7410200.0" charge="2"/>
+<Peak mz_ratio="491.02962" intensity="775704.0" charge="1"/>
+<Peak mz_ratio="493.54313" intensity="6142651.0" charge="2"/>
+<Peak mz_ratio="493.99877" intensity="2532312.0" charge="1"/>
+<Peak mz_ratio="494.55102" intensity="1165947.0" charge="2"/>
+<Peak mz_ratio="494.99297" intensity="846103.0" charge="1"/>
+<Peak mz_ratio="495.00663" intensity="5.276444E7" charge="1"/>
+<Peak mz_ratio="495.51068" intensity="3227960.0" charge="2"/>
+<Peak mz_ratio="496.0145" intensity="3.6048728E7" charge="1"/>
+<Peak mz_ratio="498.01832" intensity="1184981.0" charge="2"/>
+<Peak mz_ratio="498.51893" intensity="5358068.0" charge="2"/>
+<Peak mz_ratio="499.5268" intensity="3.1555634E7" charge="2"/>
+<Peak mz_ratio="502.54873" intensity="1056232.0" charge="2"/>
+<Peak mz_ratio="503.02495" intensity="2764036.0" charge="1"/>
+<Peak mz_ratio="503.03911" intensity="1.56070144E8" charge="1"/>
+<Peak mz_ratio="503.05318" intensity="1514118.0" charge="1"/>
+<Peak mz_ratio="503.50807" intensity="889953.0" charge="2"/>
+<Peak mz_ratio="504.01242" intensity="2140222.0" charge="2"/>
+<Peak mz_ratio="506.01272" intensity="6849459.0" charge="2"/>
+<Peak mz_ratio="506.57847" intensity="1169619.0" charge="1"/>
+<Peak mz_ratio="507.02057" intensity="2.65651E7" charge="2"/>
+<Peak mz_ratio="511.50893" intensity="968422.0" charge="2"/>
+<Peak mz_ratio="512.00987" intensity="4.774784E7" charge="1"/>
+<Peak mz_ratio="513.01322" intensity="5748536.0" charge="1"/>
+<Peak mz_ratio="513.49671" intensity="2163281.0" charge="2"/>
+<Peak mz_ratio="513.50417" intensity="1026898.0" charge="2"/>
+<Peak mz_ratio="513.50659" intensity="1006418.0" charge="1"/>
+<Peak mz_ratio="513.50993" intensity="4209490.0" charge="2"/>
+<Peak mz_ratio="513.52464" intensity="2.21164368E8" charge="2"/>
+<Peak mz_ratio="513.54237" intensity="1193812.0" charge="2"/>
+<Peak mz_ratio="515.55689" intensity="1.3632445E7" charge="2"/>
+<Peak mz_ratio="516.06224" intensity="1387991.0" charge="2"/>
+<Peak mz_ratio="518.02664" intensity="3943483.0" charge="1"/>
+<Peak mz_ratio="518.09601" intensity="847614.0" charge="1"/>
+<Peak mz_ratio="519.03452" intensity="3.3444972E7" charge="1"/>
+<Peak mz_ratio="520.02878" intensity="1.0536093E7" charge="2"/>
+<Peak mz_ratio="520.53346" intensity="2810550.0" charge="2"/>
+<Peak mz_ratio="521.05024" intensity="4997327.0" charge="1"/>
+<Peak mz_ratio="524.56235" intensity="804660.0" charge="2"/>
+<Peak mz_ratio="526.53289" intensity="1.6385485E7" charge="2"/>
+<Peak mz_ratio="527.52247" intensity="3696377.0" charge="2"/>
+<Peak mz_ratio="531.03491" intensity="1194384.0" charge="1"/>
+<Peak mz_ratio="534.02658" intensity="6189836.0" charge="2"/>
+<Peak mz_ratio="534.53075" intensity="1.3855521E7" charge="2"/>
+<Peak mz_ratio="535.09948" intensity="1274424.0" charge="1"/>
+<Peak mz_ratio="535.49019" intensity="4789576.0" charge="1"/>
+<Peak mz_ratio="535.53852" intensity="3829322.0" charge="2"/>
+<Peak mz_ratio="536.02416" intensity="3505245.0" charge="2"/>
+<Peak mz_ratio="537.11505" intensity="8847240.0" charge="1"/>
+<Peak mz_ratio="537.55247" intensity="7223194.0" charge="2"/>
+<Peak mz_ratio="538.02834" intensity="1415852.0" charge="2"/>
+<Peak mz_ratio="538.0445" intensity="7.0547376E7" charge="2"/>
+<Peak mz_ratio="538.05655" intensity="1.2854189E7" charge="2"/>
+<Peak mz_ratio="538.06168" intensity="1797549.0" charge="1"/>
+<Peak mz_ratio="538.5411" intensity="2025408.0" charge="2"/>
+<Peak mz_ratio="542.5283" intensity="1.3039704E7" charge="2"/>
+<Peak mz_ratio="544.54231" intensity="879523.0" charge="1"/>
+<Peak mz_ratio="545.54985" intensity="793544.0" charge="2"/>
+<Peak mz_ratio="546.05436" intensity="1380442.0" charge="2"/>
+<Peak mz_ratio="546.54152" intensity="1158892.0" charge="1"/>
+<Peak mz_ratio="546.55805" intensity="6.1659372E7" charge="2"/>
+<Peak mz_ratio="546.57233" intensity="967917.0" charge="1"/>
+<Peak mz_ratio="547.05477" intensity="1924350.0" charge="2"/>
+<Peak mz_ratio="547.54981" intensity="1907984.0" charge="2"/>
+<Peak mz_ratio="547.56594" intensity="7.4758416E7" charge="2"/>
+<Peak mz_ratio="549.04604" intensity="4894022.0" charge="1"/>
+<Peak mz_ratio="554.05174" intensity="3377654.0" charge="2"/>
+<Peak mz_ratio="554.54388" intensity="7185927.0" charge="2"/>
+<Peak mz_ratio="555.53658" intensity="1.0917417E7" charge="2"/>
+<Peak mz_ratio="563.09536" intensity="1179178.0" charge="1"/>
+<Peak mz_ratio="564.0335" intensity="2919754.0" charge="1"/>
+<Peak mz_ratio="564.07909" intensity="846412.0" charge="1"/>
+<Peak mz_ratio="564.54225" intensity="4321628.0" charge="2"/>
+<Peak mz_ratio="565.01413" intensity="1248363.0" charge="1"/>
+<Peak mz_ratio="572.06578" intensity="1142363.0" charge="1"/>
+<Peak mz_ratio="573.07389" intensity="3931262.0" charge="1"/>
+<Peak mz_ratio="574.08168" intensity="4855969.0" charge="1"/>
+<Peak mz_ratio="575.0606" intensity="789187.0" charge="1"/>
+<Peak mz_ratio="577.53234" intensity="1525913.0" charge="2"/>
+<Peak mz_ratio="578.03619" intensity="6613803.0" charge="2"/>
+<Peak mz_ratio="581.04135" intensity="1475990.0" charge="2"/>
+<Peak mz_ratio="581.1065" intensity="2212504.0" charge="1"/>
+<Peak mz_ratio="584.03334" intensity="6053379.0" charge="1"/>
+<Peak mz_ratio="586.53776" intensity="1.024368E7" charge="2"/>
+<Peak mz_ratio="587.02241" intensity="861042.0" charge="2"/>
+<Peak mz_ratio="587.04177" intensity="4.0046196E7" charge="2"/>
+<Peak mz_ratio="587.05516" intensity="898419.0" charge="2"/>
+<Peak mz_ratio="587.52629" intensity="1718405.0" charge="2"/>
+<Peak mz_ratio="587.53294" intensity="2443909.0" charge="1"/>
+<Peak mz_ratio="587.54571" intensity="8.468852E7" charge="2"/>
+<Peak mz_ratio="587.55902" intensity="1696902.0" charge="2"/>
+<Peak mz_ratio="590.0771" intensity="9338599.0" charge="1"/>
+<Peak mz_ratio="591.08529" intensity="3197711.0" charge="1"/>
+<Peak mz_ratio="594.03154" intensity="5467012.0" charge="2"/>
+<Peak mz_ratio="597.10173" intensity="4299779.0" charge="1"/>
+<Peak mz_ratio="599.11746" intensity="7108697.0" charge="1"/>
+<Peak mz_ratio="603.03718" intensity="5865222.0" charge="2"/>
+<Peak mz_ratio="607.11712" intensity="1089475.0" charge="2"/>
+<Peak mz_ratio="608.08827" intensity="6558194.0" charge="1"/>
+<Peak mz_ratio="608.12474" intensity="1.6415219E7" charge="2"/>
+<Peak mz_ratio="616.06675" intensity="7373706.0" charge="1"/>
+<Peak mz_ratio="617.05327" intensity="741823.0" charge="1"/>
+<Peak mz_ratio="617.07457" intensity="4.7793088E7" charge="1"/>
+<Peak mz_ratio="617.13198" intensity="3621828.0" charge="1"/>
+<Peak mz_ratio="619.11072" intensity="1732529.0" charge="1"/>
+<Peak mz_ratio="620.11888" intensity="1106409.0" charge="1"/>
+<Peak mz_ratio="635.60023" intensity="1481609.0" charge="2"/>
+<Peak mz_ratio="641.59983" intensity="1189508.0" charge="2"/>
+<Peak mz_ratio="642.60835" intensity="3500484.0" charge="2"/>
+<Peak mz_ratio="647.09714" intensity="786916.0" charge="2"/>
+<Peak mz_ratio="648.05977" intensity="1530658.0" charge="2"/>
+<Peak mz_ratio="648.07203" intensity="737570.0" charge="1"/>
+<Peak mz_ratio="648.08108" intensity="2766115.0" charge="2"/>
+<Peak mz_ratio="648.08853" intensity="2119459.0" charge="2"/>
+<Peak mz_ratio="648.10457" intensity="1.52062752E8" charge="2"/>
+<Peak mz_ratio="648.11659" intensity="4336421.0" charge="2"/>
+<Peak mz_ratio="648.12084" intensity="2756389.0" charge="2"/>
+<Peak mz_ratio="648.12514" intensity="2319654.0" charge="2"/>
+<Peak mz_ratio="648.1324" intensity="1021734.0" charge="2"/>
+<Peak mz_ratio="649.59629" intensity="1809796.0" charge="2"/>
+<Peak mz_ratio="654.04127" intensity="1.597968E7" charge="1"/>
+<Peak mz_ratio="654.60896" intensity="3180996.0" charge="2"/>
+<Peak mz_ratio="656.05699" intensity="4769568.0" charge="1"/>
+<Peak mz_ratio="660.05811" intensity="4562460.0" charge="1"/>
+<Peak mz_ratio="661.05832" intensity="868954.0" charge="1"/>
+<Peak mz_ratio="661.06621" intensity="7374427.0" charge="1"/>
+<Peak mz_ratio="670.03683" intensity="1.3334651E7" charge="1"/>
+<Peak mz_ratio="671.0319" intensity="1107638.0" charge="1"/>
+<Peak mz_ratio="671.04484" intensity="2.9307062E7" charge="1"/>
+<Peak mz_ratio="671.05758" intensity="835767.0" charge="1"/>
+<Peak mz_ratio="671.06224" intensity="776120.0" charge="1"/>
+<Peak mz_ratio="672.03962" intensity="1268465.0" charge="1"/>
+<Peak mz_ratio="672.04509" intensity="3657969.0" charge="1"/>
+<Peak mz_ratio="672.05294" intensity="2.3015666E7" charge="1"/>
+<Peak mz_ratio="677.06151" intensity="2.7124236E7" charge="1"/>
+<Peak mz_ratio="679.05716" intensity="3646842.0" charge="1"/>
+<Peak mz_ratio="679.07721" intensity="5.9126396E7" charge="1"/>
+<Peak mz_ratio="688.04804" intensity="1.4730305E7" charge="1"/>
+<Peak mz_ratio="688.08451" intensity="1.6733251E7" charge="2"/>
+<Peak mz_ratio="694.58885" intensity="1992804.0" charge="2"/>
+<Peak mz_ratio="697.09182" intensity="7249352.0" charge="1"/>
+<Peak mz_ratio="701.08633" intensity="4398683.0" charge="1"/>
+<Peak mz_ratio="703.03566" intensity="1.5931037E7" charge="1"/>
+<Peak mz_ratio="705.08129" intensity="1177309.0" charge="1"/>
+<Peak mz_ratio="707.0541" intensity="833302.0" charge="1"/>
+<Peak mz_ratio="707.05901" intensity="2342678.0" charge="1"/>
+<Peak mz_ratio="707.07327" intensity="7.8092056E7" charge="1"/>
+<Peak mz_ratio="717.08198" intensity="1459575.0" charge="1"/>
+<Peak mz_ratio="718.07519" intensity="907785.0" charge="1"/>
+<Peak mz_ratio="718.08967" intensity="3.7861384E7" charge="1"/>
+<Peak mz_ratio="718.10446" intensity="1156105.0" charge="1"/>
+<Peak mz_ratio="718.77508" intensity="757333.0" charge="3"/>
+<Peak mz_ratio="719.08342" intensity="1281562.0" charge="1"/>
+<Peak mz_ratio="752.01258" intensity="4524381.0" charge="1"/>
+<Peak mz_ratio="770.02408" intensity="6248027.0" charge="1"/>
+<Peak mz_ratio="781.04649" intensity="4977535.0" charge="1"/>
+<Peak mz_ratio="799.02214" intensity="3088574.0" charge="1"/>
+<Peak mz_ratio="799.03335" intensity="2166463.0" charge="1"/>
+<Peak mz_ratio="799.03964" intensity="4251327.0" charge="1"/>
+<Peak mz_ratio="799.05777" intensity="1.53263808E8" charge="1"/>
+<Peak mz_ratio="799.08247" intensity="2901698.0" charge="1"/>
+<Peak mz_ratio="799.08934" intensity="2878658.0" charge="1"/>
+<Peak mz_ratio="800.05142" intensity="3323134.0" charge="1"/>
+<Peak mz_ratio="802.11487" intensity="812293.0" charge="1"/>
+<Peak mz_ratio="803.12243" intensity="2587593.0" charge="1"/>
+<Peak mz_ratio="823.02908" intensity="1320017.0" charge="1"/>
+<Peak mz_ratio="883.08298" intensity="2.3377784E7" charge="1"/>
+<Peak mz_ratio="898.19433" intensity="1273251.0" charge="1"/>
+<Peak mz_ratio="900.08668" intensity="9218355.0" charge="1"/>
+<Peak mz_ratio="916.20588" intensity="1.2329289E7" charge="1"/>
+<Peak mz_ratio="926.13392" intensity="1680952.0" charge="1"/>
+<Peak mz_ratio="979.16349" intensity="2206172.0" charge="1"/>
+<Peak mz_ratio="996.16704" intensity="1.8649086E7" charge="1"/>
+<Peak mz_ratio="998.16023" intensity="2009086.0" charge="1"/>
+<Peak mz_ratio="1014.1787" intensity="2803188.0" charge="1"/>
+<Peak mz_ratio="1094.1406" intensity="1951539.0" charge="1"/>
+<Peak mz_ratio="1216.26975" intensity="2037153.0" charge="1"/>
+</PeakList>
+<AnnotatedPeakList>
+<Annotations>
+<Glycan structure="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage$MONO,Und,-3H,0,PENTA=85.0891u"/>
+<PeakAnnotationCollection>
+<PeakAnnotation>
+<Peak mz_ratio="176.91767" intensity="1052640.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="193.92055" intensity="662505.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="195.67847" intensity="551318.0" charge="6"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="209.91573" intensity="7489701.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="256.96879" intensity="1.0366089E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="271.98642" intensity="892005.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="272.96397" intensity="6446478.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="300.95939" intensity="2536639.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="317.96249" intensity="814906.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="327.89054" intensity="613125.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="364.70608" intensity="3605565.0" charge="3"/>
+<Annotation ions="-3H" neutralExchanges="0">
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S/#lcleavage)--N?1S/#lcleavage)--2?1S/#lcleavage)--6?1S/#lcleavage)--N?1S/#lcleavage}(((--??1S)--??1S)--??1S)--??1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="1097.128763576" mz_ratio="364.70231142666665" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="368.0334" intensity="1034300.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="375.00745" intensity="1036189.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="375.00889" intensity="1144989.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="375.01321" intensity="7669149.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="375.01534" intensity="2388637.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="375.02793" intensity="8.03704192E8" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="381.01751" intensity="2054932.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="384.50411" intensity="2615797.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="388.88758" intensity="889493.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="388.98755" intensity="1.1868443E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="389.1862" intensity="1095977.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.01528" intensity="4310624.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.57967" intensity="1074438.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.68731" intensity="1417485.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.7346" intensity="1893776.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.896" intensity="885403.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="390.98464" intensity="1.0821025E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.20184" intensity="2529456.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.32621" intensity="820408.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.32769" intensity="935864.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.32922" intensity="1175480.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.33072" intensity="1198520.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.33513" intensity="1733561.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.33666" intensity="2148793.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.33812" intensity="2304441.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.34292" intensity="1.6859576E7" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.35892" intensity="1.677037952E9" charge="3"/>
+<Annotation ions="-3H" neutralExchanges="0">
+<FragmentEntry fragment="PENTA=85.0891u--??1D-GlcN,p((--??1L-IdoA,p(--??1D-GlcN,p((--??1D-GlcA,p)--6?1S)--N?1S)--2?1S)--6?1S)--N?1S$MONO,Und,-3H,0,PENTA=85.0891u" name="" mass="1177.085578132" mz_ratio="391.3545829453333" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37228" intensity="5261755.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37368" intensity="2761147.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37526" intensity="5102011.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37666" intensity="3539387.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37824" intensity="2480571.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.37974" intensity="2199996.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.38121" intensity="1784764.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.38267" intensity="1626044.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.38417" intensity="1519548.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.38567" intensity="1249724.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.38717" intensity="1136060.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.39158" intensity="825788.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.39311" intensity="886972.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.39462" intensity="772284.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.39608" intensity="661437.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.67417" intensity="1110991.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="391.69084" intensity="5.1499472E7" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="392.00496" intensity="947174.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="394.05272" intensity="1439345.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="396.0288" intensity="766328.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="397.03668" intensity="1147069.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="399.02853" intensity="2.5582536E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="403.05352" intensity="1977570.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="404.06126" intensity="2.9562154E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="405.06575" intensity="3372913.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="405.06911" intensity="3.0850418E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="406.07683" intensity="732729.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="414.03979" intensity="1851258.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="415.02386" intensity="2.4907842E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="416.05551" intensity="2.5106574E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="420.05659" intensity="1.0266039E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="421.0405" intensity="1118336.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="421.06447" intensity="7738882.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="422.07229" intensity="5126221.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="423.08014" intensity="1.0040984E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="430.03509" intensity="1298341.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="431.04297" intensity="1.4754033E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="432.05083" intensity="7.9183168E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="433.0047" intensity="1460358.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="433.48892" intensity="1.1428267E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="434.06651" intensity="2697687.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="439.07542" intensity="4483925.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="441.03233" intensity="1799402.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="441.53625" intensity="1475088.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="447.52148" intensity="4321241.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="448.99986" intensity="9.0784328E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="449.53392" intensity="7741042.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="450.03852" intensity="1200024.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="450.54181" intensity="5149886.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="458.53973" intensity="699866.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="473.54512" intensity="9775464.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="475.50065" intensity="1758707.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="476.99556" intensity="2.5383518E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="478.00344" intensity="8780452.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="478.9994" intensity="1210730.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="485.54546" intensity="3281068.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="486.50513" intensity="788141.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="487.50097" intensity="5567279.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="488.50888" intensity="1492466.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="490.01743" intensity="6800854.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="490.52135" intensity="2.1738998E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="491.02576" intensity="7410200.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="491.02962" intensity="775704.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="493.54313" intensity="6142651.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="493.99877" intensity="2532312.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="494.55102" intensity="1165947.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="494.99297" intensity="846103.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="495.00663" intensity="5.276444E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="495.51068" intensity="3227960.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="496.0145" intensity="3.6048728E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="498.01832" intensity="1184981.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="498.51893" intensity="5358068.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="499.5268" intensity="3.1555634E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="502.54873" intensity="1056232.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="503.02495" intensity="2764036.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="503.03911" intensity="1.56070144E8" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="503.05318" intensity="1514118.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="503.50807" intensity="889953.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="504.01242" intensity="2140222.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="506.01272" intensity="6849459.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="506.57847" intensity="1169619.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="507.02057" intensity="2.65651E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="511.50893" intensity="968422.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="512.00987" intensity="4.774784E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.01322" intensity="5748536.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.49671" intensity="2163281.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.50417" intensity="1026898.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.50659" intensity="1006418.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.50993" intensity="4209490.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.52464" intensity="2.21164368E8" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="513.54237" intensity="1193812.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="515.55689" intensity="1.3632445E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="516.06224" intensity="1387991.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="518.02664" intensity="3943483.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="518.09601" intensity="847614.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="519.03452" intensity="3.3444972E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="520.02878" intensity="1.0536093E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="520.53346" intensity="2810550.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="521.05024" intensity="4997327.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="524.56235" intensity="804660.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="526.53289" intensity="1.6385485E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="527.52247" intensity="3696377.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="531.03491" intensity="1194384.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="534.02658" intensity="6189836.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="534.53075" intensity="1.3855521E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="535.09948" intensity="1274424.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="535.49019" intensity="4789576.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="535.53852" intensity="3829322.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="536.02416" intensity="3505245.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="537.11505" intensity="8847240.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="537.55247" intensity="7223194.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="538.02834" intensity="1415852.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="538.0445" intensity="7.0547376E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="538.05655" intensity="1.2854189E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="538.06168" intensity="1797549.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="538.5411" intensity="2025408.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="542.5283" intensity="1.3039704E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="544.54231" intensity="879523.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="545.54985" intensity="793544.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="546.05436" intensity="1380442.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="546.54152" intensity="1158892.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="546.55805" intensity="6.1659372E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="546.57233" intensity="967917.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="547.05477" intensity="1924350.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="547.54981" intensity="1907984.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="547.56594" intensity="7.4758416E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="549.04604" intensity="4894022.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="554.05174" intensity="3377654.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="554.54388" intensity="7185927.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="555.53658" intensity="1.0917417E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="563.09536" intensity="1179178.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="564.0335" intensity="2919754.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="564.07909" intensity="846412.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="564.54225" intensity="4321628.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="565.01413" intensity="1248363.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="572.06578" intensity="1142363.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="573.07389" intensity="3931262.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="574.08168" intensity="4855969.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="575.0606" intensity="789187.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="577.53234" intensity="1525913.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="578.03619" intensity="6613803.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="581.04135" intensity="1475990.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="581.1065" intensity="2212504.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="584.03334" intensity="6053379.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="586.53776" intensity="1.024368E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.02241" intensity="861042.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.04177" intensity="4.0046196E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.05516" intensity="898419.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.52629" intensity="1718405.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.53294" intensity="2443909.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.54571" intensity="8.468852E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="587.55902" intensity="1696902.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="590.0771" intensity="9338599.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="591.08529" intensity="3197711.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="594.03154" intensity="5467012.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="597.10173" intensity="4299779.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="599.11746" intensity="7108697.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="603.03718" intensity="5865222.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="607.11712" intensity="1089475.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="608.08827" intensity="6558194.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="608.12474" intensity="1.6415219E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="616.06675" intensity="7373706.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="617.05327" intensity="741823.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="617.07457" intensity="4.7793088E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="617.13198" intensity="3621828.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="619.11072" intensity="1732529.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="620.11888" intensity="1106409.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="635.60023" intensity="1481609.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="641.59983" intensity="1189508.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="642.60835" intensity="3500484.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="647.09714" intensity="786916.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.05977" intensity="1530658.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.07203" intensity="737570.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.08108" intensity="2766115.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.08853" intensity="2119459.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.10457" intensity="1.52062752E8" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.11659" intensity="4336421.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.12084" intensity="2756389.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.12514" intensity="2319654.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="648.1324" intensity="1021734.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="649.59629" intensity="1809796.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="654.04127" intensity="1.597968E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="654.60896" intensity="3180996.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="656.05699" intensity="4769568.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="660.05811" intensity="4562460.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="661.05832" intensity="868954.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="661.06621" intensity="7374427.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="670.03683" intensity="1.3334651E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="671.0319" intensity="1107638.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="671.04484" intensity="2.9307062E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="671.05758" intensity="835767.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="671.06224" intensity="776120.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="672.03962" intensity="1268465.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="672.04509" intensity="3657969.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="672.05294" intensity="2.3015666E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="677.06151" intensity="2.7124236E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="679.05716" intensity="3646842.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="679.07721" intensity="5.9126396E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="688.04804" intensity="1.4730305E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="688.08451" intensity="1.6733251E7" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="694.58885" intensity="1992804.0" charge="2"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="697.09182" intensity="7249352.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="701.08633" intensity="4398683.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="703.03566" intensity="1.5931037E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="705.08129" intensity="1177309.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="707.0541" intensity="833302.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="707.05901" intensity="2342678.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="707.07327" intensity="7.8092056E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="717.08198" intensity="1459575.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="718.07519" intensity="907785.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="718.08967" intensity="3.7861384E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="718.10446" intensity="1156105.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="718.77508" intensity="757333.0" charge="3"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="719.08342" intensity="1281562.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="752.01258" intensity="4524381.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="770.02408" intensity="6248027.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="781.04649" intensity="4977535.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.02214" intensity="3088574.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.03335" intensity="2166463.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.03964" intensity="4251327.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.05777" intensity="1.53263808E8" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.08247" intensity="2901698.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="799.08934" intensity="2878658.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="800.05142" intensity="3323134.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="802.11487" intensity="812293.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="803.12243" intensity="2587593.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="823.02908" intensity="1320017.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="883.08298" intensity="2.3377784E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="898.19433" intensity="1273251.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="900.08668" intensity="9218355.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="916.20588" intensity="1.2329289E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="926.13392" intensity="1680952.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="979.16349" intensity="2206172.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="996.16704" intensity="1.8649086E7" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="998.16023" intensity="2009086.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1014.1787" intensity="2803188.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1094.1406" intensity="1951539.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+<PeakAnnotation>
+<Peak mz_ratio="1216.26975" intensity="2037153.0" charge="1"/>
+<Annotation ions="0" neutralExchanges="0">
+<FragmentEntry fragment="" name="" mass="0.0" mz_ratio="0.0" score="0.0"/>
+</Annotation>
+</PeakAnnotation>
+</PeakAnnotationCollection>
+</Annotations>
+</AnnotatedPeakList>
+<Notes/>
+</Scan>
+</GlycanWorkspace>

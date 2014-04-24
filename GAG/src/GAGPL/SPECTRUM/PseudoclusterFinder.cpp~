@@ -1,0 +1,143 @@
+#include <GAG/PseudoclusterFinder/PseudoclusterFinder.h>
+#include <algorithm>
+
+namespace gag 
+{
+	bool IsotopePeak::includeCluster(const PseudoclusterList& clusterlist)
+	{
+		// The situation of empty vector should be included.
+		for(size_t idx=0; idx<clusterlist.size(); idx++)
+		{
+			PeakLocation::iterator it = peakinfo.find(clusterlist[idx].getClusterID());
+			if(it!=peakinfo.end())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/* The critical function which realize the algorithm */
+	void PseudoclusterFinder::run(const std::vector<Peak>& plist, std::map<std::string, PseudoclusterList>& clusterlist_by_charge) 
+	{
+		/* Step 1: Divide the spectrum into small islands */
+		
+		// isolist stores the candidate isopeak list.
+		IsopeakList isolist;
+		// islands stores the list of candidate isopeak list.
+		std::vector<IsopeakList> islands;
+
+
+		for(size_t i=0; i<plist.size(); i++)
+		{
+			// construct an isopeak with given id.
+			IsotopePeak ipeak(plist[i], i);
+			// Add the isotopepeak into spectrum.
+			isolist.push_back(ipeak);
+
+			// End or gap found! The largest mass difference is limited. The distance is manually decided.
+			double gap_distance = _param.getParameter<double>("gap_distance").first;
+			
+			if((i==plist.size()-1) || (plist[i+1].getMZ() - plist[i].getMZ()) > gap_distance)
+			{
+				// The number of isopeaks are not enough to form a isotope cluster.
+				// Simply discard the cluster.
+				if(isolist.size() <= 4)
+					continue;
+				islands.push_back(isolist);
+				// Empty the vector and prepare for next cluster.
+				isolist.clear();
+			}
+		}
+
+		//int upper_charge = boost::any_cast<int>(_param.getValue("max_charge"));
+		//int lower_charge = boost::any_cast<int>(_param.getValue("min_charge"));
+		
+		// :) TBD: consider the reasonable range of the upper_charge and lower_charge.
+		int upper_charge = _param.getParameter<int>("max_charge").first;
+		int lower_charge = _param.getParameter<int>("min_charge").first;
+		
+		//std::map<std::string, std::vector<IsopeakList> > islands_chg;
+		/* Step 2: Iterate over each island, and generate candidate isotope clusters. */
+		size_t cluster_index = 0;
+		for(size_t k=0; k<islands.size(); k++)
+		{	
+			// Sort peaks based on their intensity values in a descending order.
+
+			std::sort(islands[k].begin(), islands[k].end(), Peak::mzLarger);
+				
+			// Go throught the most intensed peaks to deduce the charge, and search against the rest of the peaks.
+			// pk_idx indicates the head peak.
+			
+			for(size_t pk_idx=0; pk_idx<islands[k].size()-3; pk_idx++)
+			{
+				
+				// Is it possible that the two charge states have different charge types?
+				for(int chg=upper_charge; chg>=lower_charge, chg!=0; chg--)
+				{
+					int shift = 0;
+					// If the head peak has been included in any previous cluster with the same charge, 
+					// skip this round.
+					
+					if(islands[k][pk_idx].includeCluster(clusterlist_by_charge[boost::lexical_cast<std::string>(chg)]))
+						continue;
+					
+					// Update the isopeak information.
+					// :)TBD
+					
+					// Add cluster id, head id and charge into cluster_chg.
+					IsopeakList peaks_tmp;
+					
+					islands[k][pk_idx].addClusterInformation(cluster_index, shift);
+					islands[k][pk_idx].setFlag(Flag::USED);
+					
+					/* Add candidate head peak. */
+					peaks_tmp.push_back(islands[k][pk_idx]);
+					
+					// Add cluster id, head id and charge.
+					// Should this peak be the head of the cluster?
+					//Pseudocluster candidate_cluster(islands[k][pk_idx], id, 0);
+					//IsotopePeak head;
+					//cluster_chg.push_back(islands[k][pk_idx]);
+					
+					//double ppm = boost::any_cast<double>(_param.getValue("tolerance"));
+					double ppm = _param.getParameter<double>("tolerance").first;
+		
+					for(size_t fl_idx=pk_idx+1; fl_idx<islands[k].size(); fl_idx++)
+					{
+							double diff = fabs(islands[k][fl_idx].getMZ() - islands[k][pk_idx].getMZ())/(double)chg;
+							shift= (int)(diff + 0.5);
+							double err = diff - shift;
+
+							// Candidate isotope peak with fixed charge.
+							if(fabs(err) > ppm * islands[k][pk_idx].getMZ() * 2/(double)chg)
+								continue;
+							
+							islands[k][fl_idx].addClusterInformation(cluster_index, shift);
+							islands[k][fl_idx].setFlag(Flag::USED);
+							peaks_tmp.push_back(islands[k][fl_idx]);
+					}
+					
+					/* If peaks_tmp meets the basic requirement of candidate isocluster. */
+					//int min_peaks = boost::any_cast<int>(_param.getValue("min_peaks"));
+					int min_num_peaks = _param.getParameter<int>("min_num_peaks").first;
+					
+					if(peaks_tmp.size() >= min_num_peaks)
+					{
+						/* Add cluster information */
+						Pseudocluster pcluster(peaks_tmp,cluster_index, pk_idx, chg);
+						clusterlist_by_charge[boost::lexical_cast<std::string>(chg)].push_back(pcluster);
+						
+						
+						cluster_index++;	
+					}
+					peaks_tmp.clear();
+				}
+				
+			}			
+		
+		}
+		
+	}
+
+}

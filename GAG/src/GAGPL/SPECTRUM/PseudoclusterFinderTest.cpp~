@@ -1,0 +1,22 @@
+#include <GAG/PseudoclusterFinder/PseudoclusterFinder.h>
+#include <boost/algorithm/string.hpp>
+
+int main(int argc, char *argv[]) 
+{
+	// 1. Read test data.
+	ifstream infile;
+	infile.open(argv[1]);
+	
+	std::map<double, float> peaks;
+	std::string line;
+
+	if(infile.is_open())
+	{
+		while(std::getline(infile, line))
+		{
+			boost::split(peaks, line, boost::is_any_of("\t"));	
+		}
+	}
+	infile.close();
+	return 0;
+}

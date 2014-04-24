@@ -1,0 +1,49 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Spectrum.h
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  9/6/2012 2:14:17 PM
+ *       Revision:  none
+ *       Compiler:  msvc
+ *
+ *         Author:  Han Hu(hh1985@bu.edu), 
+ *   Organization:  Boston University
+ *
+ * =====================================================================================
+ */
+
+#ifndef  GAG_SPECTRUM_H_INC
+#define  GAG_SPECTRUM_H_INC
+
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/multi_index_container.hpp>
+
+namespace gag
+{
+  class RawPeak
+  {
+    double mz;
+    double intensity;
+    // Signal over noise.
+    float s_n;
+  };
+  
+  typedef multi_index_container<
+    RawPeak,
+    indexed_by<
+      ordered_unique<member<RawPeak, double, &RawPeak::mz> >,
+      ordered_unique<member<RawPeak, double, &RawPeak::intensity> >
+    >
+  > Spectrum;
+
+	typedef std::vector<Spectrum> SpectrumList;
+
+}
+
+
+
+#endif   /* ----- #ifndef GAG_SPECTRUM_H_INC  ----- */

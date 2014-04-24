@@ -1,0 +1,127 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  PseudoclusterFinder.h
+ *
+ *    Description:  This class is used to find pseudoclusters: peak series with given
+ *    		    			even space. This finder is designed for glycan, which receives less 
+ *    		    			limit from averagine but more benefits from theoretical library. The
+ *  		    				theoretical library can be considered to be a quickfinder, like what
+ *    		    			Yu has done.
+ *
+ *        Version:  1.0
+ *        Created:  3/30/2012 4:21:24 PM
+ *       Revision:  none
+ *       Compiler:  msvc
+ *
+ *         Author:  Han Hu 
+ *   Organization:  Boston University
+ *
+ * =====================================================================================
+ */
+
+
+#ifndef GAG_PSEUDOCLUSTERFINDER_H
+#define GAG_PSEUDOCLUSTERFINDER_H
+
+#include <GAG/PseudoclusterFinder/PseudoclusterFinderHelper.h>
+
+namespace gag
+{	
+	/*  Define the basic structure of a peak */
+	/*  The status member is used to indicate the including of pseudocluster
+	 *  */
+	/*  The spectrum should not include scan information since it is based on the average. */
+	// The format of the input.
+	
+	// Enhanced version of the peaktype for isotope cluster.
+	class IsotopePeak: public Peak
+	{
+		// The location information includes cluster id and shift from highest peak.
+		typedef std::map<size_t, int> PeakLocation;
+		private:
+			// The ID of the isotope cluster.
+			int _flag;
+			size_t _peakid;
+			//PeakLocation _ps;
+			size_t _clusterid;
+			int shift;
+		public:
+			IsotopePeak(Peak& pk, const size_t peakid)
+				: _mz(pk._mz), _intensity(pk._intensity), _flag(0), _peakid(peakid), _clusterid(-1), shift(-1)
+			{
+			} 
+			inline void addClusterInformation(const std::pair<size_t, int>& peakloc)
+			{
+				_ps.insert(peakloc);
+			}
+			inline bool includeCluster(const size_t clusterid)
+			{
+				PeakLocation::iterator it = _ps.found(clusterid);
+				// The cluster id is found!
+				if(it!=_ps.end())
+					return true;
+				else
+					return false;
+			}
+	};
+	
+	
+	typedef std::vector<IsotopePeak> IsopeakList;
+	
+	class Pseudocluster : public SpectrumType<IsotopePeak>
+	{
+		private:
+			size_t _clusterid;
+			size_t _headpeakid;
+			int charge_state;
+			int charge_type;
+		public:
+			Pseudocluster()
+				: _clusterid(-1), _headpeakid(-1), charge_state(0), charge_type(-1)
+			{
+			}
+			Pseudocluster(size_t cluster_id, size_t headpeak_id, int charge)
+				: _clusterid(cluster_id), _headpeakid(headpeak_id), charge_state(charge)
+			{
+			}
+			inline int getChargeState() const
+			{
+				return charge_state;
+			}
+			inline void setChargeState(const int chg)
+			{
+				charge_state = chg;
+			}
+			inline int getChargeType() const 
+			{
+				return charge_type;
+			}
+			inline void setChargeType(const int pn)
+			{
+				charge_type = pn;
+			}
+			bool isIncluded(const IsotopePeak ip) const;
+	};
+
+	typedef std::vector<Pseudocluster>& PseudoclusterList;
+	
+	class PseudoclusterFinder {
+		private:
+			Param& _param;
+			Pseudocluster& _input;
+			// Peak list
+			//Pseudoclusterlist& _clustergroup;
+		public:
+			// The real algorithm part.
+			
+			void run(const SpectrumType<Peak>&);
+			void setParameters(Param& );
+			inline ClusterList& getCluster() const {
+				return _clustergroup;
+			}
+	};
+}
+
+#endif // GAG_PSEUDOCLUSTERFINDER_H
+
