@@ -133,6 +133,13 @@ SET(SEQUENCESPACE
 	../src/GAGPL/GAGLIBRARY/SequenceSpace.h ../src/GAGPL/GAGLIBRARY/SequenceSpace.cpp
 )
 
+SET(FULLMAP
+	${LIBRARY}
+	${SEQREADER}
+	../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
+	../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
+)
+
 INCLUDE_DIRECTORIES(${EXTERN_INCLUDE} ../src)
 LINK_DIRECTORIES(D:/Development/boost/stage/lib)
 
@@ -161,6 +168,9 @@ ADD_EXECUTABLE(seqspacetest ${SEQUENCESPACE} SequenceSpaceTest.cpp)
 
 ADD_EXECUTABLE(hsseq ${SEQUENCEPREDICTION} ../src/GAGPL/GAGLIBRARY/HHSequencing.cpp)
 ADD_EXECUTABLE(compare ${SEQUENCESPACE} ../src/GAGPL/GAGLIBRARY/MethodsComparison.cpp)
+
+ADD_EXECUTABLE(fullmaptest ${FULLMAP} FullMapTest.cpp)
+ADD_EXECUTABLE(fullmap ${FULLMAP} ../src/GAGPL/GAGLIBRARY/MapGenerator.cpp)
 
 #ENABLE_TESTING()
 #ADD_TEST(01_composition composition)

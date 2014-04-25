@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
-PROJECT (gag_pipeline)
+PROJECT (multi_hs_seq)
 
 ADD_SUBDIRECTORY(test bin)
 
