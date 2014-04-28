@@ -107,7 +107,7 @@ namespace gag
       return general_type;
     }
 
-        // New version: stop using the internal variable for confidence.
+    // New version: stop using the internal variable for confidence.
 		inline double getConfidenceValue() const
 		{
 			return background_confidence;
