@@ -83,4 +83,9 @@ namespace gag
     return mod_str;
   }
 
+  bool containSubset( const ModificationSites& ms1, const ModificationSites& ms2 )
+  {
+    return std::includes(ms1.begin(), ms1.end(), ms2.begin(), ms2.end());
+  }
+
 }

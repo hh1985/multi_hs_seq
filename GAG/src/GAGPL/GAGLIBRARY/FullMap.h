@@ -13,56 +13,59 @@
 #ifndef GAG_FULLMAP_H
 #define GAG_FULLMAP_H
 
-//#include <GAGPL/GAGLIBRARY/Assignment.h>
 #include <GAGPL/GAGLIBRARY/AssignmentPool.h>
 
 namespace gag
 {
-    struct StatusItem
-    {
-        AssignmentPtr target;
-        AssignmentPtr neighbor;
-        int direction;
-    };
 
     class FullMap
     {
     public:
         // Constructor.
-        FullMap(const std::string& mod)
-            : _mod_type(mod){}
-        
-        // Each time when an new assignment is inserted into the graph, check the graph topology and try to set up the connection.
-        // Not all assignments are inserted into the graph.
-        void insertAssignment(AssignmentPtr);
-
-        // This function does not update the status of the graph.
-        bool checkCompatibility(AssignmentPtr);
+        FullMap(GlycanSequencePtr seq, const std::string& mod, set<Backbone>& backbone_set)
+            : seq(seq), _mod_type(mod), _bone_set(backbone_set)
+        {
+          this->initialize();
+          this->connectBackboneSet();
+        }
 
         // The function is responsible for optimizing the graph. 1. Switching to the internal assignments (more assignments will be used to for insertion into the graph) recorded in the pool
         void resolveConflicts(AssignmentPool& pool);
 
-        // Removing the assignment from the graph and the status table.
-        void removeAssignment(AssignmentPtr);
+        Backbone& getBackbone(AssignmentPtr assignment);
+        set<Backbone> getBackboneNeighbor(const Backbone& bone);
+        set<Backbone> getBackboneNeighbor(AssignmentPtr assignment);
 
-        // Append the assignment
-        // 1. insert the assignment into the pool;
-        // 2. modify the assignment status.
-        void addAssignment(AssignmentPtr, AssignmentPool&);
+        void exploreDeepNodes(BackbonePtr cur, BackbonePtr tree_node);
+
+        // Check the compatibility between assignments of each backbone pair.
+        void exploreCompatibility(BackbonePtr bone);
+
+        bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone);
+        bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size);
 
         // Print the map.
         friend ostream& operator<<(ostream&, const FullMap&);
 
+
         // TBD: the output of the modification distribution.
+    private:
+      // Iterate over all bones, update the connections between bones
+      void connectBackboneSet(set<Backbone>& backbone_set);
+      void initialize();
 
     private:
-        AssignmentPtr _empty_node;
-        AssignmentPtr _full_node;
+        Backbone _empty_node;
+        Backbone _full_node;
 
         std::string _mod_type;
 
+        set<Backbone> _bone_set;
+
+        GlycanSequencePtr seq;
         // The status table records the conflicting assignments.
-        std::vector<StatusItem> _status_table;
+        // the key is the target, and the value is the neighbor.
+        multimap<AssignmentPtr, AssignmentPtr> _status_table;
         
     };
 }

@@ -22,7 +22,7 @@
 namespace gag
 {
 	// If m1 contain subset m2.
-	bool containSubset(const ModificationSites& m1, const ModificationSites& m2);
+	//bool containSubset(const ModificationSites& m1, const ModificationSites& m2);
 
   class CleavageNode;
   //typedef boost::ptr_set<CleavageNode> NodeSet;

@@ -527,4 +527,9 @@ namespace gag
     return mod_sites;
   }
 
+  ModificationSites Fragment::getCompleteModificationSites( std::string mod_symbol, int flag /*= 1*/ )
+  {
+    return glyco_seq->getModificationSitesBySymbol(mod_symbol, flag);
+  }
+
 }

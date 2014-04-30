@@ -42,40 +42,30 @@ namespace gag
         return assign_set;
     }
 
-    map<int, set<AssignmentPtr>> AssignmentPool::sortAssignmentsByUniqueness(ModificationSites&)
+    set<Backbone> AssignmentPool::selectQualifiedAssignments( const string& mod_symbol )
     {
-        map<double, set<AssignmentPtr>> mass_map;
-        AssignmentsByMass& mass_index = _pool.get<theo_mass>();
-        for(auto iter = mass_index.begin(); iter != mass_index.end(); iter++)
-        {
-            mass_map[iter->getMass()].insert(*iter);
+      AssignmentsByMass& mass_index = _pool.get<theo_mass>();
+      map<ModificationSites, Backbone> grouped_assignments;
+      for(auto mass_iter = mass_index.begin(); mass_iter != mass_index.end(); mass_iter++)
+      {
+        ModificationSites mod_sites = mass_iter->getBackboneModificationSites(mod_symbol);
+        auto bone_iter = grouped_assignments.find(mod_sites);
+        if(bone_iter == grouped_assignments.end()) {
+          Backbone single_bone(*mass_iter, mod_symbol);
+          grouped_assignments.insert(make_pair(mod_sites, single_bone));
+        } else {
+          bone_iter->second.addAssignment(*mass_iter, mod_symbol);
         }
+      }
 
-        map<int, set<AssignmentPtr>> uni_map;
+      set<Backbone> bone_set;
+      for(auto iter = grouped_assignments.begin(); iter != grouped_assignments.end(); iter++)
+      {
+        bone_set.insert(iter->second);
+      }
 
-        for(auto mass_iter = mass_map.begin(); mass_iter != mass_map.end(); mass_iter++)
-        {
-            auto uni_pair = this->calculateUniquenessValue(mass_iter->second);
-            uni_map.insert(uni_pair);
-        }
-        
-        return uni_map;
-    }
-
-    pair<int, set<AssignmentPtr>> AssignmentPool::calculateUniquenessValue(set<AssignmentPtr> assign_set)
-    {
-        // Separate the assignments by their cleavage type.
-        map<string, set<AssignmentPtr>> type_map;
-
-        for(auto iter = assign_set.begin(); iter != assign_set.end(); iter++)
-        {
-            type_map[iter->getCleavageType].insert(*iter);
-        }
-
-        
+      return bone_set;
 
     }
-
-
 
 }

@@ -207,6 +207,7 @@ namespace gag
       ModificationSites getExpandedModificationSites(std::string mod_symbol, int flag = 1);
       ModificationSites getReducedModificationSites(std::string mod_symbol, int flag = 1);
 
+      ModificationSites getCompleteModificationSites(std::string mod_symbol, int flag = 1);
   };
 
 	typedef boost::shared_ptr<Fragment> FragmentPtr;

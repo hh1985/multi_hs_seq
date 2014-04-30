@@ -138,6 +138,7 @@ SET(FULLMAP
 	${SEQREADER}
 	../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
 	../src/GAGPL/GAGLIBRARY/AssignmentPool.h ../src/GAGPL/GAGLIBRARY/AssignmentPool.cpp
+	../src/GAGPL/GAGLIBRARY/Backbone.h ../src/GAGPL/GAGLIBRARY/Backbone.cpp
 	../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
 )
 

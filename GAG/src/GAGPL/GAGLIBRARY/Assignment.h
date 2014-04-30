@@ -7,8 +7,7 @@
 	file ext:	h
 	author:		Han Hu
 	
-	purpose:	Assignment describes the structural information regarding sulfate distribution: candidate modification sites and
- modification number.
+	purpose:	Assignment describes the structural information regarding sulfate distribution: candidate modification sites and modification number.
 *********************************************************************/
 
 #ifndef GAG_ASSIGNMENT_H
@@ -18,8 +17,6 @@
 #include <GAGPL/GAGLIBRARY/LibraryTree.h>
 #include <GAGPL/CHEMISTRY/Modification.h>
 #include <GAGPL/SPECTRUM/MonoPeak.h>
-
-//#include <boost/multi_index_container.hpp>
 #include <boost/shared_ptr.hpp>
 
 namespace gag
@@ -27,12 +24,12 @@ namespace gag
   // Only concern about the neutral loss, 
   // It has nothing to do with the sulfate and acetate number.
 
-  //typedef std::map<std::string, int> NeutralLoss;
   using namespace std;
   using namespace ::boost;
   
   //using namespace ::boost::multi_index;
   typedef boost::shared_ptr<Assignment> AssignmentPtr;
+
 
 
   class Assignment: public Unit {
@@ -55,6 +52,9 @@ namespace gag
         }
     }
     
+    // Used for creating dummy assisgnment.
+    Assignment() {}
+
     // copy constructor.
     Assignment(const Assignment&);
     
@@ -97,20 +97,44 @@ namespace gag
         return fg->getMass();
     }
 
-    inline void addParent(AssignmentPtr parent)
+    /*inline void addParent(AssignmentPtr parent)
     {
-        _parent.insert(parent);
+        _parents.insert(parent);
     }
 
     inline void addChild(AssignmentPtr child)
     {
-        _child.insert(child);
+        _children.insert(child);
     }
+
+    inline void addSibling(AssignmentPtr sibling)
+    {
+        _siblings.insert(sibling);
+    }*/
 
     string getCleavageType()
     {
         return fg->getGeneralType();
     }
+
+    /*inline size_t getChildNumber()
+    {
+        return _parents.size();
+    }
+
+    inline size_t getParentNumber()
+    {
+        return _children.size();
+    }
+
+    inline size_t getSiblingNumber()
+    {
+        return _siblings.size();
+    }*/
+
+    pair<ModificationSites, int> describeStructure(const string&);
+
+
   private:
     FragmentPtr fg;
     map<string, int> neu_loss;
@@ -119,10 +143,12 @@ namespace gag
     map<string, int> mod_num;
 
     // Parent assignments based on candidate modification sites.
-    set<AssignmentPtr> _parent;
-    
-    // Child assignments based on candidate modification sites.
-    set<AssignmentPtr> _child;
+    //set<AssignmentPtr> _parents;
+    //
+    //// Child assignments based on candidate modification sites.
+    //set<AssignmentPtr> _children;
+
+    //set<AssignmentPtr> _siblings;
 
   };
 

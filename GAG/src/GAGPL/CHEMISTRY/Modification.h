@@ -128,6 +128,9 @@ namespace gag
   typedef std::map<std::string, ModificationSites> ModificationSequence;
 	ModificationSites getSiteDifference(const ModificationSites& m1, const ModificationSites& m2);
 	ModificationSites getSiteIntersection(const ModificationSites& m1, const ModificationSites& m2);
+  // If ms1 includes ms2.
+  bool containSubset(const ModificationSites& ms1, const ModificationSites& ms2);
+
 	void printModificationSites(const ModificationSites& mod_sites);
   std::string modificationString(const ModificationSites& mod_sites);
 
