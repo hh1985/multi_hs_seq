@@ -14,9 +14,13 @@
 #ifndef GAG_ASSIGNMENT_H
 #define GAG_ASSIGNMENT_H
 
-#include <GAGPL/FRAGMENTATION/Fragmentation.h>
+//#include <GAGPL/FRAGMENTATION/Fragmentation.h>
+#include <GAGPL/GAGLIBRARY/LibraryTree.h>
 #include <GAGPL/CHEMISTRY/Modification.h>
 #include <GAGPL/SPECTRUM/MonoPeak.h>
+
+//#include <boost/multi_index_container.hpp>
+#include <boost/shared_ptr.hpp>
 
 namespace gag
 {
@@ -25,18 +29,31 @@ namespace gag
 
   //typedef std::map<std::string, int> NeutralLoss;
   using namespace std;
-
-  class Assignment;
+  using namespace ::boost;
+  
+  //using namespace ::boost::multi_index;
   typedef boost::shared_ptr<Assignment> AssignmentPtr;
-  typedef set<AssignmentPtr> 
+
 
   class Assignment: public Unit {
 
   public:
-    Assignment(FragmentPtr fg)
-      : fg(fg), Unit(fg->getComposition()) 
-    {}
-    Assignment() {}
+    Assignment(NodeItem& node)
+      : fg(node.getFragment()), Unit(node.getComposition()) 
+    {
+        const Satellite& sate = node.getCompositionShiftList();
+
+        auto iter = sate.begin();
+        while(iter != sate.end())
+        {
+            if(iter->first == "AC" || iter->first == "SO3")
+                mod_num.insert(*iter);
+            else
+                neu_loss.insert(*iter);
+
+            iter++;
+        }
+    }
     
     // copy constructor.
     Assignment(const Assignment&);
@@ -58,22 +75,61 @@ namespace gag
 
     inline void setModificationNumber(const std::string& mod, int num)
     {
-      mod[mod] = num;
+      mod_num[mod] = num;
     }
 
-    // 
-    ModificationSites getBackboneModificationSites() const;
+    inline ModificationSites getBackboneModificationSites(const std::string& mod) const
+    {
+        return fg->getModificationSitesBySymbol(mod, 1);
+    }
 
+    inline ModificationSites getAcetateSites() const
+    {
+        return fg->getModificationSitesBySymbol("Ac", 1);
+    }
+    inline ModificationSites getSulfateSites() const
+    {
+        return fg->getModificationSitesBySymbol("SO3", 1);
+    }
+
+    inline double getMass() const
+    {
+        return fg->getMass();
+    }
+
+    inline void addParent(AssignmentPtr parent)
+    {
+        _parent.insert(parent);
+    }
+
+    inline void addChild(AssignmentPtr child)
+    {
+        _child.insert(child);
+    }
+
+    string getCleavageType()
+    {
+        return fg->getGeneralType();
+    }
   private:
     FragmentPtr fg;
-    std::map<std::string, int> neu_loss;
+    map<string, int> neu_loss;
 
-    // For GAG, the modification 
-    std::map<std::string, int> mod_num;
+    // For GAG, the modification contains only sulfate and acetate group.
+    map<string, int> mod_num;
 
+    // Parent assignments based on candidate modification sites.
+    set<AssignmentPtr> _parent;
     
+    // Child assignments based on candidate modification sites.
+    set<AssignmentPtr> _child;
+
   };
+
+
+  
+
 }
 
 
-#endif /* ASSIGNMENT_H */
+#endif /* GAG_ASSIGNMENT_H */

@@ -1,7 +1,7 @@
 ## DIRECTORY: /GAG/test
 SET(EXTERN_INCLUDE
 	D:/Development/boost/ # Boost.
-	D:/Development/alglib/3.7.0/src # ALGLIB
+	D:/Development/alglib/src # ALGLIB
 )
 SET(PARAM
 	../src/GAGPL/MISC/ConfigLoader.h
@@ -137,6 +137,7 @@ SET(FULLMAP
 	${LIBRARY}
 	${SEQREADER}
 	../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
+	../src/GAGPL/GAGLIBRARY/AssignmentPool.h ../src/GAGPL/GAGLIBRARY/AssignmentPool.cpp
 	../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
 )
 
