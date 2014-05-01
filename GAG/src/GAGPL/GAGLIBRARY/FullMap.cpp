@@ -21,20 +21,20 @@ namespace gag
     _empty_node->addParent(_full_node);
     _full_node->addChild(_empty_node);
 
-    _bone_set.insert(_empty_node);
-    _bone_set.insert(_full_node);
+    //_bone_set.insert(_empty_node);
+    //_bone_set.insert(_full_node);
   }
 
   void FullMap::exploreDeepNodes(BackbonePtr cur, BackbonePtr tree_node )
   {
       // Get parent nodes.
-      set<BackbonePtr>& parents = cur->getParents();
+      set<BackbonePtr>& parents = tree_node->getParents();
 
       for(auto iter = parents.begin(); iter != parents.end(); iter++)
       {
-        if((*iter)->isLarger(cur)) {
+        if((*iter)->isSmaller(cur)) { // Keep diving.
           exploreDeepNodes(cur, *iter);
-        } else if(cur->isSmaller(*iter)){
+        } else if((*iter)->isLarger(cur)){ // To the boundary.
           // Removing the original connection between child:tree_node, parent:*iter
           tree_node->replaceParent(*iter, cur);
           (*iter)->replaceChild(tree_node, cur);
