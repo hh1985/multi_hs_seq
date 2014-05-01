@@ -99,7 +99,7 @@ namespace gag
       {
           os << iter->printString() << " ";
       }
-      os << "\n";
+      //os << "\n";
 
       return os;
   }

@@ -49,6 +49,7 @@ namespace gag
       for(auto mass_iter = mass_index.begin(); mass_iter != mass_index.end(); mass_iter++)
       {
         ModificationSites mod_sites = (*mass_iter)->getBackboneModificationSites(mod_symbol);
+
         auto bone_iter = grouped_assignments.find(mod_sites);
         if(bone_iter == grouped_assignments.end()) {
           BackbonePtr single_bone = boost::make_shared<Backbone>(*mass_iter, mod_symbol);

@@ -46,13 +46,14 @@ int main(int argc, char **argv)
 
     for(auto iter = bone_set.begin(); iter != bone_set.end(); iter++)
     {
+        cout << "Modification sites:" << (*iter)->mod_sites << "\n";
         set<int> mod_num_set = (*iter)->getModNumbers();
         for(auto num_it = mod_num_set.begin(); num_it != mod_num_set.end(); num_it++)
         {
             set<AssignmentPtr> assign_set = (*iter)->getAssignmentsByModNumber(*num_it);
-            cout << "Assignment size:" << assign_set.size();
+            cout << "Mod Number:" << *num_it << "\tAssignment size:" << assign_set.size() << "\n";
         }
-
+        cout << "\n";
     }
 
     FullMap ass_graph(gs, mod_symbol, bone_set);
@@ -61,6 +62,17 @@ int main(int argc, char **argv)
     // 3.3 Deal with sulfate group
     mod_symbol = "SO3";
     set<BackbonePtr> bone_set2 = assignment_pool.selectQualifiedAssignments(mod_symbol);
+
+    for(auto iter = bone_set2.begin(); iter != bone_set2.end(); iter++)
+    {
+        set<int> mod_num_set = (*iter)->getModNumbers();
+        for(auto num_it = mod_num_set.begin(); num_it != mod_num_set.end(); num_it++)
+        {
+            set<AssignmentPtr> assign_set = (*iter)->getAssignmentsByModNumber(*num_it);
+            cout << "Assignment size:" << assign_set.size() << "\n";
+        }
+
+    }
 
     FullMap sulfate_graph(gs, mod_symbol, bone_set2);
 

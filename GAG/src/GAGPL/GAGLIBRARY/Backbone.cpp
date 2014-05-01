@@ -6,12 +6,19 @@ namespace gag
   void Backbone::addAssignment( AssignmentPtr assignment, const string& mod_symbol )
   {
     // Check if the assignment is qualified.
-    if(mod_sites.size() == 0 || mod_sites == assignment->getBackboneModificationSites(mod_symbol)) {
-      int mod_num = assignment->getModificationNumber(mod_symbol);
-      members[mod_num].insert(assignment);
-    } else {
-      cout << "Assignment doesn't match!\n";
-    }
+      
+      if(mod_sites.size() == 0)
+          mod_sites = assignment->getBackboneModificationSites(mod_symbol);
+      else if(!(mod_sites == assignment->getBackboneModificationSites(mod_symbol))) {
+
+#ifdef _DEBUG  
+        std::cout << "Assignment doesn't match!\n";
+#endif
+        return;
+      }
+
+    int mod_num = assignment->getModificationNumber(mod_symbol);
+    members[mod_num].insert(assignment);
 
   }
 

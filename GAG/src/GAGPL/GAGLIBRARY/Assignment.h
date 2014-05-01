@@ -41,8 +41,10 @@ namespace gag
         auto iter = sate.begin();
         while(iter != sate.end())
         {
-            if(iter->first == "AC" || iter->first == "SO3")
-                mod_count.insert(*iter);
+            if(iter->first == "C2H2O")
+                mod_count.insert(make_pair("Ac", abs(iter->second)));
+            else if(iter->first == "O3S")
+                mod_count.insert(make_pair("SO3", abs(iter->second)));
             else
                 neu_loss.insert(*iter);
 
