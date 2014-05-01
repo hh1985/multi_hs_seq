@@ -28,15 +28,13 @@ namespace gag
   using namespace ::boost;
   
   //using namespace ::boost::multi_index;
-  typedef boost::shared_ptr<Assignment> AssignmentPtr;
-
-
+  
 
   class Assignment: public Unit {
 
   public:
-    Assignment(NodeItem& node)
-      : fg(node.getFragment()), Unit(node.getComposition()) 
+    Assignment(MonoPeakPtr pk, NodeItem& node)
+      : pk(pk), fg(node.getFragment()), Unit(node.getComposition()) 
     {
         const Satellite& sate = node.getCompositionShiftList();
 
@@ -44,7 +42,7 @@ namespace gag
         while(iter != sate.end())
         {
             if(iter->first == "AC" || iter->first == "SO3")
-                mod_num.insert(*iter);
+                mod_count.insert(*iter);
             else
                 neu_loss.insert(*iter);
 
@@ -69,13 +67,13 @@ namespace gag
 
     int getModificationNumber(const std::string& mod) const
     {
-      auto iter = mod_num.find(mod);
-      return iter == mod_num.end() ? 0 : iter->second;
+      auto iter = mod_count.find(mod);
+      return iter == mod_count.end() ? 0 : iter->second;
     }
 
     inline void setModificationNumber(const std::string& mod, int num)
     {
-      mod_num[mod] = num;
+      mod_count[mod] = num;
     }
 
     inline ModificationSites getBackboneModificationSites(const std::string& mod) const
@@ -134,25 +132,20 @@ namespace gag
 
     pair<ModificationSites, int> describeStructure(const string&);
 
+    friend ostream& operator<<(ostream& os, const Assignment& assignment);
 
   private:
     FragmentPtr fg;
     map<string, int> neu_loss;
 
     // For GAG, the modification contains only sulfate and acetate group.
-    map<string, int> mod_num;
+    map<string, int> mod_count;
 
-    // Parent assignments based on candidate modification sites.
-    //set<AssignmentPtr> _parents;
-    //
-    //// Child assignments based on candidate modification sites.
-    //set<AssignmentPtr> _children;
-
-    //set<AssignmentPtr> _siblings;
+    MonoPeakPtr pk;
 
   };
 
-
+  typedef boost::shared_ptr<Assignment> AssignmentPtr;
   
 
 }

@@ -15,6 +15,7 @@
 #define GAG_BACKBONE_H
 
 #include <GAGPL/GAGLIBRARY/Assignment.h>
+#include <boost/shared_ptr.hpp>
 
 namespace gag
 {
@@ -25,10 +26,10 @@ namespace gag
   {
   public:
 
-
     ModificationSites mod_sites;
     map<int, set<AssignmentPtr>> members;
-
+  
+  public:
     Backbone(const ModificationSites& mod_sites, int mod_num)
       : mod_sites(mod_sites) {
         members.insert(make_pair(mod_num, set<AssignmentPtr>()));
@@ -40,7 +41,7 @@ namespace gag
       this->addAssignment(assignment, mod_symbol);
     }
 
-    set<AssignmentPtr>& getAssignmentsByModNumber(int mod_num);
+    set<AssignmentPtr> getAssignmentsByModNumber(int mod_num);
 
     set<int> getModNumbers() const;
 
@@ -130,11 +131,12 @@ namespace gag
       return containSubset(mod_sites, cur->mod_sites);
     }
 
+    friend ostream& operator<<(ostream& os, const Backbone& bone);
   private:
     set<BackbonePtr> _parents;
     set<BackbonePtr> _children;
     set<BackbonePtr> _siblings;
-  }
+  };
 }
 
 #endif /* GAG_BACKBONE_H */

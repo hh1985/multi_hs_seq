@@ -14,19 +14,22 @@
 #define GAG_FULLMAP_H
 
 #include <GAGPL/GAGLIBRARY/AssignmentPool.h>
+#include <GAGPL/GLYCAN/GlycanSequence.h>
 
 namespace gag
 {
+    using namespace std;
 
     class FullMap
     {
     public:
         // Constructor.
-        FullMap(GlycanSequencePtr seq, const std::string& mod, set<Backbone>& backbone_set)
+        FullMap(GlycanSequencePtr seq, const std::string& mod, set<BackbonePtr>& backbone_set)
             : seq(seq), _mod_type(mod), _bone_set(backbone_set)
         {
           this->initialize();
           this->connectBackboneSet();
+          this->exploreCompatibility(_empty_node);
         }
 
         // The function is responsible for optimizing the graph. 1. Switching to the internal assignments (more assignments will be used to for insertion into the graph) recorded in the pool
@@ -51,16 +54,16 @@ namespace gag
         // TBD: the output of the modification distribution.
     private:
       // Iterate over all bones, update the connections between bones
-      void connectBackboneSet(set<Backbone>& backbone_set);
+      void connectBackboneSet();
       void initialize();
 
     private:
-        Backbone _empty_node;
-        Backbone _full_node;
+        BackbonePtr _empty_node;
+        BackbonePtr _full_node;
 
         std::string _mod_type;
 
-        set<Backbone> _bone_set;
+        set<BackbonePtr>& _bone_set;
 
         GlycanSequencePtr seq;
         // The status table records the conflicting assignments.

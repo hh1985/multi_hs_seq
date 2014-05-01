@@ -377,6 +377,22 @@ namespace gag
 		std::cout << std::endl;
 	}
 
+    std::ostream& operator<<(std::ostream& os, const Fragment& frag)
+    {
+        os << "General type:" << frag.getGeneralType() << "\t" << "Cleavage type:" << frag.getCleavageType() << "\n";
+        os << "Composition:" << frag.getCompositionString() << "\t" << "Mass:" << frag.getMass() << "\n";
+        
+        std::set<std::string> mod_types = frag.glyco_seq->getModificationTypes();
+        for(std::set<std::string>::iterator iter = mod_types.begin(); iter != mod_types.end(); iter++)
+        {
+            os << *iter << ":" << frag.getModificationSiteNum(*iter, 1) << " ";
+        }
+
+        os << "\n";
+
+        return os;
+    }
+
 	void Fragment::updateCleavage( const CleavageCollection& cleavage_col )
 	{
 		// Use the cleavage information to update the fragment.

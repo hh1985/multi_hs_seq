@@ -3,7 +3,6 @@
 namespace gag
 {
 
-
   void Backbone::addAssignment( AssignmentPtr assignment, const string& mod_symbol )
   {
     // Check if the assignment is qualified.
@@ -16,7 +15,7 @@ namespace gag
 
   }
 
-  set<AssignmentPtr>& Backbone::getAssignmentsByModNumber( int mod_num )
+  set<AssignmentPtr> Backbone::getAssignmentsByModNumber( int mod_num )
   {
     if(members.find(mod_num) != members.end())
       return members[mod_num];
@@ -39,4 +38,19 @@ namespace gag
     return members.size() == 0 ? 0 : members.rbegin()->first;
   }
 
+  ostream& operator<<(ostream& os, const Backbone& bone)
+  {
+      os << bone.mod_sites;
+
+      for(auto iter = bone.members.begin(); iter != bone.members.end(); iter++)
+      {
+          os << "Number: " << iter->first << "\n";
+          for(auto assign_iter = (*iter).second.begin(); assign_iter != (*iter).second.end(); assign_iter++)
+          {
+              os << *assign_iter << "\n";
+          }
+      }
+
+      return os;
+  }
 }

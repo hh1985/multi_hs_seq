@@ -88,4 +88,20 @@ namespace gag
     return std::includes(ms1.begin(), ms1.end(), ms2.begin(), ms2.end());
   }
 
+  std::ostream& operator<<(std::ostream& os, const ModificationSites& mod_sites)
+  {
+      if(mod_sites.size() == 0) {
+          os << "Empty!\n";
+          return os;
+      }
+
+      for(ModificationSites::const_iterator iter = mod_sites.begin(); iter != mod_sites.end(); iter++)
+      {
+          os << iter->printString() << " ";
+      }
+      os << "\n";
+
+      return os;
+  }
+
 }

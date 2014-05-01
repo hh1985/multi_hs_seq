@@ -23,6 +23,7 @@
 #include <GAGPL/GLYCAN/GlycanSequence.h>
 #include <GAGPL/MISC/Param.h>
 #include <boost/shared_ptr.hpp>
+#include <iostream>
 
 using namespace param;
 
@@ -208,6 +209,8 @@ namespace gag
       ModificationSites getReducedModificationSites(std::string mod_symbol, int flag = 1);
 
       ModificationSites getCompleteModificationSites(std::string mod_symbol, int flag = 1);
+
+      friend std::ostream& operator<<(std::ostream& os, const Fragment& frag);
   };
 
 	typedef boost::shared_ptr<Fragment> FragmentPtr;

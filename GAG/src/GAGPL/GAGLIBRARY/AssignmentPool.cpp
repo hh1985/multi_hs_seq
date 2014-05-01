@@ -42,23 +42,23 @@ namespace gag
         return assign_set;
     }
 
-    set<Backbone> AssignmentPool::selectQualifiedAssignments( const string& mod_symbol )
+    set<BackbonePtr> AssignmentPool::selectQualifiedAssignments( const string& mod_symbol )
     {
       AssignmentsByMass& mass_index = _pool.get<theo_mass>();
-      map<ModificationSites, Backbone> grouped_assignments;
+      map<ModificationSites, BackbonePtr> grouped_assignments;
       for(auto mass_iter = mass_index.begin(); mass_iter != mass_index.end(); mass_iter++)
       {
-        ModificationSites mod_sites = mass_iter->getBackboneModificationSites(mod_symbol);
+        ModificationSites mod_sites = (*mass_iter)->getBackboneModificationSites(mod_symbol);
         auto bone_iter = grouped_assignments.find(mod_sites);
         if(bone_iter == grouped_assignments.end()) {
-          Backbone single_bone(*mass_iter, mod_symbol);
+          BackbonePtr single_bone = boost::make_shared<Backbone>(*mass_iter, mod_symbol);
           grouped_assignments.insert(make_pair(mod_sites, single_bone));
         } else {
-          bone_iter->second.addAssignment(*mass_iter, mod_symbol);
+          bone_iter->second->addAssignment(*mass_iter, mod_symbol);
         }
       }
 
-      set<Backbone> bone_set;
+      set<BackbonePtr> bone_set;
       for(auto iter = grouped_assignments.begin(); iter != grouped_assignments.end(); iter++)
       {
         bone_set.insert(iter->second);

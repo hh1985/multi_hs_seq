@@ -20,10 +20,11 @@
 
 namespace gag
 {
+    using namespace std;
     using namespace ::boost;
     using namespace ::boost::multi_index;
 
-    struct theo_mass {};
+    //struct theo_mass {};
     struct ac_sites {};
     struct sulfate_sites {};
     struct general_type {};
@@ -54,8 +55,6 @@ namespace gag
       //  return mod_sites < bone.mod_sites;
       //}
 
-    };
-
     // Wrapper of assignment container.
     class AssignmentPool
     {
@@ -76,7 +75,7 @@ namespace gag
         // 3. Select qualified assignments for constructing assignment graph.
         // For each mass, only the terminal assignments can be selected.
         // For assignments with the the same modification sites, only the one with the largest modification number can be selected.
-        set<Backbone> selectQualifiedAssignments(const string& mod_symbol);
+        set<BackbonePtr> selectQualifiedAssignments(const string& mod_symbol);
 
     private:
         AssignmentContainer _pool;

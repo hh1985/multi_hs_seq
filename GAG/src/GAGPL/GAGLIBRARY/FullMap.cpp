@@ -13,61 +13,64 @@ namespace gag
 
   void FullMap::initialize()
   {
-    _empty_node(ModificationSites(), 0);
+    _empty_node = boost::make_shared<Backbone>(ModificationSites(), 0);
     
-    _full_node(seq->getModificationSitesBySymbol(_mod_type, 1), seq->getModificationConstraint(_mod_type));
+    _full_node = boost::make_shared<Backbone>(seq->getModificationSitesBySymbol(_mod_type, 1), seq->getModificationConstraint(_mod_type));
     //_full_node.addAssignment(end_assign);
 
-    _empty_node.addParent(_full_node);
-    _full_node.addChild(_empty_node);
+    _empty_node->addParent(_full_node);
+    _full_node->addChild(_empty_node);
+
+    _bone_set.insert(_empty_node);
+    _bone_set.insert(_full_node);
   }
 
-  void FullMap::exploreDeepNodes(Backbone& cur, Backbone& tree_node )
+  void FullMap::exploreDeepNodes(BackbonePtr cur, BackbonePtr tree_node )
   {
       // Get parent nodes.
-      set<BackbonePtr>& parents = cur.getParents();
+      set<BackbonePtr>& parents = cur->getParents();
 
       for(auto iter = parents.begin(); iter != parents.end(); iter++)
       {
-        if((*iter).isLarger(cur)) {
+        if((*iter)->isLarger(cur)) {
           exploreDeepNodes(cur, *iter);
-        } else if(cur.isSmaller(*iter)){
+        } else if(cur->isSmaller(*iter)){
           // Removing the original connection between child:tree_node, parent:*iter
-          tree_node.replaceParent(*iter, cur);
-          (*iter).replaceChild(tree_node, cur);
+          tree_node->replaceParent(*iter, cur);
+          (*iter)->replaceChild(tree_node, cur);
 
           // Set up the new connection.
-          cur.addChild(tree_node);
-          cur.addParent(*iter);
+          cur->addChild(tree_node);
+          cur->addParent(*iter);
 
-        } else if(!cur.isSibling(*iter)){
+        } else if(!cur->isSibling(*iter)){
 
           // Add children.
-          set<BackbonePtr>& sib_children = (*iter).getChildren();
+          set<BackbonePtr>& sib_children = (*iter)->getChildren();
           for(auto child_iter = sib_children.begin(); child_iter != sib_children.end(); child_iter++)
           {
-            cur.addChild(*child_iter);
-            (*child_iter).addParent(cur);
+            cur->addChild(*child_iter);
+            (*child_iter)->addParent(cur);
 
           }
 
           // Add parents, all the parents of the sibling is also the parents of the 
-          set<BackbonePtr>& sib_parents = (*iter).getParents();
+          set<BackbonePtr>& sib_parents = (*iter)->getParents();
           for(auto parent_iter = sib_parents.begin(); parent_iter != sib_parents.end(); parent_iter++)
           {
-            cur.addParent(*parent_iter);
-            (*parent_iter).addChild(cur);
+            cur->addParent(*parent_iter);
+            (*parent_iter)->addChild(cur);
           }
 
           // Add sibling
-          cur.addSibling(*iter);
-          (*iter).addSibling(cur);
+          cur->addSibling(*iter);
+          (*iter)->addSibling(cur);
 
-          set<BackbonePtr>& sib = (*iter).getSiblings();
+          set<BackbonePtr>& sib = (*iter)->getSiblings();
           for(auto sib_iter = sib.begin(); sib_iter != sib.end(); sib_iter++)
           {
-            cur.addSibling(*sib_iter);
-            (*sib_iter).addSibling(cur);
+            cur->addSibling(*sib_iter);
+            (*sib_iter)->addSibling(cur);
           }
 
 
@@ -79,14 +82,14 @@ namespace gag
 
   void FullMap::exploreCompatibility( BackbonePtr bone)
   {
-    set<BackbonePtr>& parents = bone.getParents();
+    set<BackbonePtr>& parents = bone->getParents();
 
-    set<BackbonePtr>& children = bone.getChildren();
+    set<BackbonePtr>& children = bone->getChildren();
 
     for(auto iter = parents.begin(); iter != parents.end(); iter++)
     {
-      this->exploreCompatibility(bone, *iter);
-      if(iter->isDummyNode())
+      this->checkCompatibility(bone, *iter);
+      if((*iter)->isDummyNode())
         return;
 
       this->exploreCompatibility(*iter);
@@ -94,25 +97,25 @@ namespace gag
 
     for(auto iter = children.begin(); iter != children.end(); iter++)
     {
-      this->exploreCompatibility(*iter, bone);
+      this->checkCompatibility(*iter, bone);
       this->exploreCompatibility(*iter);
     }
 
   }
 
-  void FullMap::checkCompatibility( BackbonePtr small_bone, BackbonePtr large_bone )
+  bool FullMap::checkCompatibility( BackbonePtr small_bone, BackbonePtr large_bone )
   {
     // Maintain assignments with different mod numbers.
     bool flag = true;
+    ModificationSites small_sites = small_bone->mod_sites;
+    ModificationSites large_sites = large_bone->mod_sites;
+    int diff_size = (int)getSiteDifference(large_sites, small_sites).size();
 
     if(_mod_type == "Ac") {
       
       set<int> small_num_set = small_bone->getModNumbers();
-      ModificationSites small_sites = small_bone->mod_sites;
+      
       set<int> large_num_set = large_bone->getModNumbers();
-      ModificationSites large_sites = large_bone->mod_sites;
-
-      int diff_size = (int)getSiteDifference(large_sites, small_sites).size();
       
       for(auto it1 = small_num_set.begin(); it1 != small_num_set.end(); it1++)
       {
@@ -124,8 +127,8 @@ namespace gag
       }
 
     } else if(_mod_type == "SO3") {
-      small_num = small_bone->getLargestModNumber();
-      large_num = large_bone->getLargestModNumber();
+      int small_num = small_bone->getLargestModNumber();
+      int large_num = large_bone->getLargestModNumber();
 
       flag = this->checkCompatibility(small_bone, large_bone, small_num, large_num, diff_size);
     }
@@ -133,7 +136,7 @@ namespace gag
     return flag;
   }
 
-  void FullMap::checkCompatibility( BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size )
+  bool FullMap::checkCompatibility( BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size )
   {
     int lower_num = small_num;
     int upper_num = diff_size + small_num;
@@ -156,6 +159,33 @@ namespace gag
     }
   }
 
+  ostream& operator<<(ostream& os, const FullMap& graph)
+  {
+      vector<const BackbonePtr> bone_vec;
+      bone_vec.push_back(graph._empty_node);
+      std::copy(graph._bone_set.begin(), graph._bone_set.end(), std::back_inserter(bone_vec));
+      bone_vec.push_back(graph._full_node);
+
+      // Iterate over all backbones
+      
+      for(auto iter = bone_vec.begin(); iter != bone_vec.end(); iter++)
+      {
+          os << "Backbone:" << *iter << "\n";
+          set<BackbonePtr>& parents = (*iter)->getParents();
+          for(auto p_it = parents.begin(); p_it != parents.end(); p_it++)
+              os << "Parent:" << **p_it << "\n";
+
+          set<BackbonePtr>& children = (*iter)->getChildren();
+          for(auto c_it = children.begin(); c_it != children.end(); c_it++)
+              os << "Children:" << **c_it << "\n";
+
+          set<BackbonePtr>& siblings = (*iter)->getSiblings();
+          for(auto s_it = children.begin(); s_it != children.end(); s_it++)
+              os << "Siblings:" << **s_it << "\n";
+
+      }
+      return os;
+  }
 
 
 }

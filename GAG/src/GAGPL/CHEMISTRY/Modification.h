@@ -16,6 +16,7 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <iostream>
 #include <boost/tuple/tuple.hpp>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
@@ -125,13 +126,15 @@ namespace gag
 	};
 
 	typedef std::set<ModificationPosition> ModificationSites;
-  typedef std::map<std::string, ModificationSites> ModificationSequence;
+    typedef std::map<std::string, ModificationSites> ModificationSequence;
 	ModificationSites getSiteDifference(const ModificationSites& m1, const ModificationSites& m2);
 	ModificationSites getSiteIntersection(const ModificationSites& m1, const ModificationSites& m2);
   // If ms1 includes ms2.
-  bool containSubset(const ModificationSites& ms1, const ModificationSites& ms2);
+    bool containSubset(const ModificationSites& ms1, const ModificationSites& ms2);
 
 	void printModificationSites(const ModificationSites& mod_sites);
+    std::ostream& operator<<(std::ostream& os, const ModificationSites& mod_sites);
+
   std::string modificationString(const ModificationSites& mod_sites);
 
 	struct Reaction
