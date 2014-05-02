@@ -7,7 +7,10 @@ namespace gag
   {
     for(auto bone_iter = _bone_set.begin(); bone_iter != _bone_set.end(); bone_iter++)
     {
-      this->exploreDeepNodes(*bone_iter, _empty_node);
+      /*set<BackbonePtr> parents = _empty_node->getParents();
+      for(auto p_iter = parents.begin(); p_iter != parents.end(); p_iter++)
+      this->exploreDeepNodes(*bone_iter, _empty_node, *p_iter);*/
+      this->exploreEntryPoint(*bone_iter, _empty_node);
     }
   }
 
@@ -25,89 +28,117 @@ namespace gag
     //_bone_set.insert(_full_node);
   }
 
-  void FullMap::exploreDeepNodes(BackbonePtr cur, BackbonePtr tree_node )
+  void FullMap::exploreDeepNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node)
   {
 
 
-      // Get parent nodes.
-      set<BackbonePtr> parents = tree_node->getParents();
-
 #ifdef _DEBUG
       cout << "\n******Before*****\n"; 
-      cout << "Current:" << cur->mod_sites << "\n";
-      for(auto iter = cur->getParents().begin(); iter != cur->getParents().end(); iter++)
-        cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
-      for(auto iter = cur->getChildren().begin(); iter != cur->getChildren().end(); iter++)
-        cout << "--Checked child:" << (*iter)->mod_sites << "\n";
-      for(auto iter = cur->getSiblings().begin(); iter != cur->getSiblings().end(); iter++)
-        cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
+      //cout << "Current:" << cur->mod_sites << "\n";
+      //for(auto iter = cur->getParents().begin(); iter != cur->getParents().end(); iter++)
+      //  cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
+      //for(auto iter = cur->getChildren().begin(); iter != cur->getChildren().end(); iter++)
+      //  cout << "--Checked child:" << (*iter)->mod_sites << "\n";
+      //for(auto iter = cur->getSiblings().begin(); iter != cur->getSiblings().end(); iter++)
+      //  cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
 
-      cout << "Checked:" << tree_node->mod_sites << "\n";
-      for(auto iter = tree_node->getParents().begin(); iter != tree_node->getParents().end(); iter++)
-        cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
-      for(auto iter = tree_node->getChildren().begin(); iter != tree_node->getChildren().end(); iter++)
-        cout << "--Checked child:" << (*iter)->mod_sites << "\n";
-      for(auto iter = tree_node->getSiblings().begin(); iter != tree_node->getSiblings().end(); iter++)
-        cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
+      //cout << "Checked:" << child_node->mod_sites << "\n";
+      //for(auto iter = child_node->getParents().begin(); iter != child_node->getParents().end(); iter++)
+      //  cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
+      //for(auto iter = child_node->getChildren().begin(); iter != child_node->getChildren().end(); iter++)
+      //  cout << "--Checked child:" << (*iter)->mod_sites << "\n";
+      //for(auto iter = child_node->getSiblings().begin(); iter != child_node->getSiblings().end(); iter++)
+      //  cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
+      cout << "Current:" << *cur << "\n";
+      cout << "Checked child:" << *child_node << "\n";
+      cout << "Checked parent:" << *parent_node << "\n";
+
 #endif // _DEBUG
+      // Get parent nodes.
+      set<BackbonePtr> parents = child_node->getParents();
 
       // Iterate over all parents. Decide if there is any chance to locate the position of the current node.
-      bool sib = true;
-      for(auto iter = parents.begin(); iter != parents.end(); iter++)
-      {
-        if((*iter)->isSmaller(cur)) { // Keep diving.
-          exploreDeepNodes(cur, *iter);
-        } else if((*iter)->isLarger(cur)){ // To the boundary.
-          // Removing the original connection between child:tree_node, parent:*iter
-          tree_node->replaceParent(*iter, cur);
-          (*iter)->replaceChild(tree_node, cur);
+      
+      if(parent_node->isLarger(cur)){ // To the boundary.
+        // Removing the original connection between child:tree_node, parent:*iter
+        child_node->replaceParent(parent_node, cur);
+        parent_node->replaceChild(child_node, cur);
 
-          // Set up the new connection.
-          cur->addChild(tree_node);
-          cur->addParent(*iter);
-
-          // The node is no longer considered as a sibling of the parents.
-          sib = false;
-
+        // Insert the node.
+        cur->addChild(child_node);
+        cur->addParent(parent_node);
+      } else {
+        set<BackbonePtr> parents_parent = parent_node->getParents();
+        if(parent_node->isSmaller(cur)) {
+          for(auto p_iter = parents_parent.begin(); p_iter != parents_parent.end(); p_iter++)
+          {
+            // Adjust the child node and parent node.
+            this->exploreDeepNodes(cur, parent_node, *p_iter);
+          }
         } else {
-          // Do nothing.
-        }
-      }
+          for(auto p_iter = parents_parent.begin(); p_iter != parents_parent.end(); p_iter++)
+          {
+            // Adjust the child node and parent node.
+            this->exploreDeepNodes(cur, child_node, *p_iter);
+          }
 
-      if(sib) {
-        // All the parents, children and siblings information can be extracted from 
-        // the first node.
-        auto iter = parents.begin();
-        
-        // All children of the sibling are also the children of the current node. 
-        set<BackbonePtr> sib_children = (*iter)->getChildren();
-        for(auto child_iter = sib_children.begin(); child_iter != sib_children.end(); child_iter++)
-        {
-          cur->addChild(*child_iter);
-          (*child_iter)->addParent(cur);
-        }
+          // Check if parent_node is a sibling node.
+          std::vector<BackbonePtr> common_parents;
+          std::vector<BackbonePtr> common_children;
 
-        // All parents of the sibling are also the parents of the current node.
-        set<BackbonePtr> sib_parents = (*iter)->getParents();
-        for(auto parent_iter = sib_parents.begin(); parent_iter != sib_parents.end(); parent_iter++)
-        {
-          cur->addParent(*parent_iter);
-          (*parent_iter)->addChild(cur);
-        }
+          set_intersection(parent_node->getParents().begin(), parent_node->getParents().end(), cur->getParents().begin(), cur->getParents().end(), std::back_inserter(common_parents));
+          set_intersection(parent_node->getChildren().begin(), parent_node->getChildren().end(), cur->getChildren().begin(), cur->getChildren().end(), std::back_inserter(common_children));
+          if(!common_parents.empty() && !common_children.empty())
+          {
+#ifdef _DEBUG
+            cout << "Found a new sibling!\n";
+#endif // _DEBUG
 
-        // All siblings of the sibling are also the siblings of the current node.
-        set<BackbonePtr> sib = (*iter)->getSiblings();
-        for(auto sib_iter = sib.begin(); sib_iter != sib.end(); sib_iter++)
-        {
-          cur->addSibling(*sib_iter);
-          (*sib_iter)->addSibling(cur);
+            cur->addSibling(parent_node);
+            parent_node->addSibling(cur);
+
+          }
         }
 
-        // Set up the connection between the current node and the sibling.
-        cur->addSibling(*iter);
-        (*iter)->addSibling(cur);
-        
-      }
+      } 
+
+
+      //// Get parent nodes.
+      //set<BackbonePtr> parents = child_node->getParents();
+
+      //// Iterate over all parents. Decide if there is any chance to locate the position of the current node.
+      //for(auto iter = parents.begin(); iter != parents.end(); iter++)
+      //{
+      //  if((*iter)->isLarger(cur)){ // To the boundary.
+      //    // Removing the original connection between child:tree_node, parent:*iter
+      //    child_node->replaceParent(*iter, cur);
+      //    (*iter)->replaceChild(child_node, cur);
+
+      //    // Insert the node.
+      //    cur->addChild(child_node);
+      //    cur->addParent(*iter);
+      //  } else if((*iter)->isSmaller(cur)){
+      //    set<BackbonePtr> parents_parents = (*iter)->getParents();
+      //    for(auto p_iter = parents_parents.begin(); p_iter != parents_parents.end(); p_iter++)
+      //    {
+      //      // Adjust the child node and parent node.
+      //      this->exploreDeepNodes(cur, *iter, *p_iter);
+      //    }
+
+      //  } else {
+      //    set<BackbonePtr> parents_parents = (*iter)->getParents();
+      //    for(auto p_iter = parents_parents.begin(); p_iter != parents_parents.end(); p_iter++)
+      //    {
+      //      // Adjust only the parent node.
+      //      this->exploreDeepNodes(cur, child_node, *p_iter);
+      //    }
+      //  }
+      //}
+
+      // Check all the parents of the child node, decide if there is any sibling.
+
+      
+
         //if(!cur->isSibling(*iter)){ // If recorded as sibling.
 
         //  // Add children.
@@ -144,21 +175,9 @@ namespace gag
       //}
 #ifdef _DEBUG
       cout << "\n******After*****\n"; 
-      cout << "Current:" << cur->mod_sites << "\n";
-      for(auto iter = cur->getParents().begin(); iter != cur->getParents().end(); iter++)
-        cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
-      for(auto iter = cur->getChildren().begin(); iter != cur->getChildren().end(); iter++)
-        cout << "--Checked child:" << (*iter)->mod_sites << "\n";
-      for(auto iter = cur->getSiblings().begin(); iter != cur->getSiblings().end(); iter++)
-        cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
-
-      cout << "Checked:" << tree_node->mod_sites << "\n";
-      for(auto iter = tree_node->getParents().begin(); iter != tree_node->getParents().end(); iter++)
-        cout << "--Checked parent:" << (*iter)->mod_sites << "\n";
-      for(auto iter = tree_node->getChildren().begin(); iter != tree_node->getChildren().end(); iter++)
-        cout << "--Checked child:" << (*iter)->mod_sites << "\n";
-      for(auto iter = tree_node->getSiblings().begin(); iter != tree_node->getSiblings().end(); iter++)
-        cout << "--Checked sibling:" << (*iter)->mod_sites << "\n";
+      cout << "Current:" << *cur << "\n";
+      cout << "Checked child:" << *child_node << "\n";
+      cout << "Checked parent:" << *parent_node << "\n";
 #endif // _DEBUG
   }
 
@@ -241,6 +260,33 @@ namespace gag
     }
   }
 
+  bool FullMap::exploreEntryPoint( BackbonePtr cur, BackbonePtr child_node, set<BackbonePtr> parent_nodes)
+  {
+    bool sib = true;
+    for(auto iter = parent_nodes.begin(); iter != parent_nodes.end(); iter++)
+    {
+      if((*iter)->isLarger(cur)){
+        sib = false;
+      } else if((*iter)->isSmaller(cur)) {
+        sib = false;
+      } 
+    }
+
+    if(sib) {
+      // Create the connection between cur and child_node.
+      cur->addChild(child_node);
+      child_node->addParent(cur);
+
+      set<BackbonePtr> new_parents;
+      for(auto iter = parent_nodes.begin(); iter != parent_nodes.end(); iter++)
+      {
+
+      }
+    }
+
+    return sib;
+  }
+
   ostream& operator<<(ostream& os, const FullMap& graph)
   {
       vector<const BackbonePtr> bone_vec;
@@ -252,7 +298,7 @@ namespace gag
       
       for(auto iter = bone_vec.begin(); iter != bone_vec.end(); iter++)
       {
-          os << "Backbone:" << *iter << "\n";
+          os << "Backbone:" << **iter << "\n";
           set<BackbonePtr>& parents = (*iter)->getParents();
           for(auto p_it = parents.begin(); p_it != parents.end(); p_it++)
               os << "Parent:" << **p_it << "\n";

@@ -47,16 +47,24 @@ namespace gag
 
   ostream& operator<<(ostream& os, const Backbone& bone)
   {
-      os << bone.mod_sites;
+      os << bone.mod_sites << "\n";
 
-      for(auto iter = bone.members.begin(); iter != bone.members.end(); iter++)
-      {
-          os << "Number: " << iter->first << "\n";
-          for(auto assign_iter = (*iter).second.begin(); assign_iter != (*iter).second.end(); assign_iter++)
-          {
-              os << *assign_iter << "\n";
-          }
-      }
+      //for(auto iter = bone.members.begin(); iter != bone.members.end(); iter++)
+      //{
+      //    os << "Number: " << iter->first << "\n";
+      //    for(auto assign_iter = (*iter).second.begin(); assign_iter != (*iter).second.end(); assign_iter++)
+      //    {
+      //        os << *assign_iter << "\n";
+      //    }
+      //}
+      for(auto iter = bone._parents.begin(); iter != bone._parents.end(); iter++)
+        os << "--Parent:" << (*iter)->mod_sites << "\n";
+
+      for(auto iter = bone._children.begin(); iter != bone._children.end(); iter++)
+        os << "--Child:" << (*iter)->mod_sites << "\n";
+
+      for(auto iter = bone._siblings.begin(); iter != bone._siblings.end(); iter++)
+        os << "--Sibling:" << (*iter)->mod_sites << "\n";
 
       return os;
   }
