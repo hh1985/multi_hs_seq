@@ -91,7 +91,7 @@ namespace gag
   std::ostream& operator<<(std::ostream& os, const ModificationSites& mod_sites)
   {
       if(mod_sites.size() == 0) {
-          os << "Empty!\n";
+          os << "Empty!";
           return os;
       }
 
