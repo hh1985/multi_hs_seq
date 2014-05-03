@@ -41,7 +41,7 @@ namespace gag
 
         void exploreDeepNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
         // Decide if any of the path is OK for insertion.
-        bool exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node, set<BackbonePtr> parent_nodes);
+        void exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node);
 
         // Check the compatibility between assignments of each backbone pair.
         void exploreCompatibility(BackbonePtr bone);
@@ -52,9 +52,12 @@ namespace gag
         // Print the map.
         friend ostream& operator<<(ostream&, const FullMap&);
 
+        bool isNRECleavage(BackbonePtr cur) const;
+        bool isRECleavage(BackbonePtr cur) const;
 
         // TBD: the output of the modification distribution.
     private:
+
       // Iterate over all bones, update the connections between bones
       void connectBackboneSet();
       void initialize();

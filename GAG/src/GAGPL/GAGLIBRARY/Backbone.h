@@ -16,11 +16,26 @@
 
 #include <GAGPL/GAGLIBRARY/Assignment.h>
 #include <boost/shared_ptr.hpp>
+#include <boost/bimap/bimap.hpp>
+#include <boost/bimap/multiset_of.hpp>
+#include <boost/bimap/set_of.hpp>
 
 namespace gag
 {
   class Backbone;
   typedef boost::shared_ptr<Backbone> BackbonePtr;
+  
+  struct child {};
+  struct parent {};
+
+  using namespace boost::bimaps;
+  typedef bimap<
+    multiset_of<tagged<BackbonePtr, child>>, 
+    multiset_of<tagged<BackbonePtr, parent>>,
+    set_of_relation<>
+  > BackboneNeighbor;
+
+  typedef BackboneNeighbor::value_type NeighborType;
 
   class Backbone
   {
@@ -59,67 +74,24 @@ namespace gag
       return mod_sites < bone.mod_sites;
     }
 
-    inline size_t getParentsNumber() const
-    {
-      return _parents.size();
-    }
+    void addFamily(BackbonePtr child, BackbonePtr parent);
 
-    inline size_t getChildenNumber() const
-    {
-      return _children.size();
-    }
+    void replaceParent(BackbonePtr last_node, BackbonePtr next_node);
 
-    inline size_t getSiblingsNumber() const
-    {
-      return _siblings.size();
-    }
+    void replaceChild(BackbonePtr last_node, BackbonePtr next_node);
 
-    inline set<BackbonePtr>& getParents()
-    {
-      return _parents;
-    }
+    set<BackbonePtr> getParents();
 
-    inline set<BackbonePtr>& getChildren()
-    {
-      return _children;
-    }
+    const set<BackbonePtr> getParents() const;
 
-    inline set<BackbonePtr>& getSiblings()
-    {
-      return _siblings;
-    }
+    set<BackbonePtr> getChildren();
 
-    inline void addParent(BackbonePtr parent)
-    {
-      _parents.insert(parent);
-    }
+    const set<BackbonePtr> getChildren() const;
 
-    inline void addChild(BackbonePtr child)
-    {
-      _children.insert(child);
-    }
+    // The operation of adding parents and children is costly.  All the children will be used for making up the pairs.
+    void addParent(BackbonePtr node);
 
-    inline void addSibling(BackbonePtr sib)
-    {
-      _siblings.insert(sib);
-    }
-
-    void replaceParent(BackbonePtr old_bone, BackbonePtr new_bone)
-    {
-      _parents.erase(old_bone);
-      _parents.insert(new_bone);
-    }
-
-    void replaceChild(BackbonePtr old_bone, BackbonePtr new_bone)
-    {
-      _children.erase(old_bone);
-      _children.insert(new_bone);
-    }
-
-    bool isSibling(BackbonePtr cur)
-    {
-      return _siblings.find(cur) != _siblings.end();
-    }
+    void addChild(BackbonePtr node);
 
     bool isSmaller(BackbonePtr cur)
     {
@@ -132,10 +104,16 @@ namespace gag
     }
 
     friend ostream& operator<<(ostream& os, const Backbone& bone);
+  
   private:
-    set<BackbonePtr> _parents;
-    set<BackbonePtr> _children;
-    set<BackbonePtr> _siblings;
+    // parents, children and siblings are only for terminal cleavages (nominal).
+    //set<BackbonePtr> _parents;
+    //set<BackbonePtr> _children;
+    //set<BackbonePtr> _siblings;
+
+    // neighbors are used for recording the context of internal cleavages (nominal)
+    BackboneNeighbor _neighbors;
+    
   };
 }
 

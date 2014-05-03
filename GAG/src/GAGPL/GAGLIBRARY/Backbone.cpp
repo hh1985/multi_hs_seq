@@ -45,26 +45,92 @@ namespace gag
     return members.size() == 0 ? 0 : members.rbegin()->first;
   }
 
+  void Backbone::addFamily(BackbonePtr child_node, BackbonePtr parent_node)
+  {
+    _neighbors.insert(NeighborType(child_node, parent_node));
+  }
+
+  set<BackbonePtr> Backbone::getParents()
+  {
+    set<BackbonePtr> parent_set;
+    for(auto iter = _neighbors.by<parent>().begin(); iter != _neighbors.by<parent>().end(); iter++)
+      parent_set.insert(iter->get<parent>());
+    
+    return parent_set;
+  }
+
+  const set<BackbonePtr> Backbone::getParents() const
+  {
+    set<BackbonePtr> parent_set;
+    for(auto iter = _neighbors.by<parent>().begin(); iter != _neighbors.by<parent>().end(); iter++)
+      parent_set.insert(iter->get<parent>());
+
+    return parent_set;
+  }
+
+  set<BackbonePtr> Backbone::getChildren()
+  {
+    set<BackbonePtr> child_set;
+    for(auto iter = _neighbors.by<child>().begin(); iter != _neighbors.by<child>().end(); iter++)
+      child_set.insert(iter->get<child>());
+
+    return child_set;
+  }
+
+  const set<BackbonePtr> Backbone::getChildren() const
+  {
+    set<BackbonePtr> child_set;
+    for(auto iter = _neighbors.by<child>().begin(); iter != _neighbors.by<child>().end(); iter++)
+      child_set.insert(iter->get<child>());
+
+    return child_set;
+  }
+
+  void Backbone::addParent(BackbonePtr node)
+  {
+    set<BackbonePtr> child_set = this->getChildren();
+    for(auto iter = child_set.begin(); iter != child_set.end(); iter++)
+      this->addFamily(*iter, node);
+  }
+
+  void Backbone::addChild(BackbonePtr node)
+  {
+    set<BackbonePtr> parent_set = this->getParents();
+    for(auto iter = parent_set.begin(); iter != parent_set.end(); iter++)
+      this->addFamily(node, *iter);
+  }
+
+  void Backbone::replaceParent(BackbonePtr last_node, BackbonePtr next_node)
+  {
+    auto p = _neighbors.by<parent>().equal_range(last_node);
+    while(p.first != p.second)
+    {
+      _neighbors.by<parent>().replace_key(p.first, next_node);
+      p.first++;
+    }
+  }
+
+  void Backbone::replaceChild(BackbonePtr last_node, BackbonePtr next_node)
+  {
+    auto p = _neighbors.by<child>().equal_range(last_node);
+    while(p.first != p.second)
+    {
+      _neighbors.by<child>().replace_key(p.first, next_node);
+      p.first++;
+    }
+  }
+
   ostream& operator<<(ostream& os, const Backbone& bone)
   {
       os << bone.mod_sites << "\n";
+      const set<BackbonePtr> parent_set = bone.getParents();
+      const set<BackbonePtr> child_set = bone.getChildren();
 
-      //for(auto iter = bone.members.begin(); iter != bone.members.end(); iter++)
-      //{
-      //    os << "Number: " << iter->first << "\n";
-      //    for(auto assign_iter = (*iter).second.begin(); assign_iter != (*iter).second.end(); assign_iter++)
-      //    {
-      //        os << *assign_iter << "\n";
-      //    }
-      //}
-      for(auto iter = bone._parents.begin(); iter != bone._parents.end(); iter++)
+      for(auto iter = parent_set.begin(); iter != parent_set.end(); iter++)
         os << "--Parent:" << (*iter)->mod_sites << "\n";
 
-      for(auto iter = bone._children.begin(); iter != bone._children.end(); iter++)
+      for(auto iter = child_set.begin(); iter != child_set.end(); iter++)
         os << "--Child:" << (*iter)->mod_sites << "\n";
-
-      for(auto iter = bone._siblings.begin(); iter != bone._siblings.end(); iter++)
-        os << "--Sibling:" << (*iter)->mod_sites << "\n";
 
       return os;
   }
