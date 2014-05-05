@@ -74,7 +74,7 @@ namespace gag
       return mod_sites < bone.mod_sites;
     }
 
-    void addFamily(BackbonePtr child, BackbonePtr parent);
+    bool addFamily(BackbonePtr child, BackbonePtr parent);
 
     void replaceParent(BackbonePtr last_node, BackbonePtr next_node);
 
@@ -88,7 +88,7 @@ namespace gag
 
     const set<BackbonePtr> getChildren() const;
 
-    // The operation of adding parents and children is costly.  All the children will be used for making up the pairs.
+    // The operation of adding parents and children is costly.  All the children will be used for making up the pairs. Notice that if the child set is empty. The null pointer will be added. This is useful in the case of appending.
     void addParent(BackbonePtr node);
 
     void addChild(BackbonePtr node);

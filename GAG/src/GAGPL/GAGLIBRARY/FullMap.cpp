@@ -8,6 +8,10 @@ namespace gag
     
     for(auto bone_iter = _bone_set.begin(); bone_iter != _bone_set.end(); bone_iter++)
     {
+      // Do not consider other full nodes.
+      if((*bone_iter)->mod_sites == _full_node->mod_sites)
+        continue;
+
       this->exploreEntryPoint(*bone_iter, _empty_node);
     }
   }
@@ -19,12 +23,18 @@ namespace gag
     _full_node = boost::make_shared<Backbone>(seq->getModificationSitesBySymbol(_mod_type, 1), seq->getModificationConstraint(_mod_type));
     //_full_node.addAssignment(end_assign);
 
-    //_empty_node->addParent(_full_node);
-    //_full_node->addChild(_empty_node);
+    _empty_node->addParent(_full_node);
+    _full_node->addChild(_empty_node);
 
-    _empty_node->addFamily(nullptr, _full_node);
-    _full_node->addFamily(_empty_node, nullptr);
+    //_empty_node->addFamily(BackbonePtr(), _full_node);
+    //_full_node->addFamily(_empty_node, BackbonePtr());
 
+#ifdef _DEBUG
+    cout << "Empty:\n";
+    cout << *_empty_node << "\n";
+    cout << "Full:\n";
+    cout << *_full_node << "\n";
+#endif // _DEBUG
     //_bone_set.insert(_empty_node);
     //_bone_set.insert(_full_node);
   }
@@ -39,7 +49,7 @@ namespace gag
       cout << "Checked parent:" << *parent_node << "\n";
 #endif // _DEBUG
       // Get parent nodes.
-      set<BackbonePtr> parents = child_node->getParents();
+      //set<BackbonePtr> parents = child_node->getParents();
 
       // Iterate over all parents. Decide if there is any chance to locate the position of the current node.
       
@@ -50,11 +60,13 @@ namespace gag
         // Append the node.
         //cur->addChild(child_node);
         //cur->addParent(parent_node);
-        cur->addFamily(child_node, parent_node);
-
-        child_node->addParent(cur);
-        parent_node->addChild(cur);
-
+        bool success_insertion = cur->addFamily(child_node, parent_node);
+        
+        // No need to check further information.
+        if(success_insertion) {
+          child_node->addParent(cur);
+          parent_node->addChild(cur);
+        }
       } else {
         set<BackbonePtr> parents_parent = parent_node->getParents();
         for(auto p_iter = parents_parent.begin(); p_iter != parents_parent.end(); p_iter++)
@@ -74,9 +86,9 @@ namespace gag
 
   void FullMap::exploreCompatibility( BackbonePtr bone)
   {
-    set<BackbonePtr>& parents = bone->getParents();
+    set<BackbonePtr> parents = bone->getParents();
 
-    set<BackbonePtr>& children = bone->getChildren();
+    set<BackbonePtr> children = bone->getChildren();
 
     for(auto iter = parents.begin(); iter != parents.end(); iter++)
     {
@@ -153,6 +165,14 @@ namespace gag
 
   void FullMap::exploreEntryPoint( BackbonePtr cur, BackbonePtr child_node)
   {
+#ifdef _DEBUG
+    cout << "Entry Point:\n";
+    cout << "Current:\n";
+    cout << *cur << "\n";
+    cout << "Child:\n";
+    cout << *child_node << "\n";
+#endif // _DEBUG
+
     bool sib = true;
     set<BackbonePtr> parents = child_node->getParents();
     for(auto iter = parents.begin(); iter != parents.end(); iter++)
@@ -163,9 +183,19 @@ namespace gag
         (*iter)->replaceChild(child_node, cur);
 
         // Insert the node.
-        cur->addChild(child_node);
-        cur->addParent(*iter);
+        //cur->addChild(child_node);
+        //cur->addParent(*iter);
+        cur->addFamily(child_node, *iter);
 
+#ifdef _DEBUG
+        cout << "Current:\n";
+        cout << *cur << "\n";
+        cout << "Child:\n";
+        cout << *child_node << "\n";
+        cout << "Parent:\n";
+        cout << **iter << "\n";
+#endif // _DEBUG
+        
         if(sib)
           sib = false;
 
