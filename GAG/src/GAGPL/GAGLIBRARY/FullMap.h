@@ -29,7 +29,7 @@ namespace gag
         {
           this->initialize();
           this->connectBackboneSet();
-          this->exploreCompatibility(_empty_node);
+          //this->exploreCompatibility(_empty_node);
         }
 
         // The function is responsible for optimizing the graph. 1. Switching to the internal assignments (more assignments will be used to for insertion into the graph) recorded in the pool
@@ -44,7 +44,7 @@ namespace gag
         void exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node);
 
         // Check the compatibility between assignments of each backbone pair.
-        void exploreCompatibility(BackbonePtr bone);
+        void exploreCompatibility(AssignmentPool& pool);
 
         bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone);
         bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size);

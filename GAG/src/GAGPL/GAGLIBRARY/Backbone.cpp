@@ -189,19 +189,33 @@ namespace gag
   ostream& operator<<(ostream& os, const Backbone& bone)
   {
       os << bone.mod_sites << "\n";
-      const set<BackbonePtr> parent_set = bone.getParents();
-      const set<BackbonePtr> child_set = bone.getChildren();
+      //const set<BackbonePtr> parent_set = bone.getParents();
+      //const set<BackbonePtr> child_set = bone.getChildren();
 
-      for(auto p_iter = parent_set.begin(); p_iter != parent_set.end(); p_iter++) {
-        if(*p_iter == nullptr) continue;
+      //for(auto p_iter = parent_set.begin(); p_iter != parent_set.end(); p_iter++) {
+      //  if(*p_iter == nullptr) continue;
 
-        os << "--Parent:" << (*p_iter)->mod_sites << "\n";
-      }
+      //  os << "--Parent:" << (*p_iter)->mod_sites << "\n";
+      //}
 
-      for(auto c_iter = child_set.begin(); c_iter != child_set.end(); c_iter++) {
-        if(*c_iter == nullptr) continue;
+      //for(auto c_iter = child_set.begin(); c_iter != child_set.end(); c_iter++) {
+      //  if(*c_iter == nullptr) continue;
 
-        os << "--Child:" << (*c_iter)->mod_sites << "\n";
+      //  os << "--Child:" << (*c_iter)->mod_sites << "\n";
+      //}
+      for(auto iter = bone._neighbors.begin(); iter != bone._neighbors.end(); iter++)
+      {
+        os << "--Parent:";
+        if(iter->get<parent>() == nullptr)
+          os << "NULL\t";
+        else
+          os << iter->get<parent>()->mod_sites << "\t";
+
+        os << "--Child:";
+        if(iter->get<child>() == nullptr)
+          os << "NULL\t";
+        else
+          os << iter->get<child>()->mod_sites << "\n";
       }
 
       return os;

@@ -5,9 +5,16 @@ namespace gag
 
   void FullMap::connectBackboneSet()
   {
-    
+#ifdef _DEBUG
+    int count = 0;
+    cout << "Backbone size:" << _bone_set.size() << "\n";
+#endif // _DEBUG
     for(auto bone_iter = _bone_set.begin(); bone_iter != _bone_set.end(); bone_iter++)
     {
+#ifdef _DEBUG
+      count++;
+      cout << "Move to count:" << count << "\t" << **bone_iter << "\n";
+#endif // _DEBUG
       // Do not consider other full nodes.
       if((*bone_iter)->mod_sites == _full_node->mod_sites)
         continue;
@@ -64,8 +71,20 @@ namespace gag
         
         // No need to check further information.
         if(success_insertion) {
-          child_node->addParent(cur);
-          parent_node->addChild(cur);
+          //child_node->addParent(cur);
+          set<BackbonePtr> children_parent = parent_node->getChildren();
+          //parent_node->addChild(cur);
+          for(auto iter = children_parent.begin(); iter != children_parent.end(); iter++)
+          {
+            if((*iter)->isSmaller(cur)) {
+              (*iter)->replaceParent(parent_node, cur);
+              parent_node->replaceChild(*iter, cur);
+              cur->addFamily(*iter, parent_node);
+            }
+          }
+          
+
+
         }
       } else {
         set<BackbonePtr> parents_parent = parent_node->getParents();
@@ -84,26 +103,9 @@ namespace gag
 #endif // _DEBUG
   }
 
-  void FullMap::exploreCompatibility( BackbonePtr bone)
+  void FullMap::exploreCompatibility( AssignmentPool& pool )
   {
-    set<BackbonePtr> parents = bone->getParents();
-
-    set<BackbonePtr> children = bone->getChildren();
-
-    for(auto iter = parents.begin(); iter != parents.end(); iter++)
-    {
-      this->checkCompatibility(bone, *iter);
-      if((*iter)->isDummyNode())
-        return;
-
-      this->exploreCompatibility(*iter);
-    }
-
-    for(auto iter = children.begin(); iter != children.end(); iter++)
-    {
-      this->checkCompatibility(*iter, bone);
-      this->exploreCompatibility(*iter);
-    }
+   // TBD
 
   }
 
@@ -175,8 +177,23 @@ namespace gag
 
     bool sib = true;
     set<BackbonePtr> parents = child_node->getParents();
+    set<BackbonePtr> children_cur = cur->getChildren();
+    set<BackbonePtr> parents_cur = cur->getParents();
     for(auto iter = parents.begin(); iter != parents.end(); iter++)
     {
+#ifdef _DEBUG
+      cout << "Current parent:\t" << **iter << "\n";
+#endif // _DEBUG
+      // There is no need to check if the parent is cur itself or a recorded child of cur.
+      if(*iter == cur || children_cur.find(*iter) != children_cur.end() || 
+        parents_cur.find(*iter) != parents_cur.end()) {
+          if(sib)
+            sib = false;
+
+          continue;
+      }
+        
+
       if((*iter)->isLarger(cur)){ // Insertion.
         
         child_node->replaceParent(*iter, cur);

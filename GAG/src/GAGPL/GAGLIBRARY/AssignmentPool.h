@@ -48,17 +48,11 @@ namespace gag
     typedef AssignmentContainer::index<ac_sites>::type AssignmentsByACSites;
     typedef AssignmentContainer::index<sulfate_sites>::type AssignmentsBySulfateSites;
 
-    
-
-      //bool operator<(const Backbone& bone) const
-      //{
-      //  return mod_sites < bone.mod_sites;
-      //}
 
     // Wrapper of assignment container.
     class AssignmentPool
     {
-      // FullMap needs to access assignment container.
+      // FullMap needs to access the assignment container.
       friend class FullMap;
 
     public:

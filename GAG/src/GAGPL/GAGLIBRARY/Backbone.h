@@ -95,12 +95,12 @@ namespace gag
 
     bool isSmaller(BackbonePtr cur)
     {
-      return containSubset(cur->mod_sites, mod_sites);
+      return containSubset(cur->mod_sites, mod_sites) && (mod_sites.size() < cur->mod_sites.size());
     }
 
     bool isLarger(BackbonePtr cur)
     {
-      return containSubset(mod_sites, cur->mod_sites);
+      return containSubset(mod_sites, cur->mod_sites) && (mod_sites.size() > cur->mod_sites.size());
     }
 
     friend ostream& operator<<(ostream& os, const Backbone& bone);
