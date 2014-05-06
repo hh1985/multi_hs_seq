@@ -210,13 +210,6 @@ namespace gag
             cur->addFamily(*cp_iter, *iter);
           }
         }
-        //child_node->replaceParent(*iter, cur);
-        //(*iter)->replaceChild(child_node, cur);
-
-        //// Insert the node.
-        ////cur->addChild(child_node);
-        ////cur->addParent(*iter);
-        //cur->addFamily(child_node, *iter);
 
 #ifdef _DEBUG
         cout << "Current:\n";

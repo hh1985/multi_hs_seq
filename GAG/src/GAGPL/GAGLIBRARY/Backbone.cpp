@@ -152,45 +152,44 @@ namespace gag
 
   void Backbone::replaceChild(BackbonePtr last_node, BackbonePtr next_node)
   {
-    auto p = _neighbors.by<child>().equal_range(last_node);
-#ifdef _DEBUG
-    cout << "Distance:" << std::distance(p.first, p.second) << "\n";
-    for(auto iter = p.first; iter != p.second; ) {
-      cout << &(*iter) << "\t" << &(*(p.second));
-      iter++;
-      cout << &(*iter) << "\t" << &(*(p.second));
-    }
-#endif // _DEBUG
+    //auto p = _neighbors.by<child>().equal_range(last_node);
     
-
-    while(p.first != p.second)
-    {
-#ifdef _DEBUG
-
-      cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
-#endif // _DEBUG
-      _neighbors.by<child>().modify_key(p.first++, _key = next_node);
-#ifdef _DEBUG
-      cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
-#endif // _DEBUG
-
-      //p.first++;
-
-#ifdef _DEBUG
-      //cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
-      
-      set<BackbonePtr> parents = this->getParents();
-      cout << "Change of parents:\n";
-      for(auto iter = parents.begin(); iter != parents.end(); iter++)
-        cout << **iter << "\n";
-
-      set<BackbonePtr> children = this->getChildren();
-      cout << "Change of children:\n";
-      for(auto iter = children.begin(); iter != children.end(); iter++)
-        cout << **iter << "\n";
-
-#endif // _DEBUG
+    while(1) {
+      auto iter = _neighbors.by<child>().find(last_node);
+      if(iter != _neighbors.by<child>().end())
+        _neighbors.by<child>().replace_key(iter, next_node);
+      else
+        break;
     }
+
+//    while(p.first != p.second)
+//    {
+//#ifdef _DEBUG
+//
+//      cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
+//#endif // _DEBUG
+//      _neighbors.by<child>().modify_key(p.first++, _key = next_node);
+//#ifdef _DEBUG
+//      cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
+//#endif // _DEBUG
+//
+//      //p.first++;
+//
+//#ifdef _DEBUG
+//      //cout << &(*(p.first)) << "\t" << &(*(p.second)) << "\n";
+//      
+//      set<BackbonePtr> parents = this->getParents();
+//      cout << "Change of parents:\n";
+//      for(auto iter = parents.begin(); iter != parents.end(); iter++)
+//        cout << **iter << "\n";
+//
+//      set<BackbonePtr> children = this->getChildren();
+//      cout << "Change of children:\n";
+//      for(auto iter = children.begin(); iter != children.end(); iter++)
+//        cout << **iter << "\n";
+//
+//#endif // _DEBUG
+    //}
   }
 
   ostream& operator<<(ostream& os, const Backbone& bone)
