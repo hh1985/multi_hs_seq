@@ -83,7 +83,8 @@ namespace gag
             }
           }
           
-
+          child_node->addParent(cur);
+          parent_node->addChild(cur);
 
         }
       } else {
@@ -196,13 +197,23 @@ namespace gag
 
       if((*iter)->isLarger(cur)){ // Insertion.
         
-        child_node->replaceParent(*iter, cur);
-        (*iter)->replaceChild(child_node, cur);
+        set<BackbonePtr> children_parent = (*iter)->getChildren();
 
-        // Insert the node.
-        //cur->addChild(child_node);
-        //cur->addParent(*iter);
-        cur->addFamily(child_node, *iter);
+        for(auto cp_iter = children_parent.begin(); cp_iter != children_parent.end(); cp_iter++)
+        {
+          if((*cp_iter)->isSmaller(cur)) {
+            (*cp_iter)->replaceParent(*iter, cur);
+            (*iter)->replaceChild(*cp_iter, cur);
+            cur->addFamily(*cp_iter, *iter);
+          }
+        }
+        //child_node->replaceParent(*iter, cur);
+        //(*iter)->replaceChild(child_node, cur);
+
+        //// Insert the node.
+        ////cur->addChild(child_node);
+        ////cur->addParent(*iter);
+        //cur->addFamily(child_node, *iter);
 
 #ifdef _DEBUG
         cout << "Current:\n";
@@ -238,23 +249,34 @@ namespace gag
   {
       vector<const BackbonePtr> bone_vec;
       bone_vec.push_back(graph._empty_node);
-      std::copy(graph._bone_set.begin(), graph._bone_set.end(), std::back_inserter(bone_vec));
+      //std::copy(graph._bone_set.begin(), graph._bone_set.end(), std::back_inserter(bone_vec));
+      for(auto iter = graph._bone_set.begin(); iter != graph._bone_set.end();iter++)
+      {
+        if((*iter)->mod_sites == graph._full_node->mod_sites)
+          continue;
+        else
+          bone_vec.push_back(*iter);
+      }
       bone_vec.push_back(graph._full_node);
 
       // Iterate over all backbones
       
       for(auto iter = bone_vec.begin(); iter != bone_vec.end(); iter++)
       {
-          os << "Backbone:" << **iter << "\n";
-          set<BackbonePtr>& parents = (*iter)->getParents();
-          for(auto p_it = parents.begin(); p_it != parents.end(); p_it++)
-              os << "Parent:" << **p_it << "\n";
+        if((*iter)->mod_sites == graph._full_node->mod_sites)
+          continue;
 
-          set<BackbonePtr>& children = (*iter)->getChildren();
-          for(auto c_it = children.begin(); c_it != children.end(); c_it++)
-              os << "Children:" << **c_it << "\n";
+        os << "Backbone:" << **iter << "\n";
+        set<BackbonePtr> parents = (*iter)->getParents();
+        for(auto p_it = parents.begin(); p_it != parents.end(); p_it++)
+          os << "Parent:" << **p_it << "\n";
+
+        set<BackbonePtr> children = (*iter)->getChildren();
+        for(auto c_it = children.begin(); c_it != children.end(); c_it++)
+          os << "Children:" << **c_it << "\n";
 
       }
+
       return os;
   }
 

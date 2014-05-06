@@ -203,6 +203,7 @@ namespace gag
 
       //  os << "--Child:" << (*c_iter)->mod_sites << "\n";
       //}
+      os << "Neighbor size:" << bone._neighbors.size() << "\n";
       for(auto iter = bone._neighbors.begin(); iter != bone._neighbors.end(); iter++)
       {
         os << "--Parent:";
@@ -213,7 +214,7 @@ namespace gag
 
         os << "--Child:";
         if(iter->get<child>() == nullptr)
-          os << "NULL\t";
+          os << "NULL\n";
         else
           os << iter->get<child>()->mod_sites << "\n";
       }
