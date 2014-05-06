@@ -135,11 +135,18 @@ namespace gag
 
   void Backbone::replaceParent(BackbonePtr last_node, BackbonePtr next_node)
   {
-    auto p = _neighbors.by<parent>().equal_range(last_node);
+    /*auto p = _neighbors.by<parent>().equal_range(last_node);
     while(p.first != p.second)
     {
       _neighbors.by<parent>().replace_key(p.first, next_node);
       p.first++;
+    }*/
+    while(1) {
+      auto iter = _neighbors.by<parent>().find(last_node);
+      if(iter != _neighbors.by<parent>().end())
+        _neighbors.by<parent>().replace_key(iter, next_node);
+      else
+        break;
     }
   }
 

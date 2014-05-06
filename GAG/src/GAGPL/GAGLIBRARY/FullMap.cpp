@@ -201,6 +201,9 @@ namespace gag
 
         for(auto cp_iter = children_parent.begin(); cp_iter != children_parent.end(); cp_iter++)
         {
+#ifdef _DEBUG
+          cout << "Check the kids:" << **cp_iter << "\n";
+#endif // _DEBUG
           if((*cp_iter)->isSmaller(cur)) {
             (*cp_iter)->replaceParent(*iter, cur);
             (*iter)->replaceChild(*cp_iter, cur);
