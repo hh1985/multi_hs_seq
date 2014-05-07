@@ -65,6 +65,7 @@ int main(int argc, char **argv)
 
     for(auto iter = bone_set2.begin(); iter != bone_set2.end(); iter++)
     {
+        cout << "Modification sites:" << (*iter)->mod_sites << "\n";
         set<int> mod_num_set = (*iter)->getModNumbers();
         for(auto num_it = mod_num_set.begin(); num_it != mod_num_set.end(); num_it++)
         {

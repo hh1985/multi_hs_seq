@@ -39,7 +39,7 @@ namespace gag
         set<Backbone> getBackboneNeighbor(const Backbone& bone);
         set<Backbone> getBackboneNeighbor(AssignmentPtr assignment);
 
-        void exploreDeepNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
+        bool exploreUpperNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
         // Decide if any of the path is OK for insertion.
         void exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node);
 

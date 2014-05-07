@@ -20,6 +20,17 @@ namespace gag
         continue;
 
       this->exploreEntryPoint(*bone_iter, _empty_node);
+
+#ifdef _DEBUG
+      cout << "\n***After insertion/appending:***\n";
+      cout << "Current:" << **bone_iter << "\n";
+      set<BackbonePtr> parents = (*bone_iter)->getParents();
+      for(auto iter = parents.begin(); iter != parents.end(); iter++)
+        cout << "--Parent:" << **iter << "\n";
+      set<BackbonePtr> children = (*bone_iter)->getChildren();
+      for(auto iter = children.begin(); iter != children.end(); iter++)
+        cout << "--Children:" << **iter << "\n";
+#endif // _DEBUG
     }
   }
 
@@ -46,7 +57,7 @@ namespace gag
     //_bone_set.insert(_full_node);
   }
 
-  void FullMap::exploreDeepNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node)
+  bool FullMap::exploreUpperNodes( BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node )
   {
 
 #ifdef _DEBUG
@@ -59,49 +70,120 @@ namespace gag
       //set<BackbonePtr> parents = child_node->getParents();
 
       // Iterate over all parents. Decide if there is any chance to locate the position of the current node.
-      
-      if(parent_node->isLarger(cur)){ // To the boundary.
-       /* child_node->replaceParent(parent_node, cur);
-        parent_node->replaceChild(child_node, cur);*/
-
-        // Append the node.
-        //cur->addChild(child_node);
-        //cur->addParent(parent_node);
-        bool success_insertion = cur->addFamily(child_node, parent_node);
-        
-        // No need to check further information.
-        if(success_insertion) {
-          //child_node->addParent(cur);
-          set<BackbonePtr> children_parent = parent_node->getChildren();
-          //parent_node->addChild(cur);
-          for(auto iter = children_parent.begin(); iter != children_parent.end(); iter++)
-          {
-            if((*iter)->isSmaller(cur)) {
-              (*iter)->replaceParent(parent_node, cur);
-              parent_node->replaceChild(*iter, cur);
-              cur->addFamily(*iter, parent_node);
-            }
-          }
-          
-          child_node->addParent(cur);
-          parent_node->addChild(cur);
-
-        }
-      } else {
-        set<BackbonePtr> parents_parent = parent_node->getParents();
-        for(auto p_iter = parents_parent.begin(); p_iter != parents_parent.end(); p_iter++)
-        {
-          // Adjust the child node and parent node.
-          this->exploreDeepNodes(cur, child_node, *p_iter);
-        }
-
-      } 
+      bool sib = true;
+      set<BackbonePtr> children = parent_node->getChildren();
+      set<BackbonePtr> children_cur = cur->getChildren();
+      set<BackbonePtr> parents_cur = cur->getParents();
+      for(auto iter = children.begin(); iter != children.end(); iter++)
+      {
 #ifdef _DEBUG
-      cout << "\n******After*****\n"; 
-      cout << "Current:" << *cur << "\n";
-      cout << "Checked child:" << *child_node << "\n";
-      cout << "Checked parent:" << *parent_node << "\n";
+        cout << "Current child:\t" << **iter << "\n";
 #endif // _DEBUG
+
+        if(*iter == cur) {
+#ifdef _DEBUG
+            cout << "Skip the check!\n";
+#endif // _DEBUG
+            if(sib)
+              sib = false;
+
+            continue;
+        }
+
+        // To the end.
+        if((*iter)->isSmaller(cur)) {
+#ifdef _DEBUG
+          cout << "Found boundary!\n";
+#endif // _DEBUG
+          if(*iter == child_node) {
+            // Successful appending.
+#ifdef _DEBUG
+            cout << "Unexpected situation\n";
+#endif // _DEBUG
+            child_node->addParent(cur);
+            parent_node->addChild(cur);
+            cur->addFamily(child_node, parent_node);
+            if(sib)
+              sib = false;
+          } else {
+            // Insertion.
+#ifdef _DEBUG
+            cout << "Insertion!\n";
+#endif // _DEBUG
+            (*iter)->replaceParent(parent_node, cur);
+            parent_node->replaceChild(*iter, cur);
+            cur->addFamily(*iter, parent_node);
+          } 
+
+        } else if((*iter)->isLarger(cur)) {
+          // Dive deeper.
+#ifdef _DEBUG
+          cout << "Dive deeper!\n";
+#endif // _DEBUG
+          for(auto cp_iter = children.begin(); cp_iter != children.end(); cp_iter++)
+          {
+            this->exploreUpperNodes(cur, child_node, *cp_iter);
+          }
+          if(sib)
+            sib = false;
+        }
+      }
+
+
+      //if(cur->isSmaller(parent_node))
+      //if(parent_node->isLarger(cur)){ // To the boundary.
+      // /* child_node->replaceParent(parent_node, cur);
+      //  parent_node->replaceChild(child_node, cur);*/
+
+      //  // Append the node.
+      //  //cur->addChild(child_node);
+      //  //cur->addParent(parent_node);
+      //  bool success_insertion = cur->addFamily(child_node, parent_node);
+      //  
+      //  // No need to check further information.
+      //  if(success_insertion) {
+      //    //child_node->addParent(cur);
+      //    set<BackbonePtr> children_parent = parent_node->getChildren();
+      //    //parent_node->addChild(cur);
+      //    for(auto iter = children_parent.begin(); iter != children_parent.end(); iter++)
+      //    {
+      //      if((*iter)->isSmaller(cur)) {
+      //        (*iter)->replaceParent(parent_node, cur);
+      //        parent_node->replaceChild(*iter, cur);
+      //        cur->addFamily(*iter, parent_node);
+      //      }
+      //    }
+      //    
+      //    child_node->addParent(cur);
+      //    parent_node->addChild(cur);
+
+      //  }
+
+      //  if(sib)
+      //    sib = false;
+      //} 
+
+      // Establish the appending case.
+      if(sib) {
+#ifdef _DEBUG
+        cout << "Establish the appending case:\n";
+#endif // _DEBUG
+        child_node->addParent(cur);
+        parent_node->addChild(cur);
+        cur->addFamily(child_node, parent_node);
+      }
+
+      
+      return sib;
+      //else {
+      //  set<BackbonePtr> parents_parent = parent_node->getParents();
+      //  for(auto p_iter = parents_parent.begin(); p_iter != parents_parent.end(); p_iter++)
+      //  {
+      //    // Adjust the child node and parent node.
+      //    this->exploreDeepNodes(cur, child_node, *p_iter);
+      //  }
+
+      //} 
   }
 
   void FullMap::exploreCompatibility( AssignmentPool& pool )
@@ -188,15 +270,19 @@ namespace gag
       // There is no need to check if the parent is cur itself or a recorded child of cur.
       if(*iter == cur || children_cur.find(*iter) != children_cur.end() || 
         parents_cur.find(*iter) != parents_cur.end()) {
+#ifdef _DEBUG
+          cout << "Skip the check!\n";
+#endif // _DEBUG
           if(sib)
             sib = false;
 
           continue;
       }
-        
 
       if((*iter)->isLarger(cur)){ // Insertion.
-        
+#ifdef _DEBUG
+        cout << "For insertion!\n";
+#endif // _DEBUG
         set<BackbonePtr> children_parent = (*iter)->getChildren();
 
         for(auto cp_iter = children_parent.begin(); cp_iter != children_parent.end(); cp_iter++)
@@ -224,6 +310,9 @@ namespace gag
           sib = false;
 
       } else if((*iter)->isSmaller(cur)) {   // Dive deeper for insertion.
+#ifdef _DEBUG
+        cout << "Dive deeper!\n";
+#endif // _DEBUG
         this->exploreEntryPoint(cur, *iter);
         
         if(sib)
@@ -233,11 +322,12 @@ namespace gag
 
     // If all the paths are not acceptable. Creating a sibling.
     if(sib) { // Appending.
-      // The child_node is fixed. Try to get the 
-      for(auto iter = parents.begin(); iter != parents.end(); iter++)
+      // The child_node is fixed. Trying to find the upper bound.
+      this->exploreUpperNodes(cur, child_node, _full_node);
+      /*for(auto iter = parents.begin(); iter != parents.end(); iter++)
       {
-        this->exploreDeepNodes(cur, child_node, *iter);
-      }
+        this->exploreUpperNodes(cur, child_node, *iter);
+      }*/
     }
   }
 

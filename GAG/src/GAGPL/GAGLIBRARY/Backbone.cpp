@@ -135,32 +135,66 @@ namespace gag
 
   void Backbone::replaceParent(BackbonePtr last_node, BackbonePtr next_node)
   {
-    /*auto p = _neighbors.by<parent>().equal_range(last_node);
+    auto p = _neighbors.by<parent>().equal_range(last_node);
+    set<BackbonePtr> bone_set;
     while(p.first != p.second)
     {
-      _neighbors.by<parent>().replace_key(p.first, next_node);
+      bone_set.insert(p.first->get<child>());
       p.first++;
-    }*/
-    while(1) {
-      auto iter = _neighbors.by<parent>().find(last_node);
-      if(iter != _neighbors.by<parent>().end())
-        _neighbors.by<parent>().replace_key(iter, next_node);
-      else
-        break;
     }
+#ifdef _DEBUG
+    cout << "Neighbor size:" << _neighbors.size() << "\t";
+#endif // _DEBUG
+
+    _neighbors.by<parent>().erase(last_node);
+
+#ifdef _DEBUG
+    cout << "After parent removed:" << _neighbors.size() << "\n";
+#endif // _DEBUG
+
+    for(auto iter = bone_set.begin(); iter != bone_set.end(); iter++)
+      _neighbors.insert(NeighborType(*iter, next_node));
+
   }
 
   void Backbone::replaceChild(BackbonePtr last_node, BackbonePtr next_node)
   {
-    //auto p = _neighbors.by<child>().equal_range(last_node);
-    
-    while(1) {
-      auto iter = _neighbors.by<child>().find(last_node);
-      if(iter != _neighbors.by<child>().end())
-        _neighbors.by<child>().replace_key(iter, next_node);
-      else
-        break;
+    auto p = _neighbors.by<child>().equal_range(last_node);
+    // Keep all the values.
+    set<BackbonePtr> bone_set;
+    while(p.first != p.second)
+    {
+      bone_set.insert(p.first->get<parent>());
+      p.first++;
     }
+#ifdef _DEBUG
+    cout << "Neighbor size:" << _neighbors.size() << "\t";
+#endif // _DEBUG
+    
+    _neighbors.by<child>().erase(last_node);
+
+#ifdef _DEBUG
+    cout << "After child removed:" << _neighbors.size() << "\n";
+#endif // _DEBUG
+
+    for(auto iter = bone_set.begin(); iter != bone_set.end(); iter++)
+      _neighbors.insert(NeighborType(next_node, *iter));
+    
+    //if(last_node == next_node) return;
+//    while(1) {
+//
+//      auto iter = _neighbors.by<child>().find(last_node);
+//      if(iter != _neighbors.by<child>().end()) {
+//        bool result = _neighbors.by<child>().replace_key(iter, next_node);
+//#ifdef _DEBUG
+//        cout << "Last node:" << *last_node << "\n";
+//        cout << "Replace " << *(iter->get<child>()) << " with " << *next_node << "\n";
+//        cout << "Result:" << result << "\n";
+//#endif // _DEBUG
+//        
+//      } else
+//        break;
+//    }
 
 //    while(p.first != p.second)
 //    {
@@ -194,35 +228,21 @@ namespace gag
 
   ostream& operator<<(ostream& os, const Backbone& bone)
   {
-      os << bone.mod_sites << "\n";
-      //const set<BackbonePtr> parent_set = bone.getParents();
-      //const set<BackbonePtr> child_set = bone.getChildren();
-
-      //for(auto p_iter = parent_set.begin(); p_iter != parent_set.end(); p_iter++) {
-      //  if(*p_iter == nullptr) continue;
-
-      //  os << "--Parent:" << (*p_iter)->mod_sites << "\n";
-      //}
-
-      //for(auto c_iter = child_set.begin(); c_iter != child_set.end(); c_iter++) {
-      //  if(*c_iter == nullptr) continue;
-
-      //  os << "--Child:" << (*c_iter)->mod_sites << "\n";
-      //}
-      os << "Neighbor size:" << bone._neighbors.size() << "\n";
+      // Child on the left and parent on the right.
       for(auto iter = bone._neighbors.begin(); iter != bone._neighbors.end(); iter++)
       {
-        os << "--Parent:";
-        if(iter->get<parent>() == nullptr)
+
+        if(iter->get<child>() == nullptr)
           os << "NULL\t";
         else
-          os << iter->get<parent>()->mod_sites << "\t";
+          os << iter->get<child>()->mod_sites << "\t" << bone.mod_sites << "\n";
 
-        os << "--Child:";
-        if(iter->get<child>() == nullptr)
+        os << bone.mod_sites << "\t";
+        if(iter->get<parent>() == nullptr)
           os << "NULL\n";
         else
-          os << iter->get<child>()->mod_sites << "\n";
+          os << iter->get<parent>()->mod_sites << "\n";
+
       }
 
       return os;

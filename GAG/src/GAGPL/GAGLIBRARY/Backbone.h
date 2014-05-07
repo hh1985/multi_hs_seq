@@ -18,6 +18,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/bimap/bimap.hpp>
 #include <boost/bimap/multiset_of.hpp>
+#include <boost/bimap/unordered_multiset_of.hpp>
 #include <boost/bimap/set_of.hpp>
 
 namespace gag
@@ -30,8 +31,8 @@ namespace gag
 
   using namespace boost::bimaps;
   typedef bimap<
-    multiset_of<tagged<BackbonePtr, child>>, 
-    multiset_of<tagged<BackbonePtr, parent>>,
+    unordered_multiset_of<tagged<BackbonePtr, child>>, 
+    unordered_multiset_of<tagged<BackbonePtr, parent>>,
     set_of_relation<>
   > BackboneNeighbor;
 
