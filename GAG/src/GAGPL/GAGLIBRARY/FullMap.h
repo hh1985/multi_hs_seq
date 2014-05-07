@@ -36,8 +36,10 @@ namespace gag
         void resolveConflicts(AssignmentPool& pool);
 
         Backbone& getBackbone(AssignmentPtr assignment);
-        set<Backbone> getBackboneNeighbor(const Backbone& bone);
-        set<Backbone> getBackboneNeighbor(AssignmentPtr assignment);
+        
+        // Given backbone, find neighbor (parents and children) in the graph.
+        set<BackbonePtr> getBackboneNeighbor(BackbonePtr bone);
+        set<BackbonePtr> getBackboneNeighbor(AssignmentPtr assignment);
 
         bool exploreUpperNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
         // Decide if any of the path is OK for insertion.
@@ -48,6 +50,8 @@ namespace gag
 
         bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone);
         bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size);
+        
+        void checkCompatibility();
 
         // Print the map.
         friend ostream& operator<<(ostream&, const FullMap&);

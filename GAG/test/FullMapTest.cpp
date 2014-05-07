@@ -59,6 +59,9 @@ int main(int argc, char **argv)
     FullMap ass_graph(gs, mod_symbol, bone_set);
     cout << ass_graph << "\n";
 
+    // Check if the graph meet requirement.
+
+
     // 3.3 Deal with sulfate group
     mod_symbol = "SO3";
     set<BackbonePtr> bone_set2 = assignment_pool.selectQualifiedAssignments(mod_symbol);

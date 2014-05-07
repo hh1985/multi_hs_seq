@@ -7,8 +7,8 @@
 	file ext:	h
 	author:		Han Hu
 	
-	purpose:	Backbone groups the assignments by their modification 
-            sites. 
+	purpose:	Backbone is the father class of assignment responsible for 
+            connecting assignments together.
 *********************************************************************/
 
 #ifndef GAG_BACKBONE_H
@@ -107,13 +107,12 @@ namespace gag
     friend ostream& operator<<(ostream& os, const Backbone& bone);
   
   private:
-    // parents, children and siblings are only for terminal cleavages (nominal).
-    //set<BackbonePtr> _parents;
-    //set<BackbonePtr> _children;
-    //set<BackbonePtr> _siblings;
 
     // neighbors are used for recording the context of internal cleavages (nominal)
     BackboneNeighbor _neighbors;
+
+    // Assignments which are qualified for constructing the assignment pathway.
+    set<Assignment> checked_assignments;
     
   };
 }
