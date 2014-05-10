@@ -7,7 +7,7 @@
 	file ext:	h
 	author:		Han Hu
 	
-	purpose:	Connecting different assignments into a graph.  Note that 
+	purpose:	Manage backbones into a graph. 
 *********************************************************************/
 
 #ifndef GAG_FULLMAP_H
@@ -15,6 +15,7 @@
 
 #include <GAGPL/GAGLIBRARY/AssignmentPool.h>
 #include <GAGPL/GLYCAN/GlycanSequence.h>
+#include <GAGPL/GAGLIBRARY/Backbone.h>
 
 namespace gag
 {
@@ -23,47 +24,80 @@ namespace gag
     class FullMap
     {
     public:
-        // Constructor.
-        FullMap(GlycanSequencePtr seq, const std::string& mod, set<BackbonePtr>& backbone_set)
-            : seq(seq), _mod_type(mod), _bone_set(backbone_set)
-        {
-          this->initialize();
-          this->connectBackboneSet();
-          //this->exploreCompatibility(_empty_node);
-        }
+      // Constructor.
+      FullMap(GlycanSequencePtr seq, const std::string& mod, set<BackbonePtr>& backbone_set)
+          : seq(seq), _mod_type(mod), _bone_set(backbone_set)
+      {
+        this->initialize();
+      }
 
-        // The function is responsible for optimizing the graph. 1. Switching to the internal assignments (more assignments will be used to for insertion into the graph) recorded in the pool
-        void resolveConflicts(AssignmentPool& pool);
+    public:
+      /*  Operation of assignments */
 
-        Backbone& getBackbone(AssignmentPtr assignment);
-        
-        // Given backbone, find neighbor (parents and children) in the graph.
-        set<BackbonePtr> getBackboneNeighbor(BackbonePtr bone);
-        set<BackbonePtr> getBackboneNeighbor(AssignmentPtr assignment);
+      // Insert the assignment into the graph. If there is backbone corresponding to the assignment in the graph, the assignment will be added directly into the backbone. Otherwise, a new backbone will be created.
+      void addAssignment(AssignmentPtr assignment);
 
-        bool exploreUpperNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
-        // Decide if any of the path is OK for insertion.
-        void exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node);
+      // Remove the assignment from the graph, if this causes the removal of backbone, the topology of the graph will be adjusted.
+      void removeAssignment(AssignmentPtr assignment, BackbonePtr bone);
 
-        // Check the compatibility between assignments of each backbone pair.
-        void exploreCompatibility(AssignmentPool& pool);
 
-        bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone);
-        bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size);
-        
-        void checkCompatibility();
+      /* Operation of backbones */
 
-        // Print the map.
-        friend ostream& operator<<(ostream&, const FullMap&);
+      // Insert the backbone into the graph.
+      void addBackbone(BackbonePtr bone);
 
-        bool isNRECleavage(BackbonePtr cur) const;
-        bool isRECleavage(BackbonePtr cur) const;
+      // Remove the backbone from the graph.
+      void removeBackbone(BackbonePtr bone);
 
-        // TBD: the output of the modification distribution.
+      set<BackbonePtr> getPotentialParents(AssignmentPtr assignment);
+      set<BackbonePtr> getPotentialParents(BackbonePtr bone);
+      
+      set<BackbonePtr> getPotentialChildren(AssignmentPtr assignment);
+      set<BackbonePtr> getPotentialChildren(BackbonePtr bone);
+
+      // Get the child-parent pair, Useful only for internal cleavage. 
+      set<pair<BackbonePtr, BackbonePtr>> getPotentialNeighbors(AssignmentPtr assignment);
+      set<pair<BackbonePtr, BackbonePtr>> getPotentialNeighbors(BackbonePtr bone);
+
+
+      /* Operation of the graph */
+
+      bool exploreUpperNodes(BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node);
+      // Decide if any of the path is OK for insertion.
+      void exploreEntryPoint(BackbonePtr cur, BackbonePtr child_node);
+      
+      /* Check the compatibility between assignments */
+      // Iterate over the backbone container, check the compatibility between child and parent
+      void screenBackbones();
+
+      // Check the compatibility between assignments of each backbone pair.
+      void exploreCompatibility(AssignmentPool& pool);
+
+      bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone);
+      bool checkCompatibility(BackbonePtr small_bone, BackbonePtr large_bone, int small_num, int large_num, int diff_size);
+      
+      void checkCompatibility();
+      int calculatePressure(AssignmentPtr);
+
+      /* Solve the incompatibility */
+      set<AssignmentPtr> findSolution(AssignmentPtr assignment, AssignmentPool& pool);
+
+      
+      
+      /* Check the status */  
+      bool findNRECleavage(AssignmentPtr assignment) const;
+      bool findRECleavage(AssignmentPtr assignment) const;
+
+      /* Operator overload */
+      friend ostream& operator<<(ostream&, const FullMap&);
+
+    // TBD: the output of the modification distribution.
     private:
 
       // Iterate over all bones, update the connections between bones
       void connectBackboneSet();
+
+      // Initialize the backbones for the empty_node and full_node.
       void initialize();
 
     private:
@@ -74,7 +108,18 @@ namespace gag
 
         set<BackbonePtr>& _bone_set;
 
+        // Store the backbones from XYZ fragments.
+        set<BackbonePtr> _re_set;
+
+        // Store the backbones from ABC fragments.
+        set<BackbonePtr> _nre_set;
+
+        // Support the query of modification sites
+        // Not good for finding neighbors.
+        map<ModificationSites, BackbonePtr> _bone_map;
+
         GlycanSequencePtr seq;
+
         // The status table records the conflicting assignments.
         // the key is the target, and the value is the neighbor.
         multimap<AssignmentPtr, AssignmentPtr> _status_table;

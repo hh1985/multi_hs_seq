@@ -43,7 +43,7 @@ namespace gag
   public:
 
     ModificationSites mod_sites;
-    map<int, set<AssignmentPtr>> members;
+    set<AssignmentPtr> members;
   
   public:
     Backbone(const ModificationSites& mod_sites, int mod_num)
@@ -51,30 +51,23 @@ namespace gag
         members.insert(make_pair(mod_num, set<AssignmentPtr>()));
     }
 
-    // Constructor.
-    Backbone(AssignmentPtr assignment, const string& mod_symbol)
+    // Constructor.  Either create a native backbone or a complementary backbone.
+    Backbone(AssignmentPtr assignment, const string& mod_symbol, bool comp=false)
     {
       this->addAssignment(assignment, mod_symbol);
     }
 
+    /* Retrieve information. */
+    map<int, set<AssignmentPtr>> getAssignments();
     set<AssignmentPtr> getAssignmentsByModNumber(int mod_num);
-
     set<int> getModNumbers() const;
-
     int getLargestModNumber() const;
 
+    /* Operation of internal members.*/
     void addAssignment(AssignmentPtr assignment, const string& mod_symbol);
+    void removeAssignment(AssignmentPtr assignment);
 
-    inline bool isDummyNode() const
-    {
-      return members.begin()->second.size() == 0;
-    }
-
-    inline bool operator<(const Backbone& bone)
-    {
-      return mod_sites < bone.mod_sites;
-    }
-
+    /* Operation of other backbones */
     bool addFamily(BackbonePtr child, BackbonePtr parent);
 
     void replaceParent(BackbonePtr last_node, BackbonePtr next_node);
@@ -104,12 +97,40 @@ namespace gag
       return containSubset(mod_sites, cur->mod_sites) && (mod_sites.size() > cur->mod_sites.size());
     }
 
+    /* Decide status. */
+    inline bool isEmptyNode() const
+    {
+      return members.size() == 0;
+    }
+
+    // The decision is simply based on the modification sites.
+    inline bool isNRECleavage() const
+    {
+      return clv_type == "X" || clv_type == "Y" || clv_type == "Z";
+    }
+    inline bool isRECleavage() const
+    {
+      return clv_type == "A" || clv_type == "B" || clv_type == "C";
+     }
+    inline bool isInternalCleavage() const
+    {
+      return clv_type != "I" && !isNRECleavage() && !isRECleavage();
+    }
+
+    /* Overload of operators. */
+    inline bool operator<(const Backbone& bone)
+    {
+      return mod_sites < bone.mod_sites;
+    }
+    
     friend ostream& operator<<(ostream& os, const Backbone& bone);
   
   private:
 
     // neighbors are used for recording the context of internal cleavages (nominal)
     BackboneNeighbor _neighbors;
+
+    string clv_type;
 
     // Assignments which are qualified for constructing the assignment pathway.
     set<Assignment> checked_assignments;

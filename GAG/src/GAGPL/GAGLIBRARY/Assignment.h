@@ -52,7 +52,7 @@ namespace gag
         }
     }
     
-    // Used for creating dummy assisgnment.
+    // Used for creating dummy assignment.
     Assignment() {}
 
     // copy constructor.
@@ -82,6 +82,11 @@ namespace gag
     {
         return fg->getModificationSitesBySymbol(mod, 1);
     }
+
+    /* Operation on the complementary information */
+    ModificationSites getComplementaryModificationSites();
+
+    int getComplementaryModificationNumber();
 
     inline ModificationSites getAcetateSites() const
     {

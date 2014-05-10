@@ -71,6 +71,9 @@ namespace gag
         // For assignments with the the same modification sites, only the one with the largest modification number can be selected.
         set<BackbonePtr> selectQualifiedAssignments(const string& mod_symbol);
 
+        // Get the uniqueness value by assginment.
+        double getUniquenessValue(AssignmentPtr assignment);
+
     private:
         AssignmentContainer _pool;
 

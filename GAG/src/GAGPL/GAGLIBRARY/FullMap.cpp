@@ -39,13 +39,10 @@ namespace gag
     _empty_node = boost::make_shared<Backbone>(ModificationSites(), 0);
     
     _full_node = boost::make_shared<Backbone>(seq->getModificationSitesBySymbol(_mod_type, 1), seq->getModificationConstraint(_mod_type));
-    //_full_node.addAssignment(end_assign);
 
     _empty_node->addParent(_full_node);
     _full_node->addChild(_empty_node);
 
-    //_empty_node->addFamily(BackbonePtr(), _full_node);
-    //_full_node->addFamily(_empty_node, BackbonePtr());
 
 #ifdef _DEBUG
     cout << "Empty:\n";
@@ -53,8 +50,6 @@ namespace gag
     cout << "Full:\n";
     cout << *_full_node << "\n";
 #endif // _DEBUG
-    //_bone_set.insert(_empty_node);
-    //_bone_set.insert(_full_node);
   }
 
   bool FullMap::exploreUpperNodes( BackbonePtr cur, BackbonePtr child_node, BackbonePtr parent_node )
@@ -329,6 +324,89 @@ namespace gag
         this->exploreUpperNodes(cur, child_node, *iter);
       }*/
     }
+  }
+
+  void FullMap::addAssignment(AssignmentPtr assignment)
+  {
+    // 0. Create a dummy backbone.
+    // 1. If the backbone corresponding to the assignment is included in the containers.
+    BackbonePtr single_bone = boost::make_shared<Backbone>(assignment->getBackboneModificationSites(_mod_type), _mod_type);
+    string clv_type = assignment->getFragmentType();
+    if(clv_type == "A" || clv_type == "B" || clv_type == "C"){
+      // Try to insert the assignment into _nre_set.
+      if(this->findNRECleavage(assignment)) {
+
+      } else {
+        this->addBackbone(single_bone);
+      }
+    } else if(clv_type == "X" || clv_type == "Y" || clv_type == "Z") {
+      // Try to insert the assignment into _re_set.
+      if(this->findRECleavage(assignment)) {
+
+      } else {
+        this->addBackbone(single_bone);
+      }
+    } else {
+      // Do nothing.
+    }
+
+
+  }
+
+  void FullMap::removeAssignment(AssignmentPtr assignment, BackbonePtr bone)
+  {
+    bone->removeAssignment(assignment);
+    if(bone->isEmptyNode()) {
+      this->removeBackbone(bone);
+    }
+  }
+
+  void FullMap::removeBackbone(BackbonePtr bone)
+  {
+    set<BackbonePtr> parents = bone->getParents();
+    set<BackbonePtr> children = bone->getChildren();
+
+    for(auto it1 = parents.begin(); it1 != parents.end(); it1++)
+    {
+      for(auto it2 = children.begin(); it2 != children.end(); it2++)
+      {
+        (*it1)->replaceChild(bone, *it2);
+        (*it2)->replaceParent(bone, *it1);
+      }
+    }
+
+    if(bone->isNRECleavage())
+      _nre_set.erase(bone);
+    else if(bone->isRECleavage())
+      _re_set.erase(bone);
+    else {
+      _nre_set.erase(bone);
+      _re_set.erase(bone);
+    }
+  }
+
+  void FullMap::addBackbone(BackbonePtr bone)
+{
+    this->exploreEntryPoint(bone, _empty_node);
+    if(bone->isRECleavage())
+      _re_set.insert(bone);
+    else if(bone->isNRECleavage())
+      _nre_set.insert(bone);
+    else {
+      _re_set.insert(bone);
+      _nre_set.insert(bone);
+    }
+
+  }
+
+  set<BackbonePtr> FullMap::getPotentialParents(AssignmentPtr assignment)
+  {
+
+  }
+
+  set<BackbonePtr> FullMap::getPotentialChildren(AssignmentPtr assignment)
+  {
+
   }
 
   ostream& operator<<(ostream& os, const FullMap& graph)

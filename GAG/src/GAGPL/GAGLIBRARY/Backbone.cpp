@@ -226,6 +226,7 @@ namespace gag
     //}
   }
 
+
   ostream& operator<<(ostream& os, const Backbone& bone)
   {
       // Child on the left and parent on the right.
