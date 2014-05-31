@@ -81,8 +81,6 @@ namespace gag
 
       /* Solve the incompatibility */
       set<AssignmentPtr> findSolution(AssignmentPtr assignment, AssignmentPool& pool);
-
-      
       
       /* Check the status */  
       bool findNRECleavage(AssignmentPtr assignment) const;

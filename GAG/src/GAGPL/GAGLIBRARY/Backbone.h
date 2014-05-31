@@ -41,8 +41,10 @@ namespace gag
   class Backbone
   {
   public:
-
+    // Shared structure.
     ModificationSites mod_sites;
+
+    // Assignments which share the same backbone structure.
     set<AssignmentPtr> members;
   
   public:
