@@ -126,7 +126,9 @@ namespace gag
 	};
 
 	typedef std::set<ModificationPosition> ModificationSites;
-    typedef std::map<std::string, ModificationSites> ModificationSequence;
+  typedef std::map<std::string, ModificationSites> ModificationSequence;
+
+  // A - B.
 	ModificationSites getSiteDifference(const ModificationSites& m1, const ModificationSites& m2);
 	ModificationSites getSiteIntersection(const ModificationSites& m1, const ModificationSites& m2);
   // If ms1 includes ms2.

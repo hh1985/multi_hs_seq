@@ -133,13 +133,23 @@ SET(SEQUENCESPACE
 	../src/GAGPL/GAGLIBRARY/SequenceSpace.h ../src/GAGPL/GAGLIBRARY/SequenceSpace.cpp
 )
 
-SET(FULLMAP
+# SET(FULLMAP
+	# ${LIBRARY}
+	# ${SEQREADER}
+	# ../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
+	# ../src/GAGPL/SEQUENCING/AssignmentPool.h ../src/GAGPL/SEQUENCING/AssignmentPool.cpp
+	# ../src/GAGPL/GAGLIBRARY/Backbone.h ../src/GAGPL/GAGLIBRARY/Backbone.cpp
+	# ../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
+# )
+
+SET(DIVMAP
 	${LIBRARY}
 	${SEQREADER}
 	../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
-	../src/GAGPL/GAGLIBRARY/AssignmentPool.h ../src/GAGPL/GAGLIBRARY/AssignmentPool.cpp
-	../src/GAGPL/GAGLIBRARY/Backbone.h ../src/GAGPL/GAGLIBRARY/Backbone.cpp
-	../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
+	../src/GAGPL/SEQUENCING/Division.h ../src/GAGPL/SEQUENCING/Division.cpp
+	../src/GAGPL/SEQUENCING/DivisionCluster.h ../src/GAGPL/SEQUENCING/DivisionCluster.cpp
+	../src/GAGPL/SEQUENCING/AssignmentPool.h ../src/GAGPL/SEQUENCING/AssignmentPool.cpp
+	../src/GAGPL/SEQUENCING/DivMap.h ../src/GAGPL/SEQUENCING/DivMap.cpp
 )
 
 INCLUDE_DIRECTORIES(${EXTERN_INCLUDE} ../src)
@@ -171,8 +181,11 @@ ADD_EXECUTABLE(seqspacetest ${SEQUENCESPACE} SequenceSpaceTest.cpp)
 ADD_EXECUTABLE(hsseq ${SEQUENCEPREDICTION} ../src/GAGPL/GAGLIBRARY/HHSequencing.cpp)
 ADD_EXECUTABLE(compare ${SEQUENCESPACE} ../src/GAGPL/GAGLIBRARY/MethodsComparison.cpp)
 
-ADD_EXECUTABLE(fullmaptest ${FULLMAP} FullMapTest.cpp)
-ADD_EXECUTABLE(fullmap ${FULLMAP} ../src/GAGPL/GAGLIBRARY/MapGenerator.cpp)
+#ADD_EXECUTABLE(fullmaptest ${FULLMAP} FullMapTest.cpp)
+#ADD_EXECUTABLE(fullmap ${FULLMAP} ../src/GAGPL/GAGLIBRARY/MapGenerator.cpp)
+
+ADD_EXECUTABLE(divmaptest ${DIVMAP} DivMapTest.cpp)
+ADD_EXECUTABLE(divmap ${DIVMAP} ../src/GAGPL/SEQUENCING/DivMapMain.cpp)
 
 #ENABLE_TESTING()
 #ADD_TEST(01_composition composition)

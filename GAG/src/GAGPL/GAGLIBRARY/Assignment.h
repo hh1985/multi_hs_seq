@@ -36,20 +36,20 @@ namespace gag
     Assignment(MonoPeakPtr pk, NodeItem& node)
       : pk(pk), fg(node.getFragment()), Unit(node.getComposition()) 
     {
-        const Satellite& sate = node.getCompositionShiftList();
+      const Satellite& sate = node.getCompositionShiftList();
 
-        auto iter = sate.begin();
-        while(iter != sate.end())
-        {
-            if(iter->first == "C2H2O")
-                mod_count.insert(make_pair("Ac", abs(iter->second)));
-            else if(iter->first == "O3S")
-                mod_count.insert(make_pair("SO3", abs(iter->second)));
-            else
-                neu_loss.insert(*iter);
+      auto iter = sate.begin();
+      while(iter != sate.end())
+      {
+        if(iter->first == "C2H2O")
+            mod_count.insert(make_pair("Ac", abs(iter->second)));
+        else if(iter->first == "O3S")
+            mod_count.insert(make_pair("SO3", abs(iter->second)));
+        else
+            neu_loss.insert(*iter);
 
-            iter++;
-        }
+        iter++;
+      }
     }
     
     // Used for creating dummy assignment.
@@ -80,7 +80,7 @@ namespace gag
 
     inline ModificationSites getBackboneModificationSites(const std::string& mod) const
     {
-        return fg->getModificationSitesBySymbol(mod, 1);
+      return fg->getModificationSitesBySymbol(mod, 1);
     }
 
     /* Operation on the complementary information */
@@ -90,16 +90,16 @@ namespace gag
 
     inline ModificationSites getAcetateSites() const
     {
-        return fg->getModificationSitesBySymbol("Ac", 1);
+      return fg->getModificationSitesBySymbol("Ac", 1);
     }
     inline ModificationSites getSulfateSites() const
     {
-        return fg->getModificationSitesBySymbol("SO3", 1);
+      return fg->getModificationSitesBySymbol("SO3", 1);
     }
 
     inline double getMass() const
     {
-        return fg->getMass();
+      return fg->getMass();
     }
 
     /*inline void addParent(AssignmentPtr parent)
@@ -117,10 +117,14 @@ namespace gag
         _siblings.insert(sibling);
     }*/
 
+    // "G" or "C" type of cleavage.
     string getCleavageType()
     {
-        return fg->getGeneralType();
+      return fg->getGeneralType();
     }
+
+    bool isNRECleavage();
+    bool isRECleavage();
 
     /*inline size_t getChildNumber()
     {

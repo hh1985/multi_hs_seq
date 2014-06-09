@@ -22,4 +22,23 @@ namespace gag
         return os;
     }
 
+
+    bool Assignment::isNRECleavage()
+    {
+      string frag_type = fg->getFragmentType();
+      if(frag_type == "A" || frag_type == "B" || frag_type == "C")
+        return true;
+      else
+        return false;
+    }
+
+    bool Assignment::isRECleavage()
+    {
+      string frag_type = fg->getFragmentType();
+      if(frag_type == "X" || frag_type == "Y" || frag_type == "Z")
+        return true;
+      else
+        return false;
+    }
+
 }
