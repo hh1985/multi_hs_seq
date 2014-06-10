@@ -4,13 +4,14 @@ namespace gag
 {
 
   DivMap::DivMap(GlycanSequencePtr gs, string mod_symbol)
-    : full_sites(gs->getModificationSitesBySymbol(mod_symbol, 1)), full_num(gs->getModificationConstraint(mod_symbol)), mod_symbol(mod_symbol)
+    : full_sites(gs->getModificationSitesBySymbol(mod_symbol, 1)), full_num(gs->getModificationConstraint(mod_symbol)), mod_symbol(mod_symbol), _map(mod_symbol, full_sites, full_num)
+
   {
     this->initilize();
   }
 
   DivMap::DivMap(const ModificationSites& mod_sites, int mod_num, string mod_symbol)
-    : full_sites(mod_sites), full_num(mod_num), mod_symbol(mod_symbol)
+    : full_sites(mod_sites), full_num(mod_num), mod_symbol(mod_symbol), _map(mod_symbol, mod_sites, mod_num)
   {
     this->initilize();
   }
@@ -22,7 +23,10 @@ namespace gag
     _full_node = boost::make_shared<Division>(full_sites, full_num);
 
     _empty_node->addParent(_full_node);
-    _full_node->addChild(_empty_node);
+    //_full_node->addChild(_empty_node);
+
+    _map.addDivision(_empty_node);
+    _map.addDivision(_full_node);
   }
 
   //void DivMap::addAssignment(AssignmentPtr assign)
@@ -55,11 +59,13 @@ namespace gag
   void DivMap::addDivisionNode(DivisionPtr div_node)
   {
     this->exploreMap(_empty_node, _empty_node, div_node);
+    _map.addDivision(div_node);
   }
 
   void DivMap::exploreMap(DivisionPtr child_node, DivisionPtr check_node, DivisionPtr div_node)
   {
     set<DivisionPtr> parents = check_node->getParents();
+    set<DivisionPtr> div_parents = div_node->getParents();
     for(auto iter = parents.begin(); iter != parents.end(); iter++)
     {
       if(!checkCompatibility(div_node, *iter)) {
@@ -75,13 +81,7 @@ namespace gag
             this->exploreMap(*iter, *iter, div_node);
 
         } else if(div_node->isSmallerThan(*iter)) {
-            
-          div_node->addParent(*iter);
-          div_node->addChild(child_node);
-
-          child_node->replaceParent(*iter, div_node);
-          (*iter)->replaceChild(child_node, div_node);
-
+          div_node->addNode(child_node, *iter);
         } else {
           // Sibling.  Bypass the checked node.
           this->exploreMap(child_node, *iter, div_node);
@@ -116,20 +116,20 @@ namespace gag
     return div2->getModificationNumber() >= lb && div2->getModificationNumber() <= hb;
   }
 
-  DivisionPtr DivMap::checkRecord(const ModificationSites& sites, int num) const
-  {
-     auto site_iter = _map.find(sites);
-     if(site_iter != _map.end()) {
-       auto num_iter = site_iter->second.find(num);
-       if(num_iter != site_iter->second.end()) {
-         return num_iter->second;
-       } else {
-         return nullptr;
-       }
-     } else {
-       return nullptr;
-     }
-  }
+  //DivisionPtr DivMap::checkRecord(const ModificationSites& sites, int num) const
+  //{
+  //   auto site_iter = _map.find(sites);
+  //   if(site_iter != _map.end()) {
+  //     auto num_iter = site_iter->second.find(num);
+  //     if(num_iter != site_iter->second.end()) {
+  //       return num_iter->second;
+  //     } else {
+  //       return nullptr;
+  //     }
+  //   } else {
+  //     return nullptr;
+  //   }
+  //}
 
   bool DivMap::qualityCheck(AssignmentPtr assign) const
   {
@@ -152,17 +152,35 @@ namespace gag
     return paths;
   }
 
+  void DivMap::insertNode(DivisionPtr child_node, DivisionPtr parent_node, DivisionPtr div_node)
+  {
+    div_node->addChild(child_node);
+    div_node->addParent(parent_node);
+    child_node->replaceParent(parent_node, div_node);
+    parent_node->replaceChild(child_node, div_node);
+  }
+
+  void DivMap::connectNode(DivisionPtr child_node, DivisionPtr parent_node, DivisionPtr div_node)
+  {
+    div_node->addChild(child_node);
+    div_node->addParent(parent_node);
+  }
+
   ostream& operator<<(ostream& os, const DivMap& div_map)
   {
     // Iterate over the map.
-    for(auto mod_iter = div_map._map.begin(); mod_iter != div_map._map.end(); mod_iter++)
+    auto div_set = div_map._map.getAllDivision();
+    //os << "Empty node: " << *(div_map._empty_node) << "\n";
+    for(auto mod_iter = div_set.begin(); mod_iter != div_set.end(); mod_iter++)
     {
-      auto div_int = mod_iter->second;
-      for(auto num_iter = div_int.begin(); num_iter != div_int.end(); num_iter++)
-      {
-        os << num_iter->second << "\n";
-      }
+      os << **mod_iter << "\n";
+      for(auto p_iter = (*mod_iter)->getParents().begin(); p_iter != (*mod_iter)->getParents().end(); p_iter++)
+        os << "--Parent: " << **p_iter << "\n";
+
+      for(auto c_iter = (*mod_iter)->getChildren().begin(); c_iter != (*mod_iter)->getChildren().end(); c_iter++)
+        os << "--Child: " << **c_iter << "\n";
     }
+    //os << "Full node: " << *(div_map._full_node) << "\n";
     return os;
   }
 

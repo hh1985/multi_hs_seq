@@ -10,6 +10,7 @@
 #define GAG_DIVISION_H
 
 #include <GAGPL/GAGLIBRARY/Assignment.h>
+#include <boost/enable_shared_from_this.hpp>
 
 namespace gag
 {
@@ -25,7 +26,7 @@ namespace gag
   class Division;
   typedef boost::shared_ptr<Division> DivisionPtr;
 
-  class Division
+  class Division: public boost::enable_shared_from_this<Division>
   {
   public:
     Division()
@@ -34,6 +35,15 @@ namespace gag
     Division(const ModificationSites& sites, int num)
       : mod_sites(sites), mod_num(num), correction(0)
     {}
+    DivisionPtr self()
+    {
+      return shared_from_this();
+    }
+
+    boost::shared_ptr<Division const> self() const
+    {
+      return shared_from_this();
+    }
 
     inline int getModificationNumber() const
     {
@@ -55,12 +65,12 @@ namespace gag
 
     inline string getGeneralType() const
     {
-      return type;
+      return _type;
     }
 
     // A - B
-    int getDiffSitesNumber(DivisionPtr div_node) const;
-    int getInterSitesNumber(DivisionPtr div_node) const;
+    int getDiffSitesNumber(const DivisionPtr div_node) const;
+    int getInterSitesNumber(const DivisionPtr div_node) const;
 
     inline const ModificationSites& getModificationSites() const
     {
@@ -84,8 +94,11 @@ namespace gag
       return assign_support;
     }
 
+    // Provide relationship examination. If A is B's parent, then B is automatically A's child.
     void addParent(DivisionPtr p_div);
     void addChild(DivisionPtr c_div);
+    void addNode(DivisionPtr c_div, DivisionPtr p_div);
+
     void replaceParent(DivisionPtr old_div, DivisionPtr new_div);
     void replaceChild(DivisionPtr old_div, DivisionPtr new_div);
 
@@ -96,9 +109,13 @@ namespace gag
     int getInDegree() const;
     int getOutDegree() const;
 
-    bool isLargerThan(DivisionPtr div_ptr);
-    bool isSmallerThan(DivisionPtr div_ptr);
-    bool isSibling(DivisionPtr div_ptr);
+    bool isLargerThan(DivisionPtr div_ptr) const;
+    bool isSmallerThan(DivisionPtr div_ptr)const ;
+    bool isSibling(DivisionPtr div_ptr) const;
+    bool isCompatible(DivisionPtr div_ptr) const;
+
+    bool isClosestParent(DivisionPtr c_div) const ;
+    bool isClosestChild(DivisionPtr) const;
 
     friend ostream& operator<<(ostream& os, const Division& div);
   
@@ -106,6 +123,16 @@ namespace gag
     // TBD: check the overall confidence score based on the assignments information.
     double getComprehensiveConfidence() const;
     double shiftCost() const;
+
+    // Guarantee the new added node is the "best" node.
+    // No qualification check.
+    void updateParent(DivisionPtr new_ptr);
+    void updateChild(DivisionPtr new_ptr);
+
+    // Low level operation of child and parent set with no protection.
+    void insertParent(DivisionPtr p_div);
+    void insertChild(DivisionPtr c_div);
+    void insertNode(DivisionPtr c_div, DivisionPtr p_div);
 
   private:
     /* 
@@ -118,7 +145,7 @@ namespace gag
     // "correction" specifies the nominal modification number. It is useful when considering about the case of complete sulfate loss, correction will record the manually corrected sulfate shift. 
     int correction;
     // Specify the cleavage type of the Division object. Possible values include: "C"(cross-ring), "G"(glycosidic-bond), "I"(internal). Note that the type is only determined by the modification sites, and has nothing to do with the original fragment type.
-    string type;
+    string _type;
 
     /* 
      * Support 

@@ -9,7 +9,8 @@
 #ifndef GAG_DIVMAP_H
 #define GAG_DIVMAP_H
 
-#include <GAGPL/SEQUENCING/Division.h>
+//#include <GAGPL/SEQUENCING/Division.h>
+#include <GAGPL/SEQUENCING/DivisionCluster.h>
 
 namespace gag
 {
@@ -60,9 +61,14 @@ namespace gag
     bool qualityCheck(AssignmentPtr assign)const ;
 
     // Check if the div object has been stored in the map.
-    DivisionPtr checkRecord(const ModificationSites& sites, int num) const;
+    //DivisionPtr checkRecord(const ModificationSites& sites, int num) const;
     bool checkCompatibility(DivisionPtr div1, DivisionPtr div2);
 
+
+    // For the situation where there is connection between the child and the parent.
+    void insertNode(DivisionPtr child_node, DivisionPtr parent_node, DivisionPtr div_nod);
+    // For the situation where there is no connection between the child and parent.
+    void connectNode(DivisionPtr child_node, DivisionPtr parent_node, DivisionPtr div_node);
     void exploreMap(DivisionPtr child_node, DivisionPtr check_node, DivisionPtr div_node);
      
   private:
@@ -75,7 +81,7 @@ namespace gag
     int full_num;
     string mod_symbol;
 
-    map<ModificationSites, map<int, DivisionPtr>> _map;
+    DivisionCluster _map;
 
   };
 }

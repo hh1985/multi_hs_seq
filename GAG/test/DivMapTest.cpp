@@ -62,12 +62,19 @@ int main(int argc, char *argv[])
       cout << "Selected division size: " << div_set.size() << "\n";
 
       DivMap div_map(gs, mod_symbol);
-      for(auto iter = div_set.begin(); iter != div_set.end(); iter++)
+      for(auto iter = div_set.begin(); iter != div_set.end(); iter++) {
+        cout << "\nAdd division node: " << **iter << "\n";
         div_map.addDivisionNode(*iter);
 
+        cout << "\nUpdated map:\n";
+        cout << div_map << "\n";
+      }
+
+      cout << "End of " << mod_symbol << "\n";
+
       /* Print out the graph. */
-      cout << "\nPrint out the map:\n";
-      cout << div_map << "\n";
+      //cout << "\nPrint out the map:\n";
+      //cout << div_map << "\n";
       //DivPath max_path = div_map.getMaximumPath();
       ///* Print out the paths. */
       //cout << max_path << "\n";

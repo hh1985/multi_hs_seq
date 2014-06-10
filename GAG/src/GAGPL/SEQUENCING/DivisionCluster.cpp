@@ -28,7 +28,8 @@ namespace gag
       DivisionPtr new_ptr = boost::make_shared<Division>(sites, num);
       new_ptr->addAssignment(assign);
 
-      _backbone[sites].insert(std::make_pair(num, new_ptr));        
+      //_backbone[sites].insert(std::make_pair(num, new_ptr));
+      this->addDivision(new_ptr);
 
     } else {
       div_ptr->addAssignment(assign);
@@ -90,7 +91,37 @@ namespace gag
     return div_set;
   }
 
-  bool DivisionCluster::isQualifiedDivision(DivisionPtr div_ptr)
+  set<const DivisionPtr> DivisionCluster::getSelectedDivision(bool highest) const
+  {
+    set<const DivisionPtr> div_set;
+    for(auto site_iter = _backbone.begin(); site_iter != _backbone.end(); site_iter++)
+    {
+      auto& temp_map = site_iter->second;
+
+      // Get the Division object with the highest mod number.
+      auto num_iter = temp_map.rbegin();
+
+      if(highest) {
+     
+        if(this->isQualifiedDivision(num_iter->second))
+          div_set.insert(num_iter->second);
+     
+      } else {
+        
+        // Keep all the divisions.
+        while(num_iter != temp_map.rend()) {
+         
+          if(this->isQualifiedDivision(num_iter->second))
+            div_set.insert(num_iter->second);
+          
+          num_iter++;
+        }
+      }
+    }
+      return div_set;
+  }
+
+  bool DivisionCluster::isQualifiedDivision(DivisionPtr div_ptr) const
   {
     ModificationSites div_sites = div_ptr->getModificationSites();
     int div_num = div_ptr->getModificationNumber();
@@ -106,6 +137,37 @@ namespace gag
       return false;
 
     return true;
+  }
+
+  void DivisionCluster::addDivision(DivisionPtr div_ptr)
+  {
+    if(div_ptr == nullptr) return;
+
+    _backbone[div_ptr->getModificationSites()].insert(std::make_pair(div_ptr->getModificationNumber(), div_ptr));
+  }
+
+  set<const DivisionPtr> DivisionCluster::getAllDivision() const
+  {
+    set<const DivisionPtr> div_set;
+    for(auto site_iter = _backbone.begin(); site_iter != _backbone.end(); site_iter++)
+    {
+      auto& temp_map = site_iter->second;
+
+      // Get the Division object with the highest mod number.
+      auto num_iter = temp_map.begin();
+        
+      // Keep all the divisions.
+      while(num_iter != temp_map.end()) {
+
+        div_set.insert(num_iter->second);
+        
+        num_iter++;
+      
+      }
+    }
+    
+    return div_set;
+
   }
 
 }
