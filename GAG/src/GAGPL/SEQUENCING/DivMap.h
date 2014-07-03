@@ -11,6 +11,7 @@
 
 //#include <GAGPL/SEQUENCING/Division.h>
 #include <GAGPL/SEQUENCING/DivisionCluster.h>
+#include <GAGPL/SEQUENCING/AssignmentPool.h>
 
 namespace gag
 {
@@ -47,9 +48,12 @@ namespace gag
     int getTotalPathNumber() const;
     int getMinimumPathNumber() const;
 
-    DivPath getMaximumPath();
-    DivPath getMinimumPath();
+    DivPath getMaximumPath() const;
+    DivPath getMinimumPath() const;
 
+    // Organize the graph based on the assignment information.
+    void cleanMap(const AssignmentPool& assign_dict);
+ 
     // Report the adjacency list.
     friend ostream& operator<<(ostream& os, const DivMap& map);
 
@@ -63,7 +67,6 @@ namespace gag
     // Check if the div object has been stored in the map.
     //DivisionPtr checkRecord(const ModificationSites& sites, int num) const;
     bool checkCompatibility(DivisionPtr div1, DivisionPtr div2);
-
 
     // For the situation where there is connection between the child and the parent.
     void insertNode(DivisionPtr child_node, DivisionPtr parent_node, DivisionPtr div_nod);

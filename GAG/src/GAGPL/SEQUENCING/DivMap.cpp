@@ -166,6 +166,23 @@ namespace gag
     div_node->addParent(parent_node);
   }
 
+  void DivMap::cleanMap(const AssignmentPool& assign_dict)
+  {
+    // Manage the current version of the assignment pool.
+    AssignmentPool assign_register;
+
+    // 1. Iterate over the map and try to identify the correct assignment of each mass value. 
+   
+    // Philosophies of cleaning the map.
+    // a. Ambiguous assignments should not be used, or used with caution;
+    // b. Register monitoring the current uniqueness value of the assignments;
+    // c. Given a single assignment against an assignment set, select from the set the ones which are compatible with it;
+    
+    // 2. General procedure.
+    // a. Assignments from high uniqueness value to low value.
+
+  }
+
   ostream& operator<<(ostream& os, const DivMap& div_map)
   {
     // Iterate over the map.

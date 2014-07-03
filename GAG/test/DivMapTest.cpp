@@ -72,16 +72,6 @@ int main(int argc, char *argv[])
 
       cout << "End of " << mod_symbol << "\n";
 
-      /* Print out the graph. */
-      //cout << "\nPrint out the map:\n";
-      //cout << div_map << "\n";
-      //DivPath max_path = div_map.getMaximumPath();
-      ///* Print out the paths. */
-      //cout << max_path << "\n";
-
-      ///* Optimize the paths */
-      //DivPath min_path = div_map.getMinimumPath();
-      //cout << min_path << "\n";
 
       // TBD: Filter assignments once the positions has been identified. 
       // 1. Convert path to modification distribution.
