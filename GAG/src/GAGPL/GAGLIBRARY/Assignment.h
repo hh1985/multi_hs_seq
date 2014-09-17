@@ -8,6 +8,7 @@
 	author:		Han Hu
 	
 	purpose:	Assignment describes the structural information regarding sulfate distribution: candidate modification sites and modification number.
+  Assignment contains two interfaces: 1. the attributes of identified peak from spectrum; 2. the attributes of identified structure.
 *********************************************************************/
 
 #ifndef GAG_ASSIGNMENT_H
@@ -30,132 +31,157 @@ namespace gag
   //using namespace ::boost::multi_index;
   
 
-  class Assignment: public Unit {
+  //class Assignment: public Unit {
 
+  //public:
+  //  Assignment(MonoPeakPtr pk, NodeItem& node)
+  //    : pk(pk), fg(node.getFragment()), Unit(node.getComposition()) 
+  //  {
+  //    const Satellite& sate = node.getCompositionShiftList();
+
+  //    auto iter = sate.begin();
+  //    while(iter != sate.end())
+  //    {
+  //      if(iter->first == "C2H2O")
+  //          mod_count.insert(make_pair("Ac", abs(iter->second)));
+  //      else if(iter->first == "O3S")
+  //          mod_count.insert(make_pair("SO3", abs(iter->second)));
+  //      else
+  //          neu_loss.insert(*iter);
+
+  //      iter++;
+  //    }
+  //  }
+  //  
+  //  // Used for creating dummy assignment.
+  //  Assignment() {}
+
+  //  // copy constructor.
+  //  Assignment(const Assignment&);
+  //  
+  //  // operator=
+  //  Assignment& operator=(const Assignment&);
+
+  //  int getNeutralLossNumber(const std::string& loss) const
+  //  {
+  //    auto iter = neu_loss.find(loss);
+  //    return iter == neu_loss.end() ? 0 : iter->second;
+  //  }
+
+  //  int getModificationNumber(const std::string& mod) const
+  //  {
+  //    auto iter = mod_count.find(mod);
+  //    return iter == mod_count.end() ? 0 : iter->second;
+  //  }
+
+  //  inline void setModificationNumber(const std::string& mod, int num)
+  //  {
+  //    mod_count[mod] = num;
+  //  }
+
+  //  inline ModificationSites getBackboneModificationSites(const std::string& mod) const
+  //  {
+  //    return fg->getModificationSitesBySymbol(mod, 1);
+  //  }
+
+  //  /* Operation on the complementary information */
+  //  ModificationSites getComplementaryModificationSites();
+
+  //  int getComplementaryModificationNumber();
+
+  //  inline ModificationSites getAcetateSites() const
+  //  {
+  //    return fg->getModificationSitesBySymbol("Ac", 1);
+  //  }
+  //  inline ModificationSites getSulfateSites() const
+  //  {
+  //    return fg->getModificationSitesBySymbol("SO3", 1);
+  //  }
+
+  //  inline double getMass() const
+  //  {
+  //    return fg->getMass();
+  //  }
+
+  //  /*inline void addParent(AssignmentPtr parent)
+  //  {
+  //      _parents.insert(parent);
+  //  }
+
+  //  inline void addChild(AssignmentPtr child)
+  //  {
+  //      _children.insert(child);
+  //  }
+
+  //  inline void addSibling(AssignmentPtr sibling)
+  //  {
+  //      _siblings.insert(sibling);
+  //  }*/
+
+  //  // "G" or "C" type of cleavage.
+  //  string getCleavageType()
+  //  {
+  //    return fg->getGeneralType();
+  //  }
+
+  //  bool isNRECleavage();
+  //  bool isRECleavage();
+
+  //  /*inline size_t getChildNumber()
+  //  {
+  //      return _parents.size();
+  //  }
+
+  //  inline size_t getParentNumber()
+  //  {
+  //      return _children.size();
+  //  }
+
+  //  inline size_t getSiblingNumber()
+  //  {
+  //      return _siblings.size();
+  //  }*/
+
+  //  pair<ModificationSites, int> describeStructure(const string&);
+
+  //  friend ostream& operator<<(ostream& os, const Assignment& assignment);
+
+  //private:
+  //  FragmentPtr fg;
+  //  map<string, int> neu_loss;
+
+  //  // For GAG, the modification contains only sulfate and acetate group.
+  //  map<string, int> mod_count;
+
+  //  MonoPeakPtr pk;
+
+  //};
+
+  typedef pair<ModificationSites, int> AssignmentComposition;
+  // Assignment associates a peak with structural explanation, and extract the structure information based on that.
+  
+  class Assignment : public NodeItem, public MonoPeak {
   public:
-    Assignment(MonoPeakPtr pk, NodeItem& node)
-      : pk(pk), fg(node.getFragment()), Unit(node.getComposition()) 
-    {
-      const Satellite& sate = node.getCompositionShiftList();
+    Assignment(const MonoPeak& pk, const NodeItem& node);
 
-      auto iter = sate.begin();
-      while(iter != sate.end())
-      {
-        if(iter->first == "C2H2O")
-            mod_count.insert(make_pair("Ac", abs(iter->second)));
-        else if(iter->first == "O3S")
-            mod_count.insert(make_pair("SO3", abs(iter->second)));
-        else
-            neu_loss.insert(*iter);
-
-        iter++;
-      }
-    }
-    
-    // Used for creating dummy assignment.
+    // Dummy assignment.
     Assignment() {}
 
-    // copy constructor.
-    Assignment(const Assignment&);
-    
-    // operator=
-    Assignment& operator=(const Assignment&);
+    // Copy constructor.
+    Assignment(const Assignment& assign);
 
-    int getNeutralLossNumber(const std::string& loss) const
-    {
-      auto iter = neu_loss.find(loss);
-      return iter == neu_loss.end() ? 0 : iter->second;
-    }
+    void addAssignmentComposition(string, AssignmentComposition);
 
-    int getModificationNumber(const std::string& mod) const
-    {
-      auto iter = mod_count.find(mod);
-      return iter == mod_count.end() ? 0 : iter->second;
-    }
+    AssignmentComposition getAssignmentComposition(string) const;
 
-    inline void setModificationNumber(const std::string& mod, int num)
-    {
-      mod_count[mod] = num;
-    }
-
-    inline ModificationSites getBackboneModificationSites(const std::string& mod) const
-    {
-      return fg->getModificationSitesBySymbol(mod, 1);
-    }
-
-    /* Operation on the complementary information */
-    ModificationSites getComplementaryModificationSites();
-
-    int getComplementaryModificationNumber();
-
-    inline ModificationSites getAcetateSites() const
-    {
-      return fg->getModificationSitesBySymbol("Ac", 1);
-    }
-    inline ModificationSites getSulfateSites() const
-    {
-      return fg->getModificationSitesBySymbol("SO3", 1);
-    }
-
-    inline double getMass() const
-    {
-      return fg->getMass();
-    }
-
-    /*inline void addParent(AssignmentPtr parent)
-    {
-        _parents.insert(parent);
-    }
-
-    inline void addChild(AssignmentPtr child)
-    {
-        _children.insert(child);
-    }
-
-    inline void addSibling(AssignmentPtr sibling)
-    {
-        _siblings.insert(sibling);
-    }*/
-
-    // "G" or "C" type of cleavage.
-    string getCleavageType()
-    {
-      return fg->getGeneralType();
-    }
-
-    bool isNRECleavage();
-    bool isRECleavage();
-
-    /*inline size_t getChildNumber()
-    {
-        return _parents.size();
-    }
-
-    inline size_t getParentNumber()
-    {
-        return _children.size();
-    }
-
-    inline size_t getSiblingNumber()
-    {
-        return _siblings.size();
-    }*/
-
-    pair<ModificationSites, int> describeStructure(const string&);
 
     friend ostream& operator<<(ostream& os, const Assignment& assignment);
 
   private:
-    FragmentPtr fg;
-    map<string, int> neu_loss;
 
-    // For GAG, the modification contains only sulfate and acetate group.
-    map<string, int> mod_count;
-
-    MonoPeakPtr pk;
+    map<string, AssignmentComposition> _mod_assign;
 
   };
-
   typedef boost::shared_ptr<Assignment> AssignmentPtr;
   
 

@@ -7,8 +7,9 @@
 	file ext:	h
 	author:		Han Hu
 	
-	purpose:	Backbone is the father class of assignment responsible for 
-            connecting assignments together.
+	purpose:	Backbone is a container for assignments with the same modification sites. Note that the assignments may actually come from different fragment types and may be virtual.
+  1. Backbone connects to other backbone based on their modification sites.
+  2. The compatibility between assignments is determined by both the modification sites information and the mod number information, which is monitored by FullMap object.
 *********************************************************************/
 
 #ifndef GAG_BACKBONE_H
@@ -16,126 +17,98 @@
 
 #include <GAGPL/GAGLIBRARY/Assignment.h>
 #include <boost/shared_ptr.hpp>
-#include <boost/bimap/bimap.hpp>
-#include <boost/bimap/multiset_of.hpp>
-#include <boost/bimap/unordered_multiset_of.hpp>
+//#include <boost/bimap/bimap.hpp>
+//#include <boost/bimap/multiset_of.hpp>
+//#include <boost/bimap/unordered_multiset_of.hpp>
 #include <boost/bimap/set_of.hpp>
+#include <boost/enable_shared_from_this.hpp>
 
+            
 namespace gag
 {
   class Backbone;
   typedef boost::shared_ptr<Backbone> BackbonePtr;
-  
-  struct child {};
-  struct parent {};
 
-  using namespace boost::bimaps;
-  typedef bimap<
-    unordered_multiset_of<tagged<BackbonePtr, child>>, 
-    unordered_multiset_of<tagged<BackbonePtr, parent>>,
-    set_of_relation<>
-  > BackboneNeighbor;
-
-  typedef BackboneNeighbor::value_type NeighborType;
-
-  class Backbone
+  class Backbone : public ModificationSites
   {
   public:
-    // Shared structure.
-    ModificationSites mod_sites;
-
     // Assignments which share the same backbone structure.
-    set<AssignmentPtr> members;
+    // The mod number is no longer important since it has been separated.
   
   public:
-    Backbone(const ModificationSites& mod_sites, int mod_num)
-      : mod_sites(mod_sites) {
-        members.insert(make_pair(mod_num, set<AssignmentPtr>()));
-    }
+    Backbone(const ModificationSites& mod_sites, int top_n)
+      : ModificationSites(mod_sites), top_num(top_n) {}
+
+    //Backbone(const ModificationSites& mod_sites, int mod_num)
+    //  : mod_sites(mod_sites) {
+    //    members.insert(make_pair(mod_num, set<AssignmentPtr>()));
+    //}
 
     // Constructor.  Either create a native backbone or a complementary backbone.
-    Backbone(AssignmentPtr assignment, const string& mod_symbol, bool comp=false)
+    //Backbone(AssignmentPtr assignment, const string& mod_symbol, bool comp=false)
+    //{
+    //  this->addAssignment(assignment, mod_symbol);
+    //}
+
+    BackbonePtr self()
     {
-      this->addAssignment(assignment, mod_symbol);
+     return shared_from_this();
+    }
+    boost::shared_ptr<Backbone const> self() const
+    {
+     return shared_from_this();
     }
 
-    /* Retrieve information. */
-    map<int, set<AssignmentPtr>> getAssignments();
-    set<AssignmentPtr> getAssignmentsByModNumber(int mod_num);
-    set<int> getModNumbers() const;
-    int getLargestModNumber() const;
-
-    /* Operation of internal members.*/
-    void addAssignment(AssignmentPtr assignment, const string& mod_symbol);
+    /* Operation of internal members. */
+    void addAssignment(AssignmentPtr assignment);
+    //void addAssignment(AssignmentPtr assignment, const string& mod_symbol);
     void removeAssignment(AssignmentPtr assignment);
+    //void removeAssignment(AssignmentPtr assignment, const string& mod_symbol);
 
     /* Operation of other backbones */
-    bool addFamily(BackbonePtr child, BackbonePtr parent);
-
+    //bool addFamily(BackbonePtr child, BackbonePtr parent);
+    // In order to set up the relationship from parent node's side, work on the replace*** method from next_node object.
     void replaceParent(BackbonePtr last_node, BackbonePtr next_node);
-
     void replaceChild(BackbonePtr last_node, BackbonePtr next_node);
 
-    set<BackbonePtr> getParents();
-
-    const set<BackbonePtr> getParents() const;
-
-    set<BackbonePtr> getChildren();
-
-    const set<BackbonePtr> getChildren() const;
+    set<BackbonePtr>& getParents();
+    set<BackbonePtr>& getChildren();
 
     // The operation of adding parents and children is costly.  All the children will be used for making up the pairs. Notice that if the child set is empty. The null pointer will be added. This is useful in the case of appending.
     void addParent(BackbonePtr node);
-
     void addChild(BackbonePtr node);
+    void removeParent(BackbonePtr node);
+    void removeChild(BackbonePtr node);
 
     bool isSmaller(BackbonePtr cur)
     {
-      return containSubset(cur->mod_sites, mod_sites) && (mod_sites.size() < cur->mod_sites.size());
+      return containSubset(cur, *this) && (this->size() < cur->size());
     }
-
     bool isLarger(BackbonePtr cur)
     {
-      return containSubset(mod_sites, cur->mod_sites) && (mod_sites.size() > cur->mod_sites.size());
+      return containSubset(*this, cur) && (this->size() > cur->size());
     }
 
     /* Decide status. */
-    inline bool isEmptyNode() const
+    inline bool isEmpty() const
     {
       return members.size() == 0;
     }
 
-    // The decision is simply based on the modification sites.
-    inline bool isNRECleavage() const
-    {
-      return clv_type == "X" || clv_type == "Y" || clv_type == "Z";
-    }
-    inline bool isRECleavage() const
-    {
-      return clv_type == "A" || clv_type == "B" || clv_type == "C";
-     }
-    inline bool isInternalCleavage() const
-    {
-      return clv_type != "I" && !isNRECleavage() && !isRECleavage();
-    }
-
-    /* Overload of operators. */
-    inline bool operator<(const Backbone& bone)
-    {
-      return mod_sites < bone.mod_sites;
-    }
     
     friend ostream& operator<<(ostream& os, const Backbone& bone);
   
   private:
 
+    int top_num;
+
     // neighbors are used for recording the context of internal cleavages (nominal)
-    BackboneNeighbor _neighbors;
+    //BackboneNeighbor _neighbors;
 
-    string clv_type;
+    set<BackbonePtr> _parents;
+    set<BackbonePtr> _children;
 
-    // Assignments which are qualified for constructing the assignment pathway.
-    set<Assignment> checked_assignments;
+    set<AssignmentPtr> members;
     
   };
 }

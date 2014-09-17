@@ -152,6 +152,15 @@ SET(DIVMAP
 	../src/GAGPL/SEQUENCING/DivMap.h ../src/GAGPL/SEQUENCING/DivMap.cpp
 )
 
+SET(FULLMAP
+	${LIBRARY}
+	${SEQREADER}
+	../src/GAGPL/GAGLIBRARY/Assignment.h ../src/GAGPL/GAGLIBRARY/Assignment.cpp
+	../src/GAGPL/SEQUENCING/AssignmentPool.h ../src/GAGPL/SEQUENCING/AssignmentPool.cpp
+	../src/GAGPL/GAGLIBRARY/Backbone.h ../src/GAGPL/GAGLIBRARY/Backbone.cpp
+	../src/GAGPL/GAGLIBRARY/FullMap.h ../src/GAGPL/GAGLIBRARY/FullMap.cpp
+)
+
 INCLUDE_DIRECTORIES(${EXTERN_INCLUDE} ../src)
 LINK_DIRECTORIES(D:/Development/boost/stage/lib)
 
@@ -181,11 +190,12 @@ ADD_EXECUTABLE(seqspacetest ${SEQUENCESPACE} SequenceSpaceTest.cpp)
 ADD_EXECUTABLE(hsseq ${SEQUENCEPREDICTION} ../src/GAGPL/GAGLIBRARY/HHSequencing.cpp)
 ADD_EXECUTABLE(compare ${SEQUENCESPACE} ../src/GAGPL/GAGLIBRARY/MethodsComparison.cpp)
 
-#ADD_EXECUTABLE(fullmaptest ${FULLMAP} FullMapTest.cpp)
-#ADD_EXECUTABLE(fullmap ${FULLMAP} ../src/GAGPL/GAGLIBRARY/MapGenerator.cpp)
-
 ADD_EXECUTABLE(divmaptest ${DIVMAP} DivMapTest.cpp)
 ADD_EXECUTABLE(divmap ${DIVMAP} ../src/GAGPL/SEQUENCING/DivMapMain.cpp)
+
+ADD_EXECUTABLE(fullmaptest ${FULLMAP} FullMapTest.cpp)
+ADD_EXECUTABLE(fullmap ${FULLMAP} ../src/GAGPL/GAGLIBRARY/MapGenerator.cpp)
+
 
 #ENABLE_TESTING()
 #ADD_TEST(01_composition composition)

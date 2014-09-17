@@ -7,8 +7,7 @@
 	file ext:	h
 	author:		Han Hu
 	
-	purpose:	Container of assignments. It provides initial sorting and hashing
-            functions for assignments.
+	purpose:	Container of assignments. It provides initial sorting and hashing functions for assignments.
 *********************************************************************/
 
 #ifndef GAG_ASSIGNMENTPOOL_H

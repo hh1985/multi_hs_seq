@@ -15,6 +15,13 @@ namespace gag
 
 		MonoPeak(const double& mz, const double& intensity, const int& charge_state)
 			: Peak(mz, intensity), z(charge_state) {}
+    // Constructor for creating dummy peak.
+    MonoPeak()
+      : Peak(0.0, 0.0), z(0) {}
+    // Copy constructor
+    MonoPeak(const MonoPeak& pk) 
+      : Peak(pk.mz), z(pk.intensity), z(pk.z) {
+    }
 	};
 }
 

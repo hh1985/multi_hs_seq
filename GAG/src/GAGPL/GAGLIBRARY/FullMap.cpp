@@ -3,36 +3,36 @@
 namespace gag
 {
 
-  void FullMap::connectBackboneSet()
-  {
-#ifdef _DEBUG
-    int count = 0;
-    cout << "Backbone size:" << _bone_set.size() << "\n";
-#endif // _DEBUG
-    for(auto bone_iter = _bone_set.begin(); bone_iter != _bone_set.end(); bone_iter++)
-    {
-#ifdef _DEBUG
-      count++;
-      cout << "Move to count:" << count << "\t" << **bone_iter << "\n";
-#endif // _DEBUG
-      // Do not consider other full nodes.
-      if((*bone_iter)->mod_sites == _full_node->mod_sites)
-        continue;
-
-      this->exploreEntryPoint(*bone_iter, _empty_node);
-
-#ifdef _DEBUG
-      cout << "\n***After insertion/appending:***\n";
-      cout << "Current:" << **bone_iter << "\n";
-      set<BackbonePtr> parents = (*bone_iter)->getParents();
-      for(auto iter = parents.begin(); iter != parents.end(); iter++)
-        cout << "--Parent:" << **iter << "\n";
-      set<BackbonePtr> children = (*bone_iter)->getChildren();
-      for(auto iter = children.begin(); iter != children.end(); iter++)
-        cout << "--Children:" << **iter << "\n";
-#endif // _DEBUG
-    }
-  }
+//  void FullMap::connectBackboneSet()
+//  {
+//#ifdef _DEBUG
+//    int count = 0;
+//    cout << "Backbone size:" << _bone_set.size() << "\n";
+//#endif // _DEBUG
+//    for(auto bone_iter = _bone_set.begin(); bone_iter != _bone_set.end(); bone_iter++)
+//    {
+//#ifdef _DEBUG
+//      count++;
+//      cout << "Move to count:" << count << "\t" << **bone_iter << "\n";
+//#endif // _DEBUG
+//      // Do not consider other full nodes.
+//      if((*bone_iter)->mod_sites == _full_node->mod_sites)
+//        continue;
+//
+//      this->exploreEntryPoint(*bone_iter, _empty_node);
+//
+//#ifdef _DEBUG
+//      cout << "\n***After insertion/appending:***\n";
+//      cout << "Current:" << **bone_iter << "\n";
+//      set<BackbonePtr> parents = (*bone_iter)->getParents();
+//      for(auto iter = parents.begin(); iter != parents.end(); iter++)
+//        cout << "--Parent:" << **iter << "\n";
+//      set<BackbonePtr> children = (*bone_iter)->getChildren();
+//      for(auto iter = children.begin(); iter != children.end(); iter++)
+//        cout << "--Children:" << **iter << "\n";
+//#endif // _DEBUG
+//    }
+//  }
 
   void FullMap::initialize()
   {
@@ -181,11 +181,11 @@ namespace gag
       //} 
   }
 
-  void FullMap::exploreCompatibility( AssignmentPool& pool )
-  {
-   // TBD
+  //void FullMap::exploreCompatibility( AssignmentPool& pool )
+  //{
+  // // TBD
 
-  }
+  //}
 
   bool FullMap::checkCompatibility( BackbonePtr small_bone, BackbonePtr large_bone )
   {
@@ -330,34 +330,37 @@ namespace gag
   {
     // 0. Create a dummy backbone.
     // 1. If the backbone corresponding to the assignment is included in the containers.
-    BackbonePtr single_bone = boost::make_shared<Backbone>(assignment->getBackboneModificationSites(_mod_type), _mod_type);
-    string clv_type = assignment->getFragmentType();
-    if(clv_type == "A" || clv_type == "B" || clv_type == "C"){
-      // Try to insert the assignment into _nre_set.
-      if(this->findNRECleavage(assignment)) {
+    string clv_type = assignment->getFragment()->getFragmentType();
+    ModificationSites mod_sites = assignment->getFragment()->getModificationSitesBySymbol(_mod_type);
+    int mod_num = assignment->getFragment()->getModificationSiteNum(_mod_type);
+    if(clv_type == "A" || clv_type == "B" || clv_type == "C") {
+      // Convert the assignment to the complementary one.
+      mod_sites = seq->getComplementaryModificationSites(mod_sites);
+      mod_num = seq->getModificationConstraint(_mod_type) - mod_num;
+    }
 
-      } else {
-        this->addBackbone(single_bone);
-      }
-    } else if(clv_type == "X" || clv_type == "Y" || clv_type == "Z") {
-      // Try to insert the assignment into _re_set.
-      if(this->findRECleavage(assignment)) {
-
-      } else {
-        this->addBackbone(single_bone);
-      }
+    
+    // If the modification sites have been recorded by the map, return the pointer, otherwise return nullptr.
+    BackbonePtr check_ptr = this->findModificationSites(mod_sites);
+    if(check_ptr != nullptr) {
+      check_ptr->addAssignment(assignment);
     } else {
-      // Do nothing.
+      BackbonePtr single_bone = boost::make_shared<Backbone>(mod_sites, mod_num);
+      single_bone->addAssignment(assignment);
+      this->addBackbone(single_bone);
     }
 
 
   }
 
-  void FullMap::removeAssignment(AssignmentPtr assignment, BackbonePtr bone)
-  {
-    bone->removeAssignment(assignment);
-    if(bone->isEmptyNode()) {
-      this->removeBackbone(bone);
+  void FullMap::removeAssignment(AssignmentPtr assignment) {
+    ModificationSites mod_sites = assignment->getFragment()->getModificationSitesBySymbol(_mod_type);
+    BackbonePtr bb_ptr = this->findModificationSites(mod_sites);
+    if(bb_ptr != nullptr) {
+      bb_ptr->removeAssignment(assignment);
+    }
+    if(bb_ptr->isEmpty()) {
+      this->removeBackbone(bb_ptr);
     }
   }
 
@@ -375,28 +378,14 @@ namespace gag
       }
     }
 
-    if(bone->isNRECleavage())
-      _nre_set.erase(bone);
-    else if(bone->isRECleavage())
-      _re_set.erase(bone);
-    else {
-      _nre_set.erase(bone);
-      _re_set.erase(bone);
-    }
+    _bone_set.erase(bone);
+
   }
 
   void FullMap::addBackbone(BackbonePtr bone)
 {
     this->exploreEntryPoint(bone, _empty_node);
-    if(bone->isRECleavage())
-      _re_set.insert(bone);
-    else if(bone->isNRECleavage())
-      _nre_set.insert(bone);
-    else {
-      _re_set.insert(bone);
-      _nre_set.insert(bone);
-    }
-
+    _bone_set.insert(bone);
   }
 
   set<BackbonePtr> FullMap::getPotentialParents(AssignmentPtr assignment)
