@@ -49,9 +49,7 @@ namespace gag
       set<BackbonePtr> getPotentialParents(const ModificationSites& mod_sites);
       set<BackbonePtr> getPotentialChildren(const ModificationSites& mod_sites);
 
-      // Get the child-parent pair, Useful only for internal cleavage. 
-      //set<pair<BackbonePtr, BackbonePtr>> getPotentialNeighbors(const ModificationSites& mod_sites);
-
+      // Get the child-parent pair, Useful only for internal cleavage.
 
       /* Operation on graph */
 
@@ -102,7 +100,8 @@ namespace gag
         //set<BackbonePtr>& _bone_set;
 
         // Only backbones from RE end.
-        set<BackbonePtr> _bone_set;
+        //set<BackbonePtr> _bone_set;
+        map<ModificationSites, BackbonePtr> _bone_map;
 
         // Store the backbones from ABC fragments.
         //set<BackbonePtr> _nre_set;

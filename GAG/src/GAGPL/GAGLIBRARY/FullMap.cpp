@@ -97,7 +97,6 @@ namespace gag
 #endif // _DEBUG
             child_node->addParent(cur);
             parent_node->addChild(cur);
-            cur->addFamily(child_node, parent_node);
             if(sib)
               sib = false;
           } else {
@@ -107,7 +106,6 @@ namespace gag
 #endif // _DEBUG
             (*iter)->replaceParent(parent_node, cur);
             parent_node->replaceChild(*iter, cur);
-            cur->addFamily(*iter, parent_node);
           } 
 
         } else if((*iter)->isLarger(cur)) {
@@ -384,18 +382,31 @@ namespace gag
 
   void FullMap::addBackbone(BackbonePtr bone)
 {
+    // Locating the backbone in the graph.
     this->exploreEntryPoint(bone, _empty_node);
-    _bone_set.insert(bone);
-  }
+    // Storing the backbone in the container.
+    //_bone_set.insert(bone);
+    _bone_map.insert(make_pair(*bone, bone));
+  } 
 
-  set<BackbonePtr> FullMap::getPotentialParents(AssignmentPtr assignment)
+  set<BackbonePtr> FullMap::getPotentialParents(const ModificationSites& mod_sites)
   {
 
   }
 
-  set<BackbonePtr> FullMap::getPotentialChildren(AssignmentPtr assignment)
+  set<BackbonePtr> FullMap::getPotentialChildren(const ModificationSites& mod_sites)
   {
 
+  }
+
+  BackbonePtr FullMap::findModificationSites( const ModificationSites& mod_sites ) const
+  {
+    auto iter = _bone_map.find(mod_sites);
+    if(iter != _bone_map.end()) {
+      return iter->second;
+    } else {
+      return nullptr;
+    }
   }
 
   ostream& operator<<(ostream& os, const FullMap& graph)
@@ -403,9 +414,9 @@ namespace gag
       vector<const BackbonePtr> bone_vec;
       bone_vec.push_back(graph._empty_node);
       //std::copy(graph._bone_set.begin(), graph._bone_set.end(), std::back_inserter(bone_vec));
-      for(auto iter = graph._bone_set.begin(); iter != graph._bone_set.end();iter++)
+      for(auto iter = graph._bone_map.begin(); iter != graph._bone_map.end();iter++)
       {
-        if((*iter)->mod_sites == graph._full_node->mod_sites)
+        if((*iter)->second == graph._full_node)
           continue;
         else
           bone_vec.push_back(*iter);
@@ -416,7 +427,7 @@ namespace gag
       
       for(auto iter = bone_vec.begin(); iter != bone_vec.end(); iter++)
       {
-        if((*iter)->mod_sites == graph._full_node->mod_sites)
+        if((*iter)->second == graph._full_node)
           continue;
 
         os << "Backbone:" << **iter << "\n";
